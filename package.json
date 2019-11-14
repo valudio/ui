@@ -1,0 +1,28 @@
+{
+  "name": "@valudio/ui",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@storybook/preset-typescript": "^1.1.0",
+    "@types/jest": "^24.0.23",
+    "@types/storybook__react": "^4.0.2",
+    "babel-loader": "^8.0.6",
+    "jest": "^24.9.0",
+    "react-docgen-typescript-loader": "^3.3.0",
+    "ts-loader": "^6.2.1",
+    "tslint": "^5.20.1",
+    "tslint-react": "^4.1.0",
+    "typescript": "^3.7.2"
+  },
+  "scripts": {
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public",
+    "lint": "tslint -c tslint.json 'src/**/*.tsx'",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@storybook/react": "^5.2.6",
+    "react": "^16.11.0"
+  }
+}
