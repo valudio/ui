@@ -1,3 +1,8 @@
-test('sumar 1 + 2 es igual a 3', () => {
-  expect(1 + 2).toBe(3)
+import React from 'react'
+import renderer from 'react-test-renderer'
+import Button from './'
+
+test('Button', () => {
+  const component = renderer.create(<Button color="red" />)
+  expect(component).toBeTruthy()
 })
