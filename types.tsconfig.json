@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "outFile": "src/types.d.ts",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "jsx": "react",
+    "esModuleInterop": true,
+    "lib": ["es6", "dom"]
+  },
+  "include": [
+    "src/**/index.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

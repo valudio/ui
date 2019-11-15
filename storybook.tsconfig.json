@@ -8,7 +8,7 @@
     "allowJs": false,
     "jsx": "react",
     "moduleResolution": "node",
-    "rootDirs": [ "src", "stories" ],
+    "rootDirs": [ "src" ],
     "baseUrl": "src",
     "strictNullChecks": true,
     "esModuleInterop": true
@@ -17,8 +17,6 @@
     "src/**/*"
   ],
   "exclude": [
-    "node_modules",
-    "build",
-    "scripts"
+    "node_modules"
   ]
 }

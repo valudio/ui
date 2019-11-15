@@ -5,6 +5,7 @@
     "semicolon": [true, "never"],
     "jsx-curly-spacing": false,
     "quotemark": [true, "single", "jsx-double"],
-    "no-implicit-dependencies": [true, "dev"]
+    "no-implicit-dependencies": [true, "dev"],
+    "trailing-comma": [true, "never"]
   }
 }
