@@ -1,13 +1,15 @@
 import React from 'react'
+import Styled from './styles'
 
 interface IProps {
-  color: string
-  onClick?: (color: string) => void
+  onClick?: () => void
 }
 
-export default (props: IProps) => {
-  const { color, onClick } = props
-  const handleClick = () => onClick && onClick(color)
+const Button: React.FC<IProps> = props => {
+  const onClick = props.onClick
+  const handleClick = () => onClick && onClick()
 
-  return <button style={{ color }} onClick={ handleClick }>Color Button</button>
+  return <Styled onClick={ handleClick }>Click me!</Styled>
 }
+
+export default Button

@@ -2,7 +2,6 @@
 
 What's left:
 - Components design
-- Compile typescript
 - Browser tests
 - Isolated styles
 

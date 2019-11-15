@@ -3,6 +3,6 @@ import renderer from 'react-test-renderer'
 import Button from './'
 
 test('Button', () => {
-  const component = renderer.create(<Button color="red" />)
+  const component = renderer.create(<Button />)
   expect(component).toBeTruthy()
 })

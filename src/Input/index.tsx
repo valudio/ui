@@ -1,12 +1,15 @@
 import React, { ChangeEvent } from 'react'
+import Styled from './styles'
 
 interface IProps {
   onChange?: (value: string) => void
 }
 
-export default (props: IProps) => {
+const Input: React.FC<IProps> = props => {
   const { onChange } = props
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => onChange && onChange(event.currentTarget.value)
 
-  return <input onChange={ handleChange } />
+  return <Styled onChange={ handleChange } />
 }
+
+export default Input

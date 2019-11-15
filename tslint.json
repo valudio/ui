@@ -6,6 +6,7 @@
     "jsx-curly-spacing": false,
     "quotemark": [true, "single", "jsx-double"],
     "no-implicit-dependencies": [true, "dev"],
-    "trailing-comma": [true, "never"]
+    "trailing-comma": [true, "never"],
+    "arrow-parens": false
   }
 }

@@ -1,11 +1,15 @@
 /// <reference types="react" />
-declare module "Button/index" {
-    interface IProps {
-        color: string;
-        onClick?: (color: string) => void;
-    }
-    const _default: (props: IProps) => JSX.Element;
+declare module "Button/styles" {
+    const _default: any;
     export default _default;
+}
+declare module "Button/index" {
+    import React from 'react';
+    interface IProps {
+        onClick?: () => void;
+    }
+    const Button: React.FC<IProps>;
+    export default Button;
 }
 declare module "Input/index" {
     interface IProps {
