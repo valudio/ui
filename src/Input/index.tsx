@@ -9,7 +9,7 @@ const Input: React.FC<IProps> = props => {
   const { onChange } = props
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => onChange && onChange(event.currentTarget.value)
 
-  return <Styled onChange={ handleChange } />
+  return <Styled onChange={ handleChange } placeholder="Type something" />
 }
 
 export default Input

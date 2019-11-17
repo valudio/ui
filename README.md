@@ -1,4 +1,1 @@
-# @valudio/ui
-
-![Release](https://github.com/valudio/ui/workflows/Release/badge.svg)
-
+# [@valudio/ui](https://valudio.github.io/ui) &middot; ![Release](https://github.com/valudio/ui/workflows/Release/badge.svg) [![npm version](https://img.shields.io/npm/v/@valudio/ui.svg?style=flat)](https://www.npmjs.com/package/@valudio/ui)
