@@ -27,3 +27,12 @@ jobs:
       - uses: borales/actions-yarn@v2.0.0
         with:
           cmd: test
+
+  check_package_version:
+    name: Check package version
+    runs-on: ubuntu-latest
+    steps:
+      - uses: technote-space/package-version-check-action@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
