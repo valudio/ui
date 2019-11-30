@@ -7,6 +7,8 @@
     "quotemark": [true, "single", "jsx-double"],
     "no-implicit-dependencies": [true, "dev"],
     "trailing-comma": [true, "never"],
-    "arrow-parens": false
+    "arrow-parens": false,
+    "curly": [true, "ignore-same-line"],
+    "jsx-boolean-value": false
   }
 }
