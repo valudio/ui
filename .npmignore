@@ -3,6 +3,5 @@ tslint.json
 storybook.tsconfig.json
 types.tsconfig.json
 babel.config.js
-src/**/test.tsx
-src/**/stories.tsx
+src/
 yarn-error.log
