@@ -13,7 +13,7 @@ interface IProps {
 }
 
 const Input: React.FC<IProps> = props => {
-  const { onChange, className, type = "text", isHidden, label, placeholder, isDisabled, isInvalid } = props
+  const { onChange, className, type = 'text', isHidden, label, placeholder, isDisabled, isInvalid } = props
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => onChange && onChange(event.currentTarget.value)
 
   if (isHidden) return null
@@ -23,7 +23,13 @@ const Input: React.FC<IProps> = props => {
   return (
     <Styled className={ classNames }>
       <label className="label">{ label }</label>
-      <input className="input" type={ type } placeholder={ placeholder } onChange={ handleChange } disabled={ isDisabled } />
+      <input
+        className="input"
+        type={ type }
+        placeholder={ placeholder }
+        onChange={ handleChange }
+        disabled={ isDisabled }
+      />
     </Styled>
   )
 }
