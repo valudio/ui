@@ -18,19 +18,21 @@ export default styled.div`
 
   .input {
     height: 40px;
-    border: none;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
     outline: 0;
     margin: 0;
     padding: 0;
     background: #F6F6F9;
     text-indent: 12px;
-    color: #9FABCB;
+    color: #424A61;
     font-size: 14px;
     max-width: 400px;
     box-sizing: border-box;
 
     &:focus {
-      border: 1px solid #008BF8;
+      border-color: #008BF8;
       background: #FFFFFF;
       color: #687494;
     }
@@ -39,11 +41,15 @@ export default styled.div`
       color: #9FABCB;
       background: #E8EBF2;
     }
+
+    &::placeholder {
+      color: #9FABCB;
+    }
   }
 
   &.invalid .input {
     background: #FFFFFF;
-    border: 1px solid #D92D52;
+    border-color: #D92D52;
     color: #D92D52;
   }
 `
