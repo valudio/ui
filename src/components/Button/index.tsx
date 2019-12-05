@@ -10,14 +10,14 @@ interface IProps {
 }
 
 const Button: React.FC<IProps> = props => {
-  const { className, isHidden, onClick, isDisabled, isSecondary } = props
+  const { children, className, isHidden, onClick, isDisabled, isSecondary } = props
   const handleClick = () => onClick && onClick()
 
   if (isHidden) return null
 
   const classNames = `${ className ? className : '' } ${ isSecondary ? 'secondary' : '' }`
 
-  return <Styled className={ classNames } onClick={ handleClick } disabled={ isDisabled }>Click me!</Styled>
+  return <Styled className={ classNames } onClick={ handleClick } disabled={ isDisabled }>{ children }</Styled>
 }
 
 export default Button
