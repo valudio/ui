@@ -4,7 +4,7 @@ import defaultTheme from '../../default-theme'
 import { ITheme } from '../../models'
 
 interface IProps {
-  theme: ITheme
+  theme?: ITheme
 }
 
 const Provider: React.FC<IProps> = ({ theme = defaultTheme, children }) => (
