@@ -30,7 +30,6 @@
   },
   "scripts": {
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public",
     "deploy-storybook": "storybook-to-ghpages",
     "lint": "tslint -c tslint.json 'src/**/*.tsx'",
     "test": "jest",
