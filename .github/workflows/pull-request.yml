@@ -4,15 +4,32 @@ on:
     branches:
       - master
 jobs:
+  checkPackageVersion:
+    name: Check package version
+    runs-on: ubuntu-latest
+
+    steps: 
+      - name: Checkout repository
+        uses: actions/checkout@v1.0.0
+
+      - name: Check package version
+        uses: EndBug/version-check@v1.0.0
+        id: check
+
   lint:
     name: Lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: borales/actions-yarn@v2.0.2
+      - name: Checkout repository
+        uses: actions/checkout@v1.0.0
+
+      - name: Yarn install
+        uses: borales/actions-yarn@v2.0.0
         with:
           cmd: install
-      - uses: borales/actions-yarn@v2.0.2
+      
+      - name: Lint
+        uses: borales/actions-yarn@v2.0.0
         with:
           cmd: lint
 
@@ -20,10 +37,15 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: borales/actions-yarn@v2.0.2
+      - name: Checkout repository
+        uses: actions/checkout@v1.0.0
+
+      - name: Yarn install
+        uses: borales/actions-yarn@v2.0.0
         with:
           cmd: install
-      - uses: borales/actions-yarn@v2.0.2
+      
+      - name: Test
+        uses: borales/actions-yarn@v2.0.0
         with:
           cmd: test
