@@ -8,25 +8,35 @@ jobs:
     name: Publish npm package
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: borales/actions-yarn@v2.1.0
+      - name: Checkout repository
+        uses: actions/checkout@v1.0.0
+
+      - name: Yarn install
+        uses: borales/actions-yarn@v2.1.0
         with:
           cmd: install
-      - uses: borales/actions-yarn@v2.1.0
+
+      - name: Publish npm package
+        uses: borales/actions-yarn@v2.1.0
         with:
           cmd: publish
           auth-token: ${{ secrets.NPM_TOKEN }}
           registry-url: 'registry.npmjs.org'
 
   publish_storybook:
-    name: Publish Storybook
+    name: Publish Storybook to Github pages
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: borales/actions-yarn@v2.1.0
+      - name: Checkout repository
+        uses: actions/checkout@v1.0.0
+
+      - name: Yarn install
+        uses: borales/actions-yarn@v2.1.0
         with:
           cmd: install
-      - uses: borales/actions-yarn@v2.1.0
+
+      - name: Publish Storybook
+        uses: borales/actions-yarn@v2.1.0
         with:
           cmd: deploy-storybook --ci
         env:

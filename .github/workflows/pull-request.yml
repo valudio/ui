@@ -4,19 +4,16 @@ on:
     branches:
       - master
 jobs:
-  checkPackageVersion:
+  check_package_version:
     name: Check package version
     runs-on: ubuntu-latest
-
     steps: 
       - name: Checkout repository
         uses: actions/checkout@v1.0.0
 
       - name: Check package version
-        uses: EndBug/version-check@v1.1.0
+        uses: EndBug/version-check@v1.0.0
         id: check
-        with:
-          token: ${{ secrets.GH_TOKEN }}
 
   lint:
     name: Lint
