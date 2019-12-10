@@ -1,11 +1,11 @@
 import React, { ChangeEvent } from 'react'
+import { IBaseProps } from '../../models'
 import Styled from './styles'
 
-interface IProps {
+interface IProps extends IBaseProps {
   label: string
   className?: string
   type?: string
-  isHidden?: boolean
   placeholder?: string
   onChange?: (value: string) => void
   isDisabled?: boolean

@@ -11,3 +11,13 @@ import { Provider } from '@valudio/ui'
   <App />
 </Provider>
 ```
+
+## Development
+
+All component should use or extend the `IBaseProp` on it's props. This interface by now only includes the property `isHidden` which you should use in your component:
+
+```
+...
+  if (isHidden) return null 
+...
+```

@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { IOption } from '../../models'
+import { IBaseProps, IOption } from '../../models'
 import Item from './item'
 
-interface IProps {
+interface IProps extends IBaseProps {
   labelProp: string
   options: IOption[]
   onChange: (selected: IOption[]) => void
@@ -10,12 +10,14 @@ interface IProps {
 }
 
 const MultiSelect: React.FC<IProps> = props => {
-  const { labelProp, options, onChange, placeholder } = props
+  const { labelProp, options, onChange, placeholder, isHidden } = props
   const [ selected, setSelected ] = useState<IOption[]>([])
   const [ isOpen, setIsOpen ] = useState(false)
   const divRef = useRef(null)
   const classNames =  `multi-select ${ isOpen ? 'opened' : '' } ${ !options || !options.length ? 'disabled' : '' }`
   const selectedLabel = selected.map((s, i) => <span key={ i }>{ s[labelProp] }</span>)
+
+  if (isHidden) return null
 
   const handleOpen = () => {
     setIsOpen(!isOpen)

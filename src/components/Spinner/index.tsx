@@ -1,7 +1,10 @@
 import React from 'react'
+import { IBaseProps } from '../../models'
 import Styled from './styles'
 
-const Spinner: React.FC = () => {
+const Spinner: React.FC<IBaseProps> = ({ isHidden }) => {
+  if (isHidden) return null
+
   return (
     <Styled>
       <div className="spinner">
