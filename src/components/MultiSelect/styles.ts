@@ -107,7 +107,8 @@ export default styled.article`
       }
 
       &.selected, &:hover {
-        background: $color5;
+        background: ${ ({ theme }) => theme.colors.grey.light };
+        color: ${ ({ theme }) => theme.colors.typography.dark };
       }
 
       .checkbox {
