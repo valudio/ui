@@ -1,0 +1,60 @@
+import React, { useEffect, useRef, useState } from 'react'
+import { IOption } from '../../models'
+import Item from './item'
+
+interface IProps {
+  labelProp: string
+  options: IOption[]
+  onChange: (selected: IOption[]) => void
+  placeholder?: string
+}
+
+const MultiSelect: React.FC<IProps> = props => {
+  const { labelProp, options, onChange, placeholder } = props
+  const [ selected, setSelected ] = useState<IOption[]>([])
+  const [ isOpen, setIsOpen ] = useState(false)
+  const divRef = useRef(null)
+  const classNames =  `multi-select ${ isOpen ? 'opened' : '' } ${ !options || !options.length ? 'disabled' : '' }`
+  const selectedLabel = selected.map((s, i) => <span key={ i }>{ s[labelProp] }</span>)
+
+  const handleOpen = () => {
+    setIsOpen(!isOpen)
+  }
+
+  const handleOptionClick = (option: IOption) => {
+    !!selected.find(s => s.id === option.id)
+    ? setSelected(selected.filter(s => s.id !== option.id))
+    : setSelected([ ...selected, option ])
+
+    onChange(selected)
+  }
+
+  const handleDocumentClick = (event: MouseEvent) => {
+    const openRef = divRef.current
+    if (isOpen && !!openRef && event.target !== openRef) {
+      setIsOpen(false)
+    }
+  }
+
+  const optionItems = options.map((o, i) => (
+    <Item
+      key={ i }
+      label={ o[labelProp] }
+      isSelected={ !!selected.find(s => s.id === o.id) }
+      onClick={ handleOptionClick.bind(this, o) }
+    />
+  ))
+
+  useEffect(() => {
+    document.addEventListener('click', handleDocumentClick)
+  })
+
+  return (
+    <article className={ classNames }>
+      <div className="selected" ref={ divRef } onClick={ handleOpen }> { selectedLabel || placeholder }</div>
+      <ul className="options">{ optionItems }</ul>
+    </article>
+  )
+}
+
+export default MultiSelect
