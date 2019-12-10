@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { IBaseProps, IOption } from '../../models'
-import Item from './item'
+import Item from './Item'
+import Styled from './styles'
 
 interface IProps extends IBaseProps {
   labelProp: string
@@ -14,7 +15,7 @@ const MultiSelect: React.FC<IProps> = props => {
   const [ selected, setSelected ] = useState<IOption[]>([])
   const [ isOpen, setIsOpen ] = useState(false)
   const divRef = useRef(null)
-  const classNames =  `multi-select ${ isOpen ? 'opened' : '' } ${ !options || !options.length ? 'disabled' : '' }`
+  const classNames =  `${ isOpen ? 'opened' : '' } ${ !options || !options.length ? 'disabled' : '' }`
   const selectedLabel = selected.map((s, i) => <span key={ i }>{ s[labelProp] }</span>)
 
   if (isHidden) return null
@@ -52,10 +53,10 @@ const MultiSelect: React.FC<IProps> = props => {
   })
 
   return (
-    <article className={ classNames }>
+    <Styled className={ classNames }>
       <div className="selected" ref={ divRef } onClick={ handleOpen }> { selectedLabel || placeholder }</div>
       <ul className="options">{ optionItems }</ul>
-    </article>
+    </Styled>
   )
 }
 
