@@ -14,3 +14,6 @@ const options = [
 storiesOf('MultiSelect', module)
   .addDecorator(x => <Provider>{ x() }</Provider>)
   .add('default', () => <MultiSelect options={ options } labelProp="value" onChange={ alert } />)
+  .add('disabled', () => <MultiSelect options={ [] } labelProp="value" onChange={ alert } />)
+  .add('invalid', () => <MultiSelect options={ options } labelProp="value" onChange={ alert } isInvalid={ true }/>)
+  .add('hidden', () => <MultiSelect options={ options } labelProp="value" onChange={ alert } isHidden={ true } />)

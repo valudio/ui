@@ -1,4 +1,9 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const lazy = keyframes`
+  from { background-color: $color5; }
+  to { background-color: rgba(0, 0, 0, 0.02); }
+`
 
 export default styled.article`
   height: 40px;
@@ -18,27 +23,29 @@ export default styled.article`
 
   &.opened {
     border-bottom-color: ${ ({ theme }) => theme.colors.grey.medium };
+    box-shadow: 0 -2px 6px 0 ${ ({ theme }) => theme.colors.typography.medium }1F;
+    background: white;
 
     .options {
       display: block;
     }
   }
 
-  @keyframes lazy {
-    from { background-color: $color5; }
-    to { background-color: rgba(0, 0, 0, 0.02); }
-  }
-
   &.disabled {
     cursor: not-allowed;
+    background: ${ ({ theme }) => theme.colors.grey.medium };
 
     .selected {
       pointer-events: none;
-      background: $color5;
-      border-color: $color5;
-      animation: lazy 0.8s linear 0s infinite alternate;
-      color: transparent;
+      animation: ${ lazy } 0.8s linear 0s infinite alternate;
+      color: ${ ({ theme }) => theme.colors.grey.light };
     }
+  }
+
+  &.invalid { 
+    color: ${ ({ theme }) => theme.colors.system.error };
+    border: 1px solid currentColor;
+    background: white;
   }
 
   > .selected {
@@ -46,12 +53,11 @@ export default styled.article`
     display: flex;
     flex-shrink: 0;
     cursor: pointer;
-    font-size: 0.8em;
+    font-size: 14px;
     height: 100%;
     padding: 0 16px;
     align-items: center;
     height: 26px;
-    border: 0.5px solid $color4;
     box-sizing: border-box;
     outline: 0;
     width: 100%;
@@ -65,28 +71,18 @@ export default styled.article`
     > * {
       pointer-events: none;
     }
-
-    &::after {
-      content: "";
-      width: 0;
-      height: 0;
-      border-left: 4px solid transparent;
-      border-right: 4px solid transparent;
-      border-top: 4px solid $color0;
-      margin: 0 0 0 10px;
-    }
   }
 
   .options {
     display: none;
     position: absolute;
     width: 100%;
-    top: 39px;
+    top: 40px;
     left: 0;
     padding: 0;
     margin: 0;
     background: white;
-    box-shadow: 0 2px 8px 0 $color6;
+    box-shadow: 0 2px 6px 0 ${ ({ theme }) => theme.colors.typography.medium }1F;
     z-index: 100;
     width: 100%;
     max-height: 50vh;
@@ -99,14 +95,14 @@ export default styled.article`
       align-items: center;
       cursor: pointer;
       color: #687494;
-      font-size: 0.8em;
+      font-size: 14px;
 
       &:hover {
         background: ${ ({ theme }) => theme.colors.grey.medium };
         color: ${ ({ theme }) => theme.colors.typography.dark };
       }
 
-      &.selected, &:hover {
+      &.selected {
         background: ${ ({ theme }) => theme.colors.grey.light };
         color: ${ ({ theme }) => theme.colors.typography.dark };
       }

@@ -8,14 +8,15 @@ interface IProps extends IBaseProps {
   options: IOption[]
   onChange: (selected: IOption[]) => void
   placeholder?: string
+  isInvalid?: boolean
 }
 
 const MultiSelect: React.FC<IProps> = props => {
-  const { labelProp, options, onChange, placeholder, isHidden } = props
+  const { labelProp, options, onChange, placeholder, isInvalid, isHidden } = props
   const [ selected, setSelected ] = useState<IOption[]>([])
   const [ isOpen, setIsOpen ] = useState(false)
   const divRef = useRef(null)
-  const classNames =  `${ isOpen ? 'opened' : '' } ${ !options || !options.length ? 'disabled' : '' }`
+  const classNames =  `${ isOpen ? 'opened' : '' } ${ !options || !options.length ? 'disabled' : '' } ${ isInvalid ? 'invalid' : '' }`
   const selectedLabel = selected.map((s, i) => <span key={ i }>{ s[labelProp] }</span>)
 
   if (isHidden) return null
