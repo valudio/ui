@@ -42,10 +42,15 @@ export default styled.article`
     }
   }
 
-  &.invalid { 
+  &.invalid {
     color: ${ ({ theme }) => theme.colors.system.error };
     border: 1px solid currentColor;
     background: white;
+    box-sizing: border-box;
+
+    > .selected:empty:before {
+      color: ${ ({ theme }) => theme.colors.system.error };
+    }
   }
 
   > .selected {
@@ -61,6 +66,11 @@ export default styled.article`
     box-sizing: border-box;
     outline: 0;
     width: 100%;
+
+    &:empty:before {
+      content: attr(data-text);
+      color: ${ ({ theme }) => theme.colors.typography.light };
+    }
 
     .label {
       text-indent: 8px;
@@ -113,6 +123,7 @@ export default styled.article`
 
       .label {
         margin: 0 0 0 10px;
+        cursor: pointer;
       }
     }
   }

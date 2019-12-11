@@ -11,9 +11,15 @@ const options = [
   { id: '5', value: 'Option 5' }
 ]
 
+function fakeChangeHandler(): void {
+  // tslint:disable-next-line: no-console
+  console.log('changed')
+}
+
+// tslint:disable: max-line-length
 storiesOf('MultiSelect', module)
   .addDecorator(x => <Provider>{ x() }</Provider>)
-  .add('default', () => <MultiSelect options={ options } labelProp="value" onChange={ alert } />)
-  .add('disabled', () => <MultiSelect options={ [] } labelProp="value" onChange={ alert } />)
-  .add('invalid', () => <MultiSelect options={ options } labelProp="value" onChange={ alert } isInvalid={ true }/>)
-  .add('hidden', () => <MultiSelect options={ options } labelProp="value" onChange={ alert } isHidden={ true } />)
+  .add('default', () => <MultiSelect placeholder="Select..." options={ options } labelProp="value" onChange={ fakeChangeHandler } />)
+  .add('disabled', () => <MultiSelect placeholder="Select..." options={ [] } labelProp="value" onChange={ fakeChangeHandler } />)
+  .add('invalid', () => <MultiSelect placeholder="Select..." options={ options } labelProp="value" onChange={ fakeChangeHandler } isInvalid={ true }/>)
+  .add('hidden', () => <MultiSelect placeholder="Select..." options={ options } labelProp="value" onChange={ fakeChangeHandler } isHidden={ true } />)

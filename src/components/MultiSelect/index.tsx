@@ -55,7 +55,9 @@ const MultiSelect: React.FC<IProps> = props => {
 
   return (
     <Styled className={ classNames }>
-      <div className="selected" ref={ divRef } onClick={ handleOpen }> { selectedLabel || placeholder }</div>
+      <div className="selected" ref={ divRef } data-text={ placeholder } onClick={ handleOpen }>
+        { selectedLabel }
+      </div>
       <ul className="options">{ optionItems }</ul>
     </Styled>
   )
