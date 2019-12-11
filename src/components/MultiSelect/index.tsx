@@ -29,18 +29,15 @@ const MultiSelect: React.FC<IProps> = props => {
     !!selected.find(s => s.id === option.id)
     ? setSelected(selected.filter(s => s.id !== option.id))
     : setSelected([ ...selected, option ])
-
     onChange(selected)
   }
 
   const handleDocumentClick = (event: MouseEvent) => {
     const openRef = divRef.current
-    if (isOpen && !!openRef && event.target !== openRef) {
-      setIsOpen(false)
-    }
+    if (isOpen && !!openRef && event.target !== openRef) setIsOpen(false)
   }
 
-  const optionItems = options.map((o, i) => (
+  const optionItems = isOpen && options.map((o, i) => (
     <Item
       key={ i }
       label={ o[labelProp] }
