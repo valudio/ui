@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export default styled.div`
   display: inline-block;
   position: relative;
-  /* width: 100%; */
   height: 100%;
   cursor: pointer;
   font-size: 16px;

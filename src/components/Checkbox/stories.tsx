@@ -8,4 +8,3 @@ storiesOf('Checkbox', module)
   .add('default', () => <CheckBox />)
   .add('disabled', () => <CheckBox isDisabled/>)
   .add('hidden', () => <CheckBox isHidden/>)
-  
