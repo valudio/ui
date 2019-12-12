@@ -73,9 +73,13 @@ export default styled.article`
     }
 
     .label {
-      text-indent: 8px;
-      font-weight: 200;
-      color: $color3;
+      color: ${ ({ theme }) => theme.colors.primary.dark };
+      background: ${ ({ theme }) => theme.colors.primary.light };
+      margin-left: 8px;
+
+      &:first-of-type {
+        margin-left: 0;
+      }
     }
 
     > * {
