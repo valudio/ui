@@ -1,15 +1,19 @@
 import React from 'react'
 import { act, create, ReactTestInstance, ReactTestRenderer } from 'react-test-renderer'
+import defaultTheme from '../../default-theme'
 import { optionsMock } from '../../models'
 import MultiSelect from '../MultiSelect'
-import Item from './item'
+import Provider from '../Provider'
+import Item from './Item'
 
 let component: ReactTestRenderer
 let instance: ReactTestInstance
 
 beforeEach(() => {
   component = create(
-    <MultiSelect onChange={ alert } labelProp="label" options={ optionsMock } />
+    <Provider theme={ defaultTheme }>
+      <MultiSelect onChange={ alert } labelProp="label" options={ optionsMock } />
+    </Provider>
   )
   instance = component.root
 })
