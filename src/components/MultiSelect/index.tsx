@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { IBaseProps, IOption } from '../../models'
+import Label from '../Label'
 import Item from './Item'
 import Styled from './styles'
 
@@ -17,7 +18,7 @@ const MultiSelect: React.FC<IProps> = props => {
   const [ isOpen, setIsOpen ] = useState(false)
   const divRef = useRef(null)
   const classNames =  `${ isOpen ? 'opened' : '' } ${ !options || !options.length ? 'disabled' : '' } ${ isInvalid ? 'invalid' : '' }`
-  const selectedLabel = selected.map((s, i) => <span key={ i }>{ s[labelProp] }</span>)
+  const selectedLabel = selected.map((s, i) => <Label text={ s[labelProp] } key={ i } />)
 
   if (isHidden) return null
 

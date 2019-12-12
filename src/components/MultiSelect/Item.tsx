@@ -1,4 +1,5 @@
 import React from 'react'
+import Checkbox from '../Checkbox'
 
 interface IProps {
   label: string
@@ -11,7 +12,7 @@ const Item: React.FC<IProps> = ({ label, onClick, isSelected }) => (
     className={ `option ${ isSelected ? 'selected' : '' }` }
     onClick={ onClick }
   >
-    <input type="checkbox" checked={ isSelected }/>
+    <Checkbox isChecked={ isSelected }/>
     <label className="label">{ label }</label>
   </li>
 )
