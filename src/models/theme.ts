@@ -19,9 +19,13 @@ export interface ITheme {
     },
     system: {
       success: string
+      successLight: string
       ongoing: string
+      ongoingLight: string
       attemptOngoing: string
+      attemptOngoingLight: string
       error: string
+      errorLight: string
     }
   }
 }

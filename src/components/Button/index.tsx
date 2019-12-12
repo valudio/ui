@@ -1,12 +1,12 @@
 import React from 'react'
+import { IBaseProps } from '../../models'
 import Styled from './styles'
 
-interface IProps {
+interface IProps extends IBaseProps {
   onClick?: () => void
   className?: string
   isDisabled?: boolean
   isSecondary?: boolean
-  isHidden?: boolean
 }
 
 const Button: React.FC<IProps> = props => {

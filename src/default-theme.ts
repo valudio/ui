@@ -21,9 +21,13 @@ const defaultTheme: ITheme = {
     },
     system: {
       success: '#249E83',
+      successLight: '#D2ECE6',
       ongoing: '#7E8FBA',
+      ongoingLight: '#E5E9F1',
       attemptOngoing: '#F7B500',
-      error: '#D92D52'
+      attemptOngoingLight: '#FDF1CA',
+      error: '#D92D52',
+      errorLight: '#F8D5DC'
     }
   }
 }
