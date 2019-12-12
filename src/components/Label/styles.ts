@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export default styled.span`
+  width: max-content;
   height: 24px;
   border-radius: 12px;
   font-size: 14px;

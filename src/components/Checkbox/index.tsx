@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
+import { IBaseProps } from '../../models'
 import Styled from './styles'
 
-interface IProps {
+interface IProps extends IBaseProps {
   onChange?: (value: boolean) => void
   isChecked?: boolean
   isDisabled?: boolean
-  isHidden?: boolean
 }
 
 const Checkbox: React.FC<IProps> = props => {

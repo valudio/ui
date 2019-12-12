@@ -39,6 +39,11 @@ export default styled.article`
       pointer-events: none;
       animation: ${ lazy } 0.8s linear 0s infinite alternate;
       color: ${ ({ theme }) => theme.colors.grey.light };
+
+      .label {
+        color: ${ ({ theme }) => theme.colors.typography.medium };
+        background: ${ ({ theme }) => theme.colors.grey.dark };
+      }
     }
   }
 
@@ -50,6 +55,11 @@ export default styled.article`
 
     > .selected:empty:before {
       color: ${ ({ theme }) => theme.colors.system.error };
+    }
+
+    .selected .label {
+      color: ${ ({ theme }) => theme.colors.system.error };
+      background: ${ ({ theme }) => theme.colors.system.errorLight };
     }
   }
 
