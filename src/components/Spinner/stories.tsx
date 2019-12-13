@@ -1,10 +1,10 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
 import Spinner from '.'
-import Provider from '../Provider'
+import { decorator } from '../../helpers/storybook'
 
 // tslint:disable: max-line-length
 
 storiesOf('Spinner', module)
-  .addDecorator(x => <Provider>{ x() }</Provider>)
+  .addDecorator(decorator)
   .add('default', () => <Spinner />)

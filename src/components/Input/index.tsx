@@ -4,7 +4,6 @@ import Styled from './styles'
 
 interface IProps extends IBaseProps {
   label: string
-  className?: string
   type?: string
   placeholder?: string
   onChange?: (value: string) => void
@@ -18,7 +17,7 @@ const Input: React.FC<IProps> = props => {
 
   if (isHidden) return null
 
-  const classNames = `${ className ? className : '' } ${ isDisabled ? 'disabled' : '' } ${ isInvalid ? 'invalid' : '' }`
+  const classNames = `${ className || '' } ${ isDisabled ? 'disabled' : '' } ${ isInvalid ? 'invalid' : '' }`
 
   return (
     <Styled className={ classNames }>

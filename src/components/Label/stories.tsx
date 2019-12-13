@@ -1,13 +1,13 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
 import Label from '.'
-import Provider from '../Provider'
+import { decorator } from '../../helpers/storybook'
 
 storiesOf('Label', module)
-  .addDecorator(x => <Provider>{ x() }</Provider>)
-  .add('default', () => <Label text="Label" className="primary"/>)
-  .add('info', () => <Label text="Label" className="info"/>)
-  .add('success', () => <Label text="Label" className="success"/>)
-  .add('warning', () => <Label text="Label" className="warning"/>)
-  .add('error', () => <Label text="Label" className="error"/>)
-  .add('hidden', () => <Label text="Label" isHidden/>)
+  .addDecorator(decorator)
+  .add('default', () => <Label type="primary">Test</Label>)
+  .add('info', () => <Label type="info"/>)
+  .add('success', () => <Label type="success">Test</Label>)
+  .add('warning', () => <Label type="warning">Test</Label>)
+  .add('error', () => <Label type="error">Test</Label>)
+  .add('hidden', () => <Label type="primary" isHidden>Test</Label>)

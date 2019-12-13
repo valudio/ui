@@ -1,19 +1,18 @@
 import React from 'react'
-import { IBaseProps } from '../../models'
+import { IBaseProps, LabelType } from '../../models'
 import Styled from './styles'
 
 interface IProps extends IBaseProps {
-  text: string
-  className?: string
+  type: LabelType
 }
 
 const Label: React.FC<IProps> = props => {
-  const { text, className, isHidden } = props
-  const classNames = `label ${ className ? className : '' }`
+  const { children, isHidden, type } = props
+  const classNames = `label ${ type }`
 
   if (isHidden) return null
 
-  return <Styled className={ classNames }>{ text }</Styled>
+  return <Styled className={ classNames }>{ children }</Styled>
 }
 
 export default Label

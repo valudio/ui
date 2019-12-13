@@ -18,7 +18,7 @@ const MultiSelect: React.FC<IProps> = props => {
   const [ isOpen, setIsOpen ] = useState(false)
   const divRef = useRef(null)
   const classNames =  `${ isOpen ? 'opened' : '' } ${ !options || !options.length ? 'disabled' : '' } ${ isInvalid ? 'invalid' : '' }`
-  const selectedLabel = selected.map((s, i) => <Label text={ s[labelProp] } key={ i } />)
+  const selectedLabel = selected.map((s, i) => <Label type="primary" key={ i }>{ s[labelProp] }</Label>)
 
   if (isHidden) return null
 
