@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { decorator } from '../../helpers/storybook'
+import { decorator2 } from '../../helpers/storybook'
 import { tableColumnsMock } from '../../models'
 import Label from '../Label'
 import List from './'
@@ -14,5 +14,5 @@ const items = [
 ]
 
 storiesOf('Table', module)
-  .addDecorator(decorator)
+  .addDecorator(decorator2)
   .add('default', () => <List columns={ tableColumnsMock } items={ items } />)
