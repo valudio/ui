@@ -14,10 +14,21 @@ import { Provider } from '@valudio/ui'
 
 ## Development
 
-All component should use or extend the `IBaseProp` on it's props. This interface by now only includes the property `isHidden` which you should use in your component:
+All component should use or extend the `IBaseProp` on it's props.
 
-```
-...
+`isHidden` prop should be used like:
+```JSX
+const Component: React.FC<IProps> = ({ isHidden }) => {
+  ...
   if (isHidden) return null 
-...
+  ...
+}
+```
+
+`className` prop should be used like:
+```JSX
+const Component: React.FC<IProps> = ({ className }) => {
+  ...
+  return <Styled className={ className }>...</Styled>
+}
 ```

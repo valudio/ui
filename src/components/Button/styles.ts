@@ -6,9 +6,9 @@ export default styled.button`
   outline: 0;
   margin: 0;
   padding: 5px 20px;
-  font-family: 'Fira Sans', sans-serif;
+  font-family: ${ ({ theme }) => theme.fontFamily };
   background: ${ ({ theme }) => theme.colors.primary.medium };
-  color: #FFFFFF;
+  color: ${ ({ theme }) => theme.colors.white };
   border-radius: 20px;
   height: 40px;
   width: 200px;
@@ -18,17 +18,17 @@ export default styled.button`
   &.secondary {
     border: 1px solid ${ ({ theme }) => theme.colors.primary.medium };
     color: ${ ({ theme }) => theme.colors.primary.medium };
-    background: #FFFFFF;
+    background: ${ ({ theme }) => theme.colors.white };
   }
 
   &:hover {
     background: ${ ({ theme }) => theme.colors.primary.dark };
-    color: #FFFFFF;
+    color: ${ ({ theme }) => theme.colors.white };
   }
 
   &:active {
     background: ${ ({ theme }) => theme.colors.primary.medium };
-    color: #FFFFFF;
+    color: ${ ({ theme }) => theme.colors.white };
   }
 
   &:disabled {

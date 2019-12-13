@@ -1,3 +1,6 @@
 export * from './theme'
 export * from './option'
 export * from './base-props'
+export * from './table-column'
+export * from './status-type'
+export * from './file-type'

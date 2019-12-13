@@ -4,7 +4,7 @@ export default styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 0;
-  font-family: 'Fira Sans', sans-serif;
+  font-family: ${ ({ theme }) => theme.fontFamily };
 
   .label {
     margin: 0 0 6px;
@@ -31,7 +31,7 @@ export default styled.div`
 
     &:focus {
       border: 1px solid ${ ({ theme }) => theme.colors.primary.medium };
-      background: #FFFFFF;
+      background: ${ ({ theme }) => theme.colors.white };
       color: ${ ({ theme }) => theme.colors.typography.medium };
     }
 
@@ -42,7 +42,7 @@ export default styled.div`
   }
 
   &.invalid .input {
-    background: #FFFFFF;
+    background: ${ ({ theme }) => theme.colors.white };
     border: 1px solid ${ ({ theme }) => theme.colors.system.error };
     color: ${ ({ theme }) => theme.colors.system.error };
   }

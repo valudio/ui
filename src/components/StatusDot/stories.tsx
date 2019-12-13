@@ -1,10 +1,8 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import Spinner from '.'
 import { decorator } from '../../helpers/storybook'
+import StatusDot from './'
 
-// tslint:disable: max-line-length
-
-storiesOf('Spinner', module)
+storiesOf('StatusDot', module)
   .addDecorator(decorator)
-  .add('default', () => <Spinner />)
+  .add('default', () => <StatusDot type="primary" />)

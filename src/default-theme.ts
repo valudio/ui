@@ -2,6 +2,7 @@ import { ITheme } from './models'
 
 const defaultTheme: ITheme = {
   borderRadius: '20px',
+  fontFamily: 'Fira Sans',
   colors: {
     primary: {
       dark: '#006DD5',
@@ -21,14 +22,11 @@ const defaultTheme: ITheme = {
     },
     system: {
       success: '#249E83',
-      successLight: '#D2ECE6',
       ongoing: '#7E8FBA',
-      ongoingLight: '#E5E9F1',
       attemptOngoing: '#F7B500',
-      attemptOngoingLight: '#FDF1CA',
-      error: '#D92D52',
-      errorLight: '#F8D5DC'
-    }
+      error: '#D92D52'
+    },
+    white: '#FFFFFF'
   }
 }
 

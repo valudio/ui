@@ -1,5 +1,6 @@
 export interface ITheme {
   borderRadius: string
+  fontFamily: string
   colors: {
     primary: {
       dark: string
@@ -19,13 +20,10 @@ export interface ITheme {
     },
     system: {
       success: string
-      successLight: string
       ongoing: string
-      ongoingLight: string
       attemptOngoing: string
-      attemptOngoingLight: string
       error: string
-      errorLight: string
-    }
+    },
+    white: string
   }
 }

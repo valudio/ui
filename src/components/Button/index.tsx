@@ -4,7 +4,6 @@ import Styled from './styles'
 
 interface IProps extends IBaseProps {
   onClick?: () => void
-  className?: string
   isDisabled?: boolean
   isSecondary?: boolean
 }

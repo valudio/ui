@@ -1,10 +1,8 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import Spinner from '.'
+import File from '.'
 import { decorator } from '../../helpers/storybook'
 
-// tslint:disable: max-line-length
-
-storiesOf('Spinner', module)
+storiesOf('File', module)
   .addDecorator(decorator)
-  .add('default', () => <Spinner />)
+  .add('default', () => <File name="FRSO_ADV16_..." type="doc" />)
