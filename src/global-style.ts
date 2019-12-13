@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import icons from './assets/fonts/synlab.ttf'
+import icons from './assets/fonts/icons.ttf'
 
 export default createGlobalStyle`
   @font-face {
