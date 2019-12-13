@@ -1,5 +1,6 @@
 import React from 'react'
 import { IBaseProps, ITableColumn } from '../../../models'
+import Icon from '../../Icon'
 import Styled from './styles'
 
 interface IProps extends IBaseProps {
@@ -8,11 +9,11 @@ interface IProps extends IBaseProps {
 
 const HeaderCell: React.FC<IProps> = ({ column }) => {
   const sort = !!column.sort
-    ? <span className={ `sort ${ column.sort }` } />
+    ? <Icon className={ `sort ${ column.sort }` } icon={ column.sort === 'ASC' ? 'up' : 'down' } />
     : null
 
   return (
-    <Styled style={{ flex: column.size }}>
+    <Styled style={{ flex: column.size }} onClick={ column.onClick }>
       <span className="label">{ column.label }</span>
       { sort }
     </Styled>

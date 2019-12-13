@@ -5,6 +5,8 @@ export default styled.div`
   flex: 1;
   margin: 0 16px;
   overflow: hidden;
+  cursor: pointer;
+  align-items: center;
 
   .label {
     font-family: ${ ({ theme }) => theme.fontFamily };
@@ -14,20 +16,13 @@ export default styled.div`
   }
 
   .sort {
+    font-size: 22px;
+
     &::before {
       color: ${ ({ theme }) => theme.colors.typography.medium };
     }
 
-    &.ASC::before {
-      content: '\\21A5';
-    }
-
-    &.DESC::before {
-      content: '\\21A7';
-    }
-
     &.INACTIVE::before {
-      content: '\\21A7';
       color: ${ ({ theme }) => theme.colors.typography.medium }35;
     }
   }
