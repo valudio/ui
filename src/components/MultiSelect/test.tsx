@@ -32,6 +32,6 @@ describe('MultiSelect', () => {
     act(() => {
       selected.props.onClick()
     })
-    expect(instance.findAllByType(Item).length).toEqual(5)
+    expect(instance.findAllByType(Item).length).toEqual(7)
   })
 })
