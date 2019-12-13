@@ -76,6 +76,8 @@ export default styled.article`
     box-sizing: border-box;
     outline: 0;
     width: 100%;
+    white-space: nowrap;
+    overflow-x: auto;
 
     &:empty:before {
       content: attr(data-text);

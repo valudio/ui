@@ -27,10 +27,12 @@ const MultiSelect: React.FC<IProps> = props => {
   }
 
   const handleOptionClick = (option: IOption) => {
-    !!selected.find(s => s.id === option.id)
-    ? setSelected(selected.filter(s => s.id !== option.id))
-    : setSelected([ ...selected, option ])
-    onChange(selected)
+    const selectedOptions = !!selected.find(s => s.id === option.id)
+      ? selected.filter(s => s.id !== option.id)
+      : [ ...selected, option ]
+
+    setSelected(selectedOptions)
+    onChange(selectedOptions)
   }
 
   const handleDocumentClick = (event: MouseEvent) => {
