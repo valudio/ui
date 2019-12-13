@@ -1,14 +1,16 @@
-import { IBaseProps } from './base-props'
-
 export interface ITableColumn {
   label: string
   key: string
   size?: number
+  sort?: 'DESC' | 'ASC' | 'INACTIVE'
 }
 
 export const tableColumnsMock: ITableColumn[] = [
-  { label: 'Id', key: 'id', size: 0 },
-  { label: 'Name', key: 'name' },
-  { label: 'Description', key: 'description', size: 2 },
-  { label: 'Status', key: 'status' }
+  { label: '', key: 'archived', size: 0.1 },
+  { label: 'Partner name', key: 'partnerName', sort: 'ASC' },
+  { label: 'Description', key: 'description', size: 4 },
+  { label: 'Exchanges', key: 'exchanges', size: 2 },
+  { label: 'Date', key: 'date', sort: 'INACTIVE' },
+  { label: 'Message type', key: 'messageType', sort: 'INACTIVE', size: 2 },
+  { label: 'Message type', key: 'status' }
 ]

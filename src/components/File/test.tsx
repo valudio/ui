@@ -1,12 +1,12 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import Provider from '../Provider'
-import Table from './'
+import File from './'
 
-test('Table', () => {
+test('File', () => {
   const component = renderer.create(
     <Provider>
-      <Table columns={ [] } items={ [] } />
+      <File type="pdf" name="test" />
     </Provider>
   )
   expect(component).toBeTruthy()

@@ -13,11 +13,13 @@ export default styled.article`
   }
 
   .cell {
-    font-family: ${ ({ theme }) => theme.fontFamily };
     display: flex;
+    flex-direction: column;
+    font-family: ${ ({ theme }) => theme.fontFamily };
     color: ${ ({ theme }) => theme.colors.typography.dark };
     margin: 0 16px;
     flex: 1;
     font-size: 14px;
+    overflow: hidden;
   }
 `

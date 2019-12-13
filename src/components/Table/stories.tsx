@@ -2,15 +2,34 @@ import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { decorator2 } from '../../helpers/storybook'
 import { tableColumnsMock } from '../../models'
-import Label from '../Label'
+import File from '../File'
+import StatusDot from '../StatusDot'
 import List from './'
 
 const items = [
-  { id: '1', name: 'Test 1', description: 'This is the first test', status: <Label type="error">Oops!</Label> },
-  { id: '2', name: 'Test 2', description: 'This is the seconds test', status: <Label type="success">Great!</Label> },
-  { id: '3', name: 'Test 3', description: 'This is the third test', status: <Label type="warning">Atention!</Label> },
-  { id: '4', name: 'Test 4', description: 'This is the fourth test', status: <Label type="primary">Watermelon</Label> },
-  { id: '5', name: 'Test 5', description: 'This is the fifth test', status: <Label type="info">Knowledge</Label> }
+  {
+    archived: null,
+    partnerName: 'Lorem ipsum dolor sit amet.',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in viverra neque, eleifend tempus mauris. Aliquam vel porttitor eros a egestas purus. Etiam et hendrerit ut vulputate justo a sed.',
+    exchanges: (
+      <>
+        <File name="FRSO_ADV16_..." type="doc" className="file-margin" />
+        <File name="FRSO_ADV16" type="pdf" />
+      </>
+    ),
+    date: '10/09/2019 11:02 AM',
+    messageType: 'Despatch Advise',
+    status: <StatusDot type="success" />
+  },
+  {
+    archived: null,
+    partnerName: 'Lorem ipsum dolor sit amet.',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in viverra neque, eleifend tempus mauris. Aliquam vel porttitor eros a egestas purus. Etiam et hendrerit ut vulputate justo a sed.',
+    exchanges: <File name="FRSO_ADV16" type="pdf" />,
+    date: '10/09/2019 11:02 AM',
+    messageType: 'Order',
+    status: <StatusDot type="error" />
+  },
 ]
 
 storiesOf('Table', module)

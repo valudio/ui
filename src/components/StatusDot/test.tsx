@@ -1,12 +1,12 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import Provider from '../Provider'
-import Table from './'
+import StatusDot from './'
 
-test('Table', () => {
+test('StatusDot', () => {
   const component = renderer.create(
     <Provider>
-      <Table columns={ [] } items={ [] } />
+      <StatusDot type="error" />
     </Provider>
   )
   expect(component).toBeTruthy()
