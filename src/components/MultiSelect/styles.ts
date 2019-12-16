@@ -1,9 +1,4 @@
-import styled, { keyframes } from 'styled-components'
-
-const lazy = keyframes`
-  from { background-color: $color5; }
-  to { background-color: rgba(0, 0, 0, 0.02); }
-`
+import styled from 'styled-components'
 
 export default styled.article`
   font-family: ${ ({ theme }) => theme.fontFamily };
@@ -21,6 +16,7 @@ export default styled.article`
   padding: 0;
   margin: 0;
   background: ${ ({ theme }) => theme.colors.grey.light };
+  cursor: pointer;
 
   &.opened {
     border-bottom-color: ${ ({ theme }) => theme.colors.grey.medium };
@@ -38,11 +34,11 @@ export default styled.article`
 
   &.disabled {
     cursor: not-allowed;
+    pointer-events: none;
     background: ${ ({ theme }) => theme.colors.grey.medium };
 
     .selected {
       pointer-events: none;
-      animation: ${ lazy } 0.8s linear 0s infinite alternate;
       color: ${ ({ theme }) => theme.colors.grey.light };
 
       .label {
@@ -57,6 +53,10 @@ export default styled.article`
     border: 1px solid currentColor;
     background: white;
     box-sizing: border-box;
+
+    .down {
+      color: ${ ({ theme }) => theme.colors.system.error };
+    }
 
     > .selected:empty:before {
       color: ${ ({ theme }) => theme.colors.system.error };
