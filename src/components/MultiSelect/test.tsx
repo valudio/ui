@@ -28,7 +28,7 @@ describe('MultiSelect', () => {
   })
 
   it('options are shown after click on selected label', () => {
-    const selected = instance.findByType('article')
+    const selected = instance.findByType('div')
     act(() => {
       selected.props.onClick()
     })
