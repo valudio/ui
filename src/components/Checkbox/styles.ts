@@ -22,7 +22,6 @@ export default styled.div`
   }
 
   .icon {
-    color: $blue;
     cursor: pointer;
     display: block;
     width: 20px;
