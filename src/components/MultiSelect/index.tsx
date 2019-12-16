@@ -24,7 +24,7 @@ const MultiSelect: React.FC<IProps> = props => {
   if (isHidden) return null
 
   const handleOpen = () => {
-    if (!isOpen) setIsOpen(true)
+    setIsOpen(!isOpen)
   }
 
   const handleOptionClick = (option: IOption) => {
