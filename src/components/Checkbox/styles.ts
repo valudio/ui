@@ -37,20 +37,6 @@ export default styled.div`
     opacity: 0;
   }
 
-  .container {
-    position: relative;
-    height: 20px;
-    width: 20px;
-    background-color: ${ ({ theme }) => theme.colors.grey.dark };
-    border-radius: 2px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-  }
-
   &.checked {
     background-color: ${ ({ theme }) => theme.colors.primary.medium };
 
