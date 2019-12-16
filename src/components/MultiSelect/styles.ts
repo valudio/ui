@@ -6,6 +6,7 @@ const lazy = keyframes`
 `
 
 export default styled.article`
+  font-family: ${ ({ theme }) => theme.fontFamily };
   height: 40px;
   max-width: 400px;
   width: calc(100% - 2px);
@@ -25,6 +26,10 @@ export default styled.article`
     border-bottom-color: ${ ({ theme }) => theme.colors.grey.medium };
     box-shadow: 0 -2px 6px 0 ${ ({ theme }) => theme.colors.typography.medium }1F;
     background: white;
+
+    .down {
+      transform: rotate(180deg);
+    }
 
     .options {
       display: block;
@@ -69,15 +74,20 @@ export default styled.article`
     flex-shrink: 0;
     cursor: pointer;
     font-size: 14px;
-    height: 100%;
     padding: 0 16px;
     align-items: center;
     height: 26px;
     box-sizing: border-box;
     outline: 0;
-    width: 100%;
+    width: calc(100% - 40px);
+    height: 100%;
     white-space: nowrap;
     overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
 
     &:empty:before {
       content: attr(data-text);
@@ -97,6 +107,15 @@ export default styled.article`
     > * {
       pointer-events: none;
     }
+  }
+
+  .down {
+    position: absolute;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+    color: ${ ({ theme }) => theme.colors.typography.medium };
   }
 
   .options {

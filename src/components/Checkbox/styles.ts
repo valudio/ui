@@ -15,8 +15,8 @@ export default styled.div`
   &.disabled {
     pointer-events: none;
 
-    .check,
-    i {
+    .check__container,
+    .icon {
       cursor: not-allowed;
     }
   }
@@ -28,7 +28,7 @@ export default styled.div`
     display: block;
     width: 20px;
     height: 20px;
-    font-size: 16px;
+    font-size: 20px;
     margin: auto;
     top: 0;
     bottom: 0;
@@ -38,7 +38,7 @@ export default styled.div`
     opacity: 0;
   }
 
-  .check {
+  .check__container {
     position: relative;
     height: 20px;
     width: 20px;
@@ -57,12 +57,12 @@ export default styled.div`
       opacity: 1;
       color: white;
 
-      &:hover + .check {
+      &:hover + .check__container {
         background-color: ${ ({ theme }) => theme.colors.primary.dark };
       }
     }
 
-    .check {
+    .check__container {
       background-color: ${ ({ theme }) => theme.colors.primary.medium };
 
       &:hover {

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { IBaseProps, IOption } from '../../models'
+import Icon from '../Icon'
 import Label from '../Label'
 import Item from './Item'
 import Styled from './styles'
@@ -23,7 +24,7 @@ const MultiSelect: React.FC<IProps> = props => {
   if (isHidden) return null
 
   const handleOpen = () => {
-    setIsOpen(!isOpen)
+    if (!isOpen) setIsOpen(true)
   }
 
   const handleOptionClick = (option: IOption) => {
@@ -54,10 +55,11 @@ const MultiSelect: React.FC<IProps> = props => {
   })
 
   return (
-    <Styled className={ classNames }>
-      <div className="selected" ref={ divRef } data-text={ placeholder } onClick={ handleOpen }>
+    <Styled className={ classNames } onClick={ handleOpen }>
+      <div className="selected" ref={ divRef } data-text={ placeholder }>
         { selectedLabel }
       </div>
+      <Icon icon="down"/>
       <ul className="options">{ optionItems }</ul>
     </Styled>
   )
