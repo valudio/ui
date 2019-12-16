@@ -1,6 +1,6 @@
 {
   "name": "@valudio/ui",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "main": "dist/index.js",
   "license": "MIT",
   "private": false,
@@ -24,6 +24,7 @@
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-file-loader": "^2.0.0",
+    "copyfiles": "^2.1.1",
     "jest": "^24.9.0",
     "react-docgen-typescript-loader": "^3.3.0",
     "react-test-renderer": "^16.11.0",
@@ -37,7 +38,8 @@
     "deploy-storybook": "storybook-to-ghpages",
     "lint": "tslint -c tslint.json 'src/**/*.tsx'",
     "test": "jest",
-    "prepublishOnly": "tsc -p ./dist.tsconfig.json"
+    "copy:assets": "copyfiles -u 1 \"./src/assets/**/*\" \"./dist/\"",
+    "prepublishOnly": "tsc -p ./dist.tsconfig.json && npm run copy:assets"
   },
   "dependencies": {
     "react": "^16.11.0",
