@@ -57,8 +57,8 @@ const MultiSelect: React.FC<IProps> = props => {
   })
 
   return (
-    <Styled className={ classNames } onClick={ handleOpen }>
-      <div className="selected" ref={ divRef } data-text={ placeholder }>
+    <Styled className={ classNames }>
+      <div className="selected" ref={ divRef } data-text={ placeholder } onClick={ handleOpen }>
         { selectedLabel }
       </div>
       <Icon className="dropdown-icon" icon={ dropdownIcon }/>
