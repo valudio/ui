@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { IBaseProps } from '../../models'
+import Icon from '../Icon'
 import Styled from './styles'
 
 interface IProps extends IBaseProps {
@@ -21,8 +22,8 @@ const Checkbox: React.FC<IProps> = props => {
 
   return (
     <Styled className={ classNames } onClick={ handleClick }>
-      <i className="icon">✕</i>
-      <span className="check"/>
+      <Icon className="icon" icon="check"/>
+      <span className="container"/>
     </Styled>
   )
 }

@@ -1,25 +1,24 @@
-import styled, { keyframes } from 'styled-components'
-
-const lazy = keyframes`
-  from { background-color: $color5; }
-  to { background-color: rgba(0, 0, 0, 0.02); }
-`
+import styled from 'styled-components'
 
 export default styled.article`
+  font-family: ${ ({ theme }) => theme.fontFamily };
   height: 40px;
   max-width: 400px;
   width: calc(100% - 2px);
   position: relative;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   flex: auto 0 0;
   flex-shrink: 0;
   border-bottom: 1px solid;
   border-bottom-color: transparent;
   box-sizing: border-box;
-  align-items: center;
   padding: 0;
   margin: 0;
   background: ${ ({ theme }) => theme.colors.grey.light };
+  cursor: pointer;
 
   &.opened {
     border-bottom-color: ${ ({ theme }) => theme.colors.grey.medium };
@@ -33,11 +32,10 @@ export default styled.article`
 
   &.disabled {
     cursor: not-allowed;
+    pointer-events: none;
     background: ${ ({ theme }) => theme.colors.grey.medium };
 
     .selected {
-      pointer-events: none;
-      animation: ${ lazy } 0.8s linear 0s infinite alternate;
       color: ${ ({ theme }) => theme.colors.grey.light };
 
       .label {
@@ -53,13 +51,17 @@ export default styled.article`
     background: white;
     box-sizing: border-box;
 
+    .icon {
+      color: ${ ({ theme }) => theme.colors.system.error };
+    }
+
     > .selected:empty:before {
       color: ${ ({ theme }) => theme.colors.system.error };
     }
 
     .selected .label {
       color: ${ ({ theme }) => theme.colors.system.error };
-      background: ${ ({ theme }) => theme.colors.system.errorLight };
+      background: ${ ({ theme }) => theme.colors.system.error }35;
     }
   }
 
@@ -69,15 +71,20 @@ export default styled.article`
     flex-shrink: 0;
     cursor: pointer;
     font-size: 14px;
-    height: 100%;
     padding: 0 16px;
     align-items: center;
     height: 26px;
     box-sizing: border-box;
     outline: 0;
-    width: 100%;
+    height: 100%;
+    width: calc(100% - 40px);
     white-space: nowrap;
     overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
 
     &:empty:before {
       content: attr(data-text);
@@ -97,6 +104,18 @@ export default styled.article`
     > * {
       pointer-events: none;
     }
+  }
+
+  .icon {
+    margin-left: auto;
+    width: 40px;
+    height: 100%;
+    font-size: 24px;
+    color: ${ ({ theme }) => theme.colors.typography.medium };
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 
   .options {

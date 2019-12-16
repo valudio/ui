@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { IBaseProps, IOption } from '../../models'
+import Icon from '../Icon'
 import Label from '../Label'
 import Item from './Item'
 import Styled from './styles'
@@ -40,6 +41,8 @@ const MultiSelect: React.FC<IProps> = props => {
     if (isOpen && !!openRef && event.target !== openRef) setIsOpen(false)
   }
 
+  const icon = isOpen ? 'up' : 'down'
+
   const optionItems = isOpen && options.map((o, i) => (
     <Item
       key={ i }
@@ -58,6 +61,7 @@ const MultiSelect: React.FC<IProps> = props => {
       <div className="selected" ref={ divRef } data-text={ placeholder } onClick={ handleOpen }>
         { selectedLabel }
       </div>
+      <Icon className="icon" icon={ icon }/>
       <ul className="options">{ optionItems }</ul>
     </Styled>
   )
