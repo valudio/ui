@@ -17,6 +17,7 @@
     "@storybook/react": "^5.2.8",
     "@storybook/storybook-deployer": "^2.8.1",
     "@types/jest": "^24.0.23",
+    "@types/node": "^12.12.18",
     "@types/react-test-renderer": "^16.9.1",
     "@types/storybook__react": "^4.0.2",
     "@valudio/tslint-rules": "^0.0.8",
