@@ -51,7 +51,7 @@ export default styled.article`
     background: white;
     box-sizing: border-box;
 
-    .dropdown-icon {
+    .icon {
       color: ${ ({ theme }) => theme.colors.system.error };
     }
 
@@ -106,7 +106,7 @@ export default styled.article`
     }
   }
 
-  .dropdown-icon {
+  .icon {
     margin-left: auto;
     width: 40px;
     height: 100%;

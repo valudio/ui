@@ -41,7 +41,7 @@ const MultiSelect: React.FC<IProps> = props => {
     if (isOpen && !!openRef && event.target !== openRef) setIsOpen(false)
   }
 
-  const dropdownIcon = isOpen ? 'up' : 'down'
+  const icon = isOpen ? 'up' : 'down'
 
   const optionItems = isOpen && options.map((o, i) => (
     <Item
@@ -61,7 +61,7 @@ const MultiSelect: React.FC<IProps> = props => {
       <div className="selected" ref={ divRef } data-text={ placeholder } onClick={ handleOpen }>
         { selectedLabel }
       </div>
-      <Icon className="dropdown-icon" icon={ dropdownIcon }/>
+      <Icon className="icon" icon={ icon }/>
       <ul className="options">{ optionItems }</ul>
     </Styled>
   )
