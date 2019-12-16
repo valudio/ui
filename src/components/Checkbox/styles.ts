@@ -14,7 +14,6 @@ export default styled.div`
   background-color: ${ ({ theme }) => theme.colors.grey.dark };
   border-radius: 2px;
   box-sizing: border-box;
-  z-index: 1;
 
   &.disabled {
     cursor: not-allowed;
@@ -32,7 +31,6 @@ export default styled.div`
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 2;
     opacity: 0;
   }
 
@@ -45,7 +43,7 @@ export default styled.div`
 
     .icon {
       opacity: 1;
-      color: white;
+      color: ${ ({ theme }) => theme.colors.white };
     }
   }
 
