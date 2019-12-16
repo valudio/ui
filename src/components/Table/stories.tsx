@@ -35,3 +35,4 @@ const items = [
 storiesOf('Table', module)
   .addDecorator(decorator2)
   .add('default', () => <List columns={ tableColumnsMock } items={ items } />)
+  .add('empy', () => <List columns={ tableColumnsMock } items={ [] } fallbackMessage="This is a test fallback" />)
