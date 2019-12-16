@@ -23,10 +23,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: borales/actions-yarn@v2.0.0
+      - uses: borales/actions-yarn@v2.1.0
         with:
           cmd: install
-      - uses: borales/actions-yarn@v2.0.0
+      - uses: borales/actions-yarn@v2.1.0
         with:
           cmd: deploy-storybook --ci
         env:
