@@ -3,6 +3,7 @@ export interface ITableColumn {
   key: string
   size?: number
   sort?: 'DESC' | 'ASC' | 'INACTIVE'
+  onClick?: () => void
 }
 
 export const tableColumnsMock: ITableColumn[] = [
@@ -12,5 +13,5 @@ export const tableColumnsMock: ITableColumn[] = [
   { label: 'Exchanges', key: 'exchanges', size: 2 },
   { label: 'Date', key: 'date', sort: 'INACTIVE' },
   { label: 'Message type', key: 'messageType', sort: 'INACTIVE', size: 2 },
-  { label: 'Message type', key: 'status' }
+  { label: '', key: 'status', size: 0.2 }
 ]
