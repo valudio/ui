@@ -23,7 +23,7 @@ const Checkbox: React.FC<IProps> = props => {
   return (
     <Styled className={ classNames } onClick={ handleClick }>
       <Icon className="icon" icon="check"/>
-      <span className="check__container"/>
+      <span className="container"/>
     </Styled>
   )
 }

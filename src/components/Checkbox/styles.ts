@@ -13,12 +13,8 @@ export default styled.div`
   align-items: center;
 
   &.disabled {
+    cursor: not-allowed;
     pointer-events: none;
-
-    .check__container,
-    .icon {
-      cursor: not-allowed;
-    }
   }
 
   .icon {
@@ -38,7 +34,7 @@ export default styled.div`
     opacity: 0;
   }
 
-  .check__container {
+  .container {
     position: relative;
     height: 20px;
     width: 20px;
@@ -57,12 +53,12 @@ export default styled.div`
       opacity: 1;
       color: white;
 
-      &:hover + .check__container {
+      &:hover + .container {
         background-color: ${ ({ theme }) => theme.colors.primary.dark };
       }
     }
 
-    .check__container {
+    .container {
       background-color: ${ ({ theme }) => theme.colors.primary.medium };
 
       &:hover {

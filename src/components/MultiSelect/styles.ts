@@ -7,12 +7,14 @@ export default styled.article`
   width: calc(100% - 2px);
   position: relative;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   flex: auto 0 0;
   flex-shrink: 0;
   border-bottom: 1px solid;
   border-bottom-color: transparent;
   box-sizing: border-box;
-  align-items: center;
   padding: 0;
   margin: 0;
   background: ${ ({ theme }) => theme.colors.grey.light };
@@ -22,10 +24,6 @@ export default styled.article`
     border-bottom-color: ${ ({ theme }) => theme.colors.grey.medium };
     box-shadow: 0 -2px 6px 0 ${ ({ theme }) => theme.colors.typography.medium }1F;
     background: white;
-
-    .down {
-      transform: rotate(180deg);
-    }
 
     .options {
       display: block;
@@ -38,7 +36,6 @@ export default styled.article`
     background: ${ ({ theme }) => theme.colors.grey.medium };
 
     .selected {
-      pointer-events: none;
       color: ${ ({ theme }) => theme.colors.grey.light };
 
       .label {
@@ -54,7 +51,7 @@ export default styled.article`
     background: white;
     box-sizing: border-box;
 
-    .down {
+    .dropdown-icon {
       color: ${ ({ theme }) => theme.colors.system.error };
     }
 
@@ -64,7 +61,7 @@ export default styled.article`
 
     .selected .label {
       color: ${ ({ theme }) => theme.colors.system.error };
-      background: ${ ({ theme }) => theme.colors.system.errorLight };
+      background: ${ ({ theme }) => theme.colors.system.error }35;
     }
   }
 
@@ -79,8 +76,8 @@ export default styled.article`
     height: 26px;
     box-sizing: border-box;
     outline: 0;
-    width: calc(100% - 40px);
     height: 100%;
+    width: calc(100% - 40px);
     white-space: nowrap;
     overflow-x: auto;
     overflow-y: hidden;
@@ -109,13 +106,16 @@ export default styled.article`
     }
   }
 
-  .down {
-    position: absolute;
-    right: 8px;
-    width: 24px;
-    height: 24px;
+  .dropdown-icon {
+    margin-left: auto;
+    width: 40px;
+    height: 100%;
     font-size: 24px;
     color: ${ ({ theme }) => theme.colors.typography.medium };
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 
   .options {
