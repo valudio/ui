@@ -26,6 +26,15 @@ storiesOf('Icon', module)
       <Icon icon="right" />
       <Icon icon="search" />
       <Icon icon="sent" />
-      <Icon icon="up" />
+      <Icon icon="pdf" />
+      <Icon icon="img" />
+      <Icon icon="edi" />
+      <Icon icon="baan" />
+      <Icon icon="xml" />
+      <Icon icon="sap" />
+      <Icon icon="excel" />
+      <Icon icon="html" />
+      <Icon icon="ifs" />
+      <Icon icon="txt" />
     </>
   ))

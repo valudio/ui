@@ -17,4 +17,14 @@ export type IconName =
   'info' |
   'language' |
   'left' |
-  'ok'
+  'ok' |
+  'pdf' |
+  'img' |
+  'baan' |
+  'xml' |
+  'sap' |
+  'excel' |
+  'html' |
+  'ifs' |
+  'txt' |
+  'edi'
