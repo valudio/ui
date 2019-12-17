@@ -15,4 +15,12 @@ export default styled.article`
     display: flex;
     flex-direction: column;
   }
+
+  .fallback-message {
+    font-family: ${ ({ theme }) => theme.fontFamily };
+    color: ${ ({ theme }) => theme.colors.typography.medium };
+    font-size: 14px;
+    text-align: center;
+    padding: 40px 0 20px;
+  }
 `

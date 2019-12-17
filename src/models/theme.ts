@@ -1,5 +1,4 @@
 export interface ITheme {
-  borderRadius: string
   fontFamily: string
   colors: {
     primary: {

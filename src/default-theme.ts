@@ -1,7 +1,6 @@
 import { ITheme } from './models'
 
 const defaultTheme: ITheme = {
-  borderRadius: '20px',
   fontFamily: 'Fira Sans',
   colors: {
     primary: {
