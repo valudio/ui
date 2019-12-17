@@ -106,7 +106,7 @@ export default styled.article`
     }
   }
 
-  .icon {
+  .icon:not(.check) {
     margin-left: auto;
     width: 40px;
     height: 100%;
