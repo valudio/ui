@@ -1,5 +1,6 @@
 import Button from './components/Button'
 import Checkbox from './components/Checkbox'
+import File from './components/File'
 import Icon from './components/Icon'
 import Input from './components/Input'
 import Label from './components/Label'
@@ -15,6 +16,7 @@ export {
   defaultTheme,
   Button,
   Checkbox,
+  File,
   Icon,
   Input,
   Label,
