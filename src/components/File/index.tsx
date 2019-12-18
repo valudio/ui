@@ -1,19 +1,20 @@
 import React, { ReactNode } from 'react'
-import { FileType, IBaseProps, Transference } from '../../models'
+import { FileType, IBaseProps } from '../../models'
 import Icon from '../Icon'
 import Styled from './styles'
 
 interface IProps extends IBaseProps {
   type: FileType
   name: string
-  transference?: Transference
+  isUserOwner?: boolean
 }
 
 const File: React.FC<IProps> = props => {
-  const { name, isHidden, className, type, transference } = props
+  const { name, isHidden, className, type, isUserOwner } = props
+
   const transferenceIcon = (): ReactNode => {
-    if (!transference) return null
-    if (transference === 'outbound') return <Icon className="transference" icon="sent" />
+    if (isUserOwner === undefined) return null
+    if (isUserOwner) return <Icon className="transference" icon="sent" />
     else return <Icon className="transference" icon="received" />
   }
 

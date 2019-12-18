@@ -13,8 +13,8 @@ const items = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in viverra neque, eleifend tempus mauris. Aliquam vel porttitor eros a egestas purus. Etiam et hendrerit ut vulputate justo a sed.',
     exchanges: (
       <>
-        <File name="FRSO_ADV16_..." type="txt" className="file-margin" transference="outbound" />
-        <File name="FRSO_ADV16" type="pdf" transference="inbound" />
+        <File name="FRSO_ADV16_..." type="txt" className="file-margin" isUserOwner={ true } />
+        <File name="FRSO_ADV16" type="pdf" isUserOwner={ true } />
       </>
     ),
     date: '10/09/2019 11:02 AM',
@@ -25,7 +25,7 @@ const items = [
     archived: null,
     partnerName: 'Lorem ipsum dolor sit amet.',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in viverra neque, eleifend tempus mauris. Aliquam vel porttitor eros a egestas purus. Etiam et hendrerit ut vulputate justo a sed.',
-    exchanges: <File name="FRSO_ADV16" type="pdf" transference="outbound" />,
+    exchanges: <File name="FRSO_ADV16" type="pdf" isUserOwner={ false } />,
     date: '10/09/2019 11:02 AM',
     messageType: 'Order',
     status: <StatusDot type="error" />

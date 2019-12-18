@@ -15,6 +15,7 @@ storiesOf('Icon', module)
       <Icon icon="close" />
       <Icon icon="dashboard" />
       <Icon icon="down" />
+      <Icon icon="up" />
       <Icon icon="download" />
       <Icon icon="filter" />
       <Icon icon="info" />
