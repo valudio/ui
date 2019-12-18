@@ -11,3 +11,7 @@
   margin-left: 5px;
   color: #687494;
 }
+
+.cell .file-container:last-of-type {
+  margin-bottom: 0;
+}
