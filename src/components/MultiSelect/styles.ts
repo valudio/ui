@@ -1,33 +1,41 @@
 import styled from 'styled-components'
 
-export default styled.article`
-  font-family: ${ ({ theme }) => theme.fontFamily };
-  height: 40px;
-  max-width: 400px;
-  width: calc(100% - 2px);
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  flex: auto 0 0;
-  flex-shrink: 0;
-  border-bottom: 1px solid;
-  border-bottom-color: transparent;
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  background: ${ ({ theme }) => theme.colors.grey.light };
-  cursor: pointer;
+const height = 40
 
-  &.opened {
+export default styled.article`
+  display: flex;
+  flex: 0 0 auto;
+  width: 272px;
+  position: relative;
+  height: ${ height }px;
+  background: ${ ({ theme }) => theme.colors.grey.light };
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px 0 12px;
+
+  .values {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0 8px 0 0;
+
+    .placeholder {
+      color: ${ ({ theme }) => theme.colors.typography.light };
+      font-family: ${ ({ theme }) => theme.fontFamily };
+      user-select: none;
+    }
+
+    .value {
+      margin: 0 8px 0 0;
+    }
+  }
+
+  /* &.opened {
     border-bottom-color: ${ ({ theme }) => theme.colors.grey.medium };
     box-shadow: 0 -2px 6px 0 ${ ({ theme }) => theme.colors.typography.medium }1F;
     background: white;
-
-    .options {
-      display: block;
-    }
   }
 
   &.disabled {
@@ -35,7 +43,7 @@ export default styled.article`
     pointer-events: none;
     background: ${ ({ theme }) => theme.colors.grey.medium };
 
-    .selected {
+    .values {
       color: ${ ({ theme }) => theme.colors.grey.light };
 
       .label {
@@ -55,17 +63,17 @@ export default styled.article`
       color: ${ ({ theme }) => theme.colors.system.error };
     }
 
-    > .selected:empty:before {
+    > .values:empty:before {
       color: ${ ({ theme }) => theme.colors.system.error };
     }
 
-    .selected .label {
+    .values .label {
       color: ${ ({ theme }) => theme.colors.system.error };
       background: ${ ({ theme }) => theme.colors.system.error }35;
     }
   }
 
-  > .selected {
+  .values {
     position: relative;
     display: flex;
     flex-shrink: 0;
@@ -86,9 +94,10 @@ export default styled.article`
     justify-content: flex-start;
     align-items: center;
 
-    &:empty:before {
+    &:empty::before {
       content: attr(data-text);
       color: ${ ({ theme }) => theme.colors.typography.light };
+      font-family: ${ ({ theme }) => theme.fontFamily };
     }
 
     .label {
@@ -119,19 +128,21 @@ export default styled.article`
   }
 
   .options {
-    display: none;
+    display: flex;
     position: absolute;
+    flex-direction: column;
     width: 100%;
-    top: 40px;
+    top: ${ height + 9 }px;
     left: 0;
     padding: 0;
     margin: 0;
     background: white;
-    box-shadow: 0 2px 6px 0 ${ ({ theme }) => theme.colors.typography.medium }1F;
+    box-shadow: 0 2px 6px 0 ${ ({ theme }) => theme.colors.typography.medium }35;
     z-index: 100;
     width: 100%;
     max-height: 50vh;
     overflow-y: auto;
+    border-radius: 2;
 
     .option {
       display: flex;
@@ -147,7 +158,7 @@ export default styled.article`
         color: ${ ({ theme }) => theme.colors.typography.dark };
       }
 
-      &.selected {
+      &.values {
         background: ${ ({ theme }) => theme.colors.grey.light };
         color: ${ ({ theme }) => theme.colors.typography.dark };
       }
@@ -161,5 +172,5 @@ export default styled.article`
         cursor: pointer;
       }
     }
-  }
+  } */
 `

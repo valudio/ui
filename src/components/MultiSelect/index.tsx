@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { IBaseProps, IOption } from '../../models'
 import Icon from '../Icon'
 import Label from '../Label'
-import Item from './Item'
+import Dropdown from './Dropdown'
 import Styled from './styles'
 
 interface IProps extends IBaseProps {
@@ -13,21 +13,17 @@ interface IProps extends IBaseProps {
   isInvalid?: boolean
 }
 
-const MultiSelect: React.FC<IProps> = props => {
-  const { labelProp, options, onChange, placeholder, isInvalid, isHidden } = props
+const MultiSelect: React.FC<IProps> = ({ className, labelProp, options, onChange, placeholder, isHidden, style }) => {
   const [ selected, setSelected ] = useState<IOption[]>([])
   const [ isOpen, setIsOpen ] = useState(false)
-  const divRef = useRef(null)
-  const classNames =  `${ isOpen ? 'opened' : '' } ${ !options || !options.length ? 'disabled' : '' } ${ isInvalid ? 'invalid' : '' }`
-  const selectedLabel = selected.map((s, i) => <Label type="primary" key={ i }>{ s[labelProp] }</Label>)
 
   if (isHidden) return null
 
-  const handleOpen = () => {
-    setIsOpen(!isOpen)
-  }
+  const values = !!selected.length
+    ? selected.map((s, i) => <Label type="primary" className="value" key={ i }>{ s[labelProp] }</Label>)
+    : <span className="placeholder">{ placeholder }</span>
 
-  const handleOptionClick = (option: IOption) => {
+  const handleClick = (option: IOption) => {
     const selectedOptions = !!selected.find(s => s.id === option.id)
       ? selected.filter(s => s.id !== option.id)
       : [ ...selected, option ]
@@ -36,33 +32,22 @@ const MultiSelect: React.FC<IProps> = props => {
     onChange(selectedOptions)
   }
 
-  const handleDocumentClick = (event: MouseEvent) => {
-    const openRef = divRef.current
-    if (isOpen && !!openRef && event.target !== openRef) setIsOpen(false)
+  const handleBulkSelect = () => {
+    selected.length === options.length ? setSelected([]) : setSelected(options)
   }
 
-  const icon = isOpen ? 'up' : 'down'
-
-  const optionItems = isOpen && options.map((o, i) => (
-    <Item
-      key={ i }
-      label={ o[labelProp] }
-      isSelected={ !!selected.find(s => s.id === o.id) }
-      onClick={ handleOptionClick.bind(this, o) }
-    />
-  ))
-
-  useEffect(() => {
-    document.addEventListener('click', handleDocumentClick)
-  })
-
   return (
-    <Styled className={ classNames }>
-      <div className="selected" ref={ divRef } data-text={ placeholder } onClick={ handleOpen }>
-        { selectedLabel }
-      </div>
-      <Icon className="icon" icon={ icon }/>
-      <ul className="options">{ optionItems }</ul>
+    <Styled className={ className } style={ style }>
+      <div className="values" onClick={ setIsOpen.bind(undefined, !isOpen) }>{ values }</div>
+      <Icon className="icon" icon={ isOpen ? 'up' : 'down' }/>
+      <Dropdown
+        isHidden={ !isOpen }
+        options={ options }
+        labelProp={ labelProp }
+        selected={ selected }
+        onClick={ handleClick }
+        onBulkSelect={ handleBulkSelect }
+      />
     </Styled>
   )
 }

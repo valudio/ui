@@ -3,7 +3,7 @@
     "outDir": "dist",
     "module": "commonjs",
     "target": "es5",
-    "lib": ["es6", "dom"],
+    "lib": [ "es6", "dom" ],
     "sourceMap": true,
     "allowJs": false,
     "jsx": "react",
@@ -12,7 +12,8 @@
     "baseUrl": "src",
     "strictNullChecks": true,
     "esModuleInterop": true,
-    "declaration": true
+    "declaration": true,
+    "typeRoots": [ "src/typings.d.ts" ]
   },
   "include": [
     "src/**/*"
