@@ -3,6 +3,7 @@ import React from 'react'
 import { decorator2 } from '../../helpers/storybook'
 import { tableColumnsMock } from '../../models'
 import File from '../File'
+import Icon from '../Icon'
 import StatusDot from '../StatusDot'
 import List from './'
 
@@ -13,8 +14,14 @@ const items = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in viverra neque, eleifend tempus mauris. Aliquam vel porttitor eros a egestas purus. Etiam et hendrerit ut vulputate justo a sed.',
     exchanges: (
       <>
-        <File name="FRSO_ADV16_..." type="doc" className="file-margin" />
-        <File name="FRSO_ADV16" type="pdf" />
+        <div className="file-container">
+          <File name="FRSO_ADV16_..." type="txt" />
+          <Icon icon="sent" className="io-icon" />
+        </div>
+        <div className="file-container">
+          <File name="FRSO_ADV16" type="pdf" />
+          <Icon icon="received" className="io-icon" />
+        </div>
       </>
     ),
     date: '10/09/2019 11:02 AM',
@@ -25,7 +32,12 @@ const items = [
     archived: null,
     partnerName: 'Lorem ipsum dolor sit amet.',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in viverra neque, eleifend tempus mauris. Aliquam vel porttitor eros a egestas purus. Etiam et hendrerit ut vulputate justo a sed.',
-    exchanges: <File name="FRSO_ADV16" type="pdf" />,
+    exchanges: (
+      <div className="file-container">
+        <File name="FRSO_ADV16" type="pdf" />
+        <Icon icon="sent" className="io-icon" />
+      </div>
+    ),
     date: '10/09/2019 11:02 AM',
     messageType: 'Order',
     status: <StatusDot type="error" />
@@ -35,4 +47,4 @@ const items = [
 storiesOf('Table', module)
   .addDecorator(decorator2)
   .add('default', () => <List columns={ tableColumnsMock } items={ items } />)
-  .add('empy', () => <List columns={ tableColumnsMock } items={ [] } fallbackMessage="This is a test fallback" />)
+  .add('empty', () => <List columns={ tableColumnsMock } items={ [] } fallbackMessage="This is a test fallback" />)
