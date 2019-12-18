@@ -1,1 +1,11 @@
-export type FileType = 'pdf' | 'doc' | 'image' | 'xml' | 'xls' | 'html'
+export type FileType =
+  'pdf' |
+  'txt' |
+  'img' |
+  'xml' |
+  'html' |
+  'baan' |
+  'sap' |
+  'edi' |
+  'ifs' |
+  'excel'

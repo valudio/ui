@@ -39,6 +39,7 @@ export default styled.i`
   &.close::before {
     content: '\\e008';
   }
+
   &.sent::before {
     content: '\\e009';
   }
@@ -77,5 +78,55 @@ export default styled.i`
 
   &.ok::before {
     content: '\\e012';
+  }
+
+  &.pdf::before {
+    content: "\\e013";
+    color: #D94F3E;
+  }
+
+  &.img::before {
+    content: "\\e014";
+    color: #C9353E;
+  }
+
+  &.baan::before {
+    content: "\\e015";
+    color: #449F7F;
+  }
+
+  &.xml::before {
+    content: "\\e016";
+    color: #E8A500;
+  }
+
+  &.sap::before {
+    content: "\\e017";
+    color: #4759C8;
+  }
+
+  &.excel::before {
+    content: "\\e018";
+    color: #50A341;
+  }
+
+  &.html::before {
+    content: "\\e019";
+    color: #E7782D;
+  }
+
+  &.ifs::before {
+    content: "\\e01a";
+    color: #449F7F;
+  }
+
+  &.txt::before {
+    content: "\\e01b";
+    color: #6575FF;
+  }
+
+  &.edi::before {
+    content: "\\e01c";
+    color: #473CB9;
   }
 `
