@@ -1,3 +1,13 @@
-.file-margin {
-  margin: 0 0 8px;
+.cell .file-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.cell .file-container > i {
+  font-size: 24px;
+  margin-left: 5px;
+  color: #687494;
 }

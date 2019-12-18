@@ -6,5 +6,5 @@ import { decorator } from '../../helpers/storybook'
 storiesOf('File', module)
   .addDecorator(decorator)
   .add('default', () => <File name="FRSO_ADV16_12345333123412" type="txt" />)
-  .add('inbound', () => <File name="FRSO_ADV16_12345333123412" type="excel" isUserOwner={ true } />)
-  .add('outbound', () => <File name="FRSO_ADV16_12345333123412" type="pdf" isUserOwner={ false } />)
+  .add('excel', () => <File name="FRSO_ADV16_12345333123412" type="excel" />)
+  .add('pdf', () => <File name="FRSO_ADV16_12345333123412" type="pdf" />)
