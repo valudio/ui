@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 import { FileType, IBaseProps } from '../../models'
 import Icon from '../Icon'
 import Styled from './styles'
