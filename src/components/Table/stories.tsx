@@ -16,11 +16,11 @@ const items = [
       <>
         <div className="file-container">
           <File name="FRSO_ADV16_..." type="txt" />
-          <Icon icon="sent" />
+          <Icon icon="sent" className="io-icon" />
         </div>
         <div className="file-container">
           <File name="FRSO_ADV16" type="pdf" />
-          <Icon icon="received" />
+          <Icon icon="received" className="io-icon" />
         </div>
       </>
     ),
@@ -35,7 +35,7 @@ const items = [
     exchanges: (
       <div className="file-container">
         <File name="FRSO_ADV16" type="pdf" />
-        <Icon icon="sent" />
+        <Icon icon="sent" className="io-icon" />
       </div>
     ),
     date: '10/09/2019 11:02 AM',

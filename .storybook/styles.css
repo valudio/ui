@@ -6,7 +6,7 @@
   margin-bottom: 8px;
 }
 
-.cell .file-container > i {
+.cell .file-container > .io-icon {
   font-size: 24px;
   margin-left: 5px;
   color: #687494;
