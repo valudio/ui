@@ -1,8 +1,8 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import MultiSelect from '.'
 import { decorator } from '../../helpers/storybook'
 import { optionsMock } from '../../models'
+import MultiSelect from './'
 
 // tslint:disable: max-line-length
 // tslint:disable: no-console

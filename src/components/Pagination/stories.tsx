@@ -1,10 +1,8 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { decorator } from '../../helpers/storybook'
-import Spinner from './'
+import Pagination from './'
 
-// tslint:disable: max-line-length
-
-storiesOf('Spinner', module)
+storiesOf('Pagination', module)
   .addDecorator(decorator)
-  .add('default', () => <Spinner />)
+  .add('default', () => <Pagination />)
