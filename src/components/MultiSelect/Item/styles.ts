@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export default styled.li`
   display: flex;
+  flex-shrink: 0;
   height: 40px;
   padding: 0 0 0 8px;
   align-items: center;
@@ -22,5 +23,10 @@ export default styled.li`
     font-size: 14px;
     font-family: ${ ({ theme }) => theme.fontFamily };
     pointer-events: none;
+  }
+
+  &:hover {
+    color: ${ ({ theme }) => theme.colors.typography.dark };
+    background: ${ ({ theme }) => theme.colors.grey.medium };
   }
 `

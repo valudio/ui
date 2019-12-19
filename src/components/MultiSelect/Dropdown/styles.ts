@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export default styled.div`
+export default styled.section`
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -47,5 +47,7 @@ export default styled.div`
     list-style: none;
     padding: 0;
     margin: 0;
+    max-height: 240px;
+    overflow: scroll;
   }
 `

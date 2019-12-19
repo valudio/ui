@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { isChildNode } from '../../helpers/dom'
 import { IBaseProps, IOption } from '../../models'
 import Icon from '../Icon'
 import Label from '../Label'
@@ -16,6 +17,7 @@ interface IProps extends IBaseProps {
 const MultiSelect: React.FC<IProps> = ({ className, labelProp, options, onChange, placeholder, isHidden, style }) => {
   const [ selected, setSelected ] = useState<IOption[]>([])
   const [ isOpen, setIsOpen ] = useState(false)
+  const ref = useRef()
 
   if (isHidden) return null
 
@@ -32,14 +34,25 @@ const MultiSelect: React.FC<IProps> = ({ className, labelProp, options, onChange
     onChange(selectedOptions)
   }
 
-  const handleBulkSelect = () => {
-    selected.length === options.length ? setSelected([]) : setSelected(options)
+  const handleBulkSelect = (filtered?: IOption[]) => {
+    if (selected.length > 0) setSelected([])
+    else setSelected(filtered || options)
   }
 
+  const handleDocumentClick = (event: MouseEvent) => {
+    if (isOpen && !isChildNode(ref.current, event.target)) setIsOpen(false)
+  }
+
+  useEffect(() => {
+    document.addEventListener('click', handleDocumentClick)
+  })
+
   return (
-    <Styled className={ className } style={ style }>
-      <div className="values" onClick={ setIsOpen.bind(undefined, !isOpen) }>{ values }</div>
-      <Icon className="icon" icon={ isOpen ? 'up' : 'down' }/>
+    <Styled className={ `${ className } ${ isOpen ? 'open' : '' }` } style={ style } ref={ ref }>
+      <section className="wrapper" onClick={ setIsOpen.bind(undefined, !isOpen) }>
+        <div className="values">{ values }</div>
+        <Icon className="icon" icon={ isOpen ? 'up' : 'down' }/>
+      </section>
       <Dropdown
         isHidden={ !isOpen }
         options={ options }
