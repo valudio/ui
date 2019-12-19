@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import Label from '.'
 import { decorator } from '../../helpers/storybook'
+import Label from './'
 
 storiesOf('Label', module)
   .addDecorator(decorator)

@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import File from '.'
 import { decorator } from '../../helpers/storybook'
+import File from './'
 
 storiesOf('File', module)
   .addDecorator(decorator)
