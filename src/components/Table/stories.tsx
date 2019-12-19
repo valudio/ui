@@ -14,13 +14,13 @@ const items = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in viverra neque, eleifend tempus mauris. Aliquam vel porttitor eros a egestas purus. Etiam et hendrerit ut vulputate justo a sed.',
     exchanges: (
       <>
-        <div className="file-container">
+        <div className="file-container" style={ { marginBottom: 8 } }>
           <File name="FRSO_ADV16_..." type="txt" />
-          <Icon icon="sent" className="io-icon" />
+          <Icon icon="sent" className="icon" />
         </div>
         <div className="file-container">
           <File name="FRSO_ADV16" type="pdf" />
-          <Icon icon="received" className="io-icon" />
+          <Icon icon="received" className="icon" />
         </div>
       </>
     ),
@@ -35,7 +35,7 @@ const items = [
     exchanges: (
       <div className="file-container">
         <File name="FRSO_ADV16" type="pdf" />
-        <Icon icon="sent" className="io-icon" />
+        <Icon icon="sent" className="icon" />
       </div>
     ),
     date: '10/09/2019 11:02 AM',

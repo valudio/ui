@@ -10,10 +10,12 @@ interface IProps extends IBaseProps {
 }
 
 const Checkbox: React.FC<IProps> = props => {
-  const { onChange, isHidden, isChecked = false, isDisabled } = props
+  const { onChange, isHidden, isChecked = false, isDisabled, style } = props
   const [ checked, setChecked ] = useState(isChecked)
   const classNames = `checkbox ${ checked ? 'checked' : '' } ${ isDisabled ? 'disabled' : '' }`
   if (isHidden) return null
+
+  if (isChecked !== checked) setChecked(isChecked)
 
   const handleClick = () => {
     setChecked(!checked)
@@ -21,7 +23,7 @@ const Checkbox: React.FC<IProps> = props => {
   }
 
   return (
-    <Styled className={ classNames } onClick={ handleClick }>
+    <Styled className={ classNames } onClick={ handleClick } style={ style }>
       <Icon className="icon" icon="check"/>
     </Styled>
   )

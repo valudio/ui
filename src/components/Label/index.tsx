@@ -7,11 +7,11 @@ interface IProps extends IBaseProps {
 }
 
 const Label: React.FC<IProps> = props => {
-  const { children, isHidden, type } = props
+  const { children, isHidden, className, type, style } = props
 
   if (isHidden) return null
 
-  return <Styled className={ `label ${ type }` }>{ children }</Styled>
+  return <Styled className={ `${ className } ${ type }` } style={ style }>{ children }</Styled>
 }
 
 export default Label

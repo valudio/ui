@@ -29,6 +29,14 @@ const Component: React.FC<IProps> = ({ isHidden }) => {
 ```JSX
 const Component: React.FC<IProps> = ({ className }) => {
   ...
-  return <Styled className={ className }>...</Styled>
+  return <Styled { ...props } className={ className }>...</Styled>
+}
+```
+
+`style` prop should be used like:
+```JSX
+const Component: React.FC<IProps> = ({ className }) => {
+  ...
+  return <Styled { ...props } style={ style }>...</Styled>
 }
 ```
