@@ -129,4 +129,12 @@ export default styled.i`
     content: "\\e01c";
     color: #473CB9;
   }
+
+  &.hide:before {
+    content: "\\e01d";
+  }
+
+  &.eye:before {
+    content: "\\e01e";
+  }
 `

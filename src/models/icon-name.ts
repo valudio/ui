@@ -27,4 +27,6 @@ export type IconName =
   'html' |
   'ifs' |
   'txt' |
-  'edi'
+  'edi' |
+  'eye' |
+  'hide'
