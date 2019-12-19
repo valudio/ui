@@ -27,6 +27,8 @@ storiesOf('Icon', module)
       <Icon icon="search" />
       <Icon icon="sent" />
       <Icon icon="up" />
+      <Icon icon="eye" />
+      <Icon icon="hide" />
       <Icon icon="pdf" />
       <Icon icon="img" />
       <Icon icon="edi" />
