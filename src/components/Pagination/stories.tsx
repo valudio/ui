@@ -1,8 +1,8 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { decorator } from '../../helpers/storybook'
+import { decorator2 } from '../../helpers/storybook'
 import Pagination from './'
 
 storiesOf('Pagination', module)
-  .addDecorator(decorator)
-  .add('default', () => <Pagination />)
+  .addDecorator(decorator2)
+  .add('default', () => <Pagination currentPage={ 13 } totalPages={ 20 } onClick={ alert } />)

@@ -6,7 +6,7 @@ import Pagination from './'
 test('Pagination', () => {
   const component = renderer.create(
     <Provider>
-      <Pagination />
+      <Pagination totalPages={ 24 } currentPage={ 13 } onClick={ alert } />
     </Provider>
   )
   expect(component).toBeTruthy()
