@@ -11,12 +11,20 @@ interface IProps extends IBaseProps {
   options: IOption[]
   onChange: (selected: IOption[]) => void
   placeholder?: string
+  isDisabled?: boolean
   isInvalid?: boolean
 }
 
-const MultiSelect: React.FC<IProps> = ({ className, labelProp, options, onChange, placeholder, isHidden, style }) => {
+const MultiSelect: React.FC<IProps> = props => {
+  const { className, labelProp, options, onChange, placeholder, isHidden, style, isInvalid, isDisabled } = props
   const [ selected, setSelected ] = useState<IOption[]>([])
   const [ isOpen, setIsOpen ] = useState(false)
+  const classNames = `
+    ${ className || '' }
+    ${ isOpen ? 'open' : '' }
+    ${ isInvalid ? 'invalid' : '' }
+    ${ isDisabled ? 'disabled' : '' }
+  `
   const ref = useRef()
 
   if (isHidden) return null
@@ -48,13 +56,13 @@ const MultiSelect: React.FC<IProps> = ({ className, labelProp, options, onChange
   })
 
   return (
-    <Styled className={ `${ className } ${ isOpen ? 'open' : '' }` } style={ style } ref={ ref }>
-      <section className="wrapper" onClick={ setIsOpen.bind(undefined, !isOpen) }>
+    <Styled className={ classNames } style={ style } ref={ ref }>
+      <section className="wrapper" onClick={ setIsOpen.bind(undefined, !isDisabled && !isOpen) }>
         <div className="values">{ values }</div>
-        <Icon className="icon" icon={ isOpen ? 'up' : 'down' }/>
+        <Icon className="icon" icon={ isOpen && !isDisabled ? 'up' : 'down' }/>
       </section>
       <Dropdown
-        isHidden={ !isOpen }
+        isHidden={ !isOpen || isDisabled }
         options={ options }
         labelProp={ labelProp }
         selected={ selected }

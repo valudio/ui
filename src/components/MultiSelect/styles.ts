@@ -11,9 +11,25 @@ export default styled.article`
   background: ${ ({ theme }) => theme.colors.grey.light };
   padding: 0 8px 0 12px;
   border-radius: 2px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
 
   &.open {
     border: 1.5px solid ${ ({ theme }) => theme.colors.primary.medium };
+  }
+
+  &.invalid {
+    border: 1.5px solid ${ ({ theme }) => theme.colors.system.error };
+
+    .value {
+      background: ${ ({ theme }) => theme.colors.system.error }35;
+      color: ${ ({ theme }) => theme.colors.system.error };
+    }
+  }
+
+  &.disabled {
+    background: ${ ({ theme }) => theme.colors.grey.medium };
+    cursor: not-allowed;
   }
 
   .wrapper {
@@ -22,7 +38,6 @@ export default styled.article`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    cursor: pointer;
     white-space: nowrap;
     overflow: hidden;
 
