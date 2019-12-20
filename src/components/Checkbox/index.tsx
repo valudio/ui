@@ -5,25 +5,24 @@ import Styled from './styles'
 
 interface IProps extends IBaseProps {
   onChange?: (value: boolean) => void
-  isChecked?: boolean
+  defaultValue?: boolean
   isDisabled?: boolean
 }
 
-const Checkbox: React.FC<IProps> = props => {
-  const { onChange, isHidden, isChecked = false, isDisabled, style } = props
-  const [ checked, setChecked ] = useState(isChecked)
-  const classNames = `checkbox ${ checked ? 'checked' : '' } ${ isDisabled ? 'disabled' : '' }`
+const Checkbox: React.FC<IProps> = ({ onChange, isHidden, defaultValue, isDisabled, style }) => {
+  const [ isChecked, setIsChecked ] = useState(!!defaultValue)
+  const classNames = `checkbox ${ isChecked ? 'checked' : '' } ${ isDisabled ? 'disabled' : '' }`
   if (isHidden) return null
 
-  if (isChecked !== checked) setChecked(isChecked)
-
-  const handleClick = () => {
-    setChecked(!checked)
-    if (onChange) onChange(!checked)
+  const handleChange = () => {
+    if (isDisabled || !onChange) return
+    const nextIsChecked = !isChecked
+    setIsChecked(nextIsChecked)
+    onChange(nextIsChecked)
   }
 
   return (
-    <Styled className={ classNames } onClick={ handleClick } style={ style }>
+    <Styled className={ classNames } onClick={ handleChange } style={ style }>
       <Icon className="icon" icon="check"/>
     </Styled>
   )
