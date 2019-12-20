@@ -19,11 +19,12 @@ const MultiSelect: React.FC<IProps> = props => {
   const { className, labelProp, options, onChange, placeholder, isHidden, style, isInvalid, isDisabled } = props
   const [ selected, setSelected ] = useState<IOption[]>([])
   const [ isOpen, setIsOpen ] = useState(false)
+  const isDisabledOrEmpty = isDisabled || !options || !!options && !options.length
   const classNames = `
     ${ className || '' }
     ${ isOpen ? 'open' : '' }
     ${ isInvalid ? 'invalid' : '' }
-    ${ isDisabled ? 'disabled' : '' }
+    ${ isDisabledOrEmpty ? 'disabled' : '' }
   `
   const ref = useRef()
 
@@ -59,12 +60,12 @@ const MultiSelect: React.FC<IProps> = props => {
 
   return (
     <Styled className={ classNames } style={ style } ref={ ref }>
-      <section className="wrapper" onClick={ setIsOpen.bind(undefined, !isDisabled && !isOpen) }>
+      <section className="wrapper" onClick={ setIsOpen.bind(undefined, !isDisabledOrEmpty && !isOpen) }>
         <div className="values">{ values }</div>
-        <Icon className="icon" icon={ isOpen && !isDisabled ? 'up' : 'down' }/>
+        <Icon className="icon" icon={ isOpen && !isDisabledOrEmpty ? 'up' : 'down' }/>
       </section>
       <Dropdown
-        isHidden={ !isOpen || isDisabled }
+        isHidden={ !isOpen || isDisabledOrEmpty }
         options={ options }
         labelProp={ labelProp }
         selected={ selected }
