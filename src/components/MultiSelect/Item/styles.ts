@@ -23,6 +23,8 @@ export default styled.li`
     font-size: 14px;
     font-family: ${ ({ theme }) => theme.fontFamily };
     pointer-events: none;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   &:hover {

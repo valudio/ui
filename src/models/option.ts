@@ -10,5 +10,6 @@ export const optionsMock: IOption[] = [
   { id: '4', value: 'Option 4 aa' },
   { id: '5', value: 'Option 5 bb' },
   { id: '6', value: 'Option 6 cc' },
-  { id: '7', value: 'Option 7 dd' }
+  { id: '7', value: 'Option 7 dd' },
+  { id: '8', value: 'Looooooooooooooooooooooooooooooooooooong' }
 ]

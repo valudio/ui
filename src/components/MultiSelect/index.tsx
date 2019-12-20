@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { isChildNode } from '../../helpers/dom'
 import { IBaseProps, IOption } from '../../models'
+import Bubble from '../Bubble'
 import Icon from '../Icon'
-import Label from '../Label'
 import Dropdown from './Dropdown'
 import Styled from './styles'
 
@@ -30,7 +30,7 @@ const MultiSelect: React.FC<IProps> = props => {
   if (isHidden) return null
 
   const values = !!selected.length
-    ? selected.map((s, i) => <Label type="primary" className="value" key={ i }>{ s[labelProp] }</Label>)
+    ? selected.map((s, i) => <Bubble type="primary" className="value" key={ i }>{ s[labelProp] }</Bubble>)
     : <span className="placeholder">{ placeholder }</span>
 
   const handleClick = (option: IOption) => {
@@ -43,8 +43,10 @@ const MultiSelect: React.FC<IProps> = props => {
   }
 
   const handleBulkSelect = (filtered?: IOption[]) => {
-    if (selected.length > 0) setSelected([])
-    else setSelected(filtered || options)
+    const nextSelected = selected.length > 0 ? [] : filtered || options
+
+    setSelected(nextSelected)
+    onChange(nextSelected)
   }
 
   const handleDocumentClick = (event: MouseEvent) => {

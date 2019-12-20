@@ -55,8 +55,14 @@ export default styled.article`
       }
 
       .value {
+        overflow: hidden;
         margin: 0 8px 0 0;
       }
+    }
+
+    .icon {
+      font-size: 22px;
+      color: ${ ({ theme }) => theme.colors.typography.medium };
     }
   }
 `

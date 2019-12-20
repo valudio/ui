@@ -6,7 +6,7 @@ interface IProps extends IBaseProps {
   type: StatusType
 }
 
-const Label: React.FC<IProps> = props => {
+const Bubble: React.FC<IProps> = props => {
   const { children, isHidden, className, type, style } = props
 
   if (isHidden) return null
@@ -14,4 +14,4 @@ const Label: React.FC<IProps> = props => {
   return <Styled className={ `${ className } ${ type }` } style={ style }>{ children }</Styled>
 }
 
-export default Label
+export default Bubble

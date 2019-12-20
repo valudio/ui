@@ -11,6 +11,8 @@ export default styled.section`
   border-radius: 2px;
   overflow: hidden;
   border: 1px solid ${ ({ theme }) => theme.colors.grey.medium };
+  background: ${ ({ theme }) => theme.colors.white };
+  z-index: 100;
 
   .bulk-select {
     position: absolute;
@@ -48,6 +50,6 @@ export default styled.section`
     padding: 0;
     margin: 0;
     max-height: 240px;
-    overflow: scroll;
+    overflow: hidden scroll;
   }
 `
