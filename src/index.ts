@@ -10,6 +10,7 @@ import Provider from './components/Provider'
 import Spinner from './components/Spinner'
 import StatusDot from './components/StatusDot'
 import Table from './components/Table'
+import Toggle from './components/Toggle'
 import defaultTheme from './default-theme'
 export * from './models'
 
@@ -26,5 +27,6 @@ export {
   Spinner,
   StatusDot,
   Table,
-  Pagination
+  Pagination,
+  Toggle
 }
