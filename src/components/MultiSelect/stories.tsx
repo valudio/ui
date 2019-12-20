@@ -9,6 +9,7 @@ import MultiSelect from './'
 storiesOf('MultiSelect', module)
   .addDecorator(decorator)
   .add('default', () => <MultiSelect placeholder="Select..." options={ optionsMock } labelProp="value" onChange={ console.log } />)
+  .add('empty options', () => <MultiSelect placeholder="Select..." options={ [] } labelProp="value" onChange={ console.log } />)
   .add('disabled', () => <MultiSelect placeholder="Select..." options={ [] } labelProp="value" onChange={ console.log } isDisabled />)
   .add('invalid', () => <MultiSelect placeholder="Select..." options={ optionsMock } labelProp="value" onChange={ console.log } isInvalid />)
   .add('hidden', () => <MultiSelect placeholder="Select..." options={ optionsMock } labelProp="value" onChange={ console.log } isHidden />)

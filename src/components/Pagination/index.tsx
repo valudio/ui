@@ -17,8 +17,8 @@ const Pagination: React.FC<IProps> = ({ className, isHidden, style, totalPages, 
       <Icon className="arrow" icon="left" onClick={ onClick.bind(undefined, currentPage - 1) } />
       <Page isHidden={ currentPage < 5 } onClick={ onClick }>{ 1 }</Page>
       { currentPage >= 5 && '...' }
-      <Page isHidden={ currentPage + 2 < 0 } onClick={ onClick }>{ currentPage - 2 }</Page>
-      <Page isHidden={ currentPage + 1 < 0 } onClick={ onClick }>{ currentPage - 1 }</Page>
+      <Page isHidden={ currentPage - 2 <= 0 } onClick={ onClick }>{ currentPage - 2 }</Page>
+      <Page isHidden={ currentPage - 1 <= 0 } onClick={ onClick }>{ currentPage - 1 }</Page>
       <Page onClick={ onClick } isCurrent>{ currentPage }</Page>
       <Page isHidden={ currentPage + 1 > totalPages } onClick={ onClick }>{ currentPage + 1 }</Page>
       <Page isHidden={ currentPage + 2 > totalPages } onClick={ onClick }>{ currentPage + 2 }</Page>
