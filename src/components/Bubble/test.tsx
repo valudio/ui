@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer'
 import Provider from '../Provider'
 import Label from './'
 
-test('Label', () => {
+test('Bubble', () => {
   const component = renderer.create(
     <Provider>
       <Label type="error">Test</Label>

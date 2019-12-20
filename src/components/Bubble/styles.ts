@@ -1,15 +1,14 @@
 import styled from 'styled-components'
 
 export default styled.span`
+  display: flex;
+  flex: 0 0 auto;
   height: 24px;
   border-radius: 24px;
   font-size: 14px;
   padding: 0 8px;
-  display: flex;
   justify-content: center;
   align-items: center;
-  flex-grow: 0;
-  flex: 0;
   flex-wrap: nowrap;
   font-family: ${ ({ theme }) => theme.fontFamily };
 
@@ -35,5 +34,10 @@ export default styled.span`
   &.error {
     color: ${ ({ theme }) => theme.colors.system.error };
     background: ${ ({ theme }) => theme.colors.system.error }35;
+  }
+
+  span {
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 `

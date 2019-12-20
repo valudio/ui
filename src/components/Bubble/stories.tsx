@@ -3,7 +3,7 @@ import React from 'react'
 import { decorator } from '../../helpers/storybook'
 import Label from './'
 
-storiesOf('Label', module)
+storiesOf('Bubble', module)
   .addDecorator(decorator)
   .add('default', () => <Label type="primary">Test</Label>)
   .add('info', () => <Label type="info"/>)
