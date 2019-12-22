@@ -4,6 +4,7 @@ import Checkbox from './components/Checkbox'
 import File from './components/File'
 import Icon from './components/Icon'
 import Input from './components/Input'
+import Modal from './components/Modal'
 import MultiSelect from './components/MultiSelect'
 import Pagination from './components/Pagination'
 import Provider from './components/Provider'
@@ -28,5 +29,6 @@ export {
   StatusDot,
   Table,
   Pagination,
-  Toggle
+  Toggle,
+  Modal
 }
