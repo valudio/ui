@@ -12,6 +12,8 @@ const HeaderCell: React.FC<IProps> = ({ column }) => {
     ? <Icon className={ `sort ${ column.sort }` } icon={ column.sort === 'ASC' ? 'up' : 'down' } />
     : null
 
+  if (column.isHidden) return null
+
   return (
     <Styled style={{ flex: column.size }} onClick={ column.onClick }>
       <span className="label">{ column.label }</span>

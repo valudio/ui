@@ -1,4 +1,6 @@
-export interface ITableColumn {
+import { IBaseProps } from './base-props'
+
+export interface ITableColumn extends IBaseProps {
   label: string
   key: string
   size?: number
