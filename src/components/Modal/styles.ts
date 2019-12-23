@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export default styled.article`
   display: flex;
   position: fixed;
-  background: ${ ({ theme }) => theme.colors.white }50;
+  background: ${ ({ theme }) => theme.colors.typography.darkest }50;
   position: fixed;
   flex-direction: column;
   top: 0;

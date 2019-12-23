@@ -6,7 +6,11 @@
 }
 
 .cell .file-container > .icon {
-  font-size: 24px;
-  margin-left: 5px;
+  margin: 0 0 0 5px;
   color: #687494;
+}
+
+.icon {
+  margin: 0 10px;
+  font-size: 24px;
 }

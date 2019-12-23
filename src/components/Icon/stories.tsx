@@ -5,39 +5,40 @@ import Icon from './'
 
 storiesOf('Icon', module)
   .addDecorator(x => <Provider>{ x() }</Provider>)
-  .add('default', () => <Icon icon="calendar" />)
-  .add('icons', () => (
+  .add('default', () => <Icon className="icon" icon="calendar" />)
+  .add('clickable', () => <Icon className="icon" icon="calendar" onClick={ alert } />)
+  .add('icons list', () => (
     <>
-      <Icon icon="add" />
-      <Icon icon="atention" />
-      <Icon icon="calendar" />
-      <Icon icon="check" />
-      <Icon icon="close" />
-      <Icon icon="dashboard" />
-      <Icon icon="down" />
-      <Icon icon="download" />
-      <Icon icon="filter" />
-      <Icon icon="info" />
-      <Icon icon="language" />
-      <Icon icon="left" />
-      <Icon icon="ok" />
-      <Icon icon="points" />
-      <Icon icon="received" />
-      <Icon icon="right" />
-      <Icon icon="search" />
-      <Icon icon="sent" />
-      <Icon icon="up" />
-      <Icon icon="eye" />
-      <Icon icon="hide" />
-      <Icon icon="pdf" />
-      <Icon icon="img" />
-      <Icon icon="edi" />
-      <Icon icon="baan" />
-      <Icon icon="xml" />
-      <Icon icon="sap" />
-      <Icon icon="excel" />
-      <Icon icon="html" />
-      <Icon icon="ifs" />
-      <Icon icon="txt" />
+      <Icon className="icon" icon="add" />
+      <Icon className="icon" icon="atention" />
+      <Icon className="icon" icon="calendar" />
+      <Icon className="icon" icon="check" />
+      <Icon className="icon" icon="close" />
+      <Icon className="icon" icon="dashboard" />
+      <Icon className="icon" icon="down" />
+      <Icon className="icon" icon="download" />
+      <Icon className="icon" icon="filter" />
+      <Icon className="icon" icon="info" />
+      <Icon className="icon" icon="language" />
+      <Icon className="icon" icon="left" />
+      <Icon className="icon" icon="ok" />
+      <Icon className="icon" icon="points" />
+      <Icon className="icon" icon="received" />
+      <Icon className="icon" icon="right" />
+      <Icon className="icon" icon="search" />
+      <Icon className="icon" icon="sent" />
+      <Icon className="icon" icon="up" />
+      <Icon className="icon" icon="eye" />
+      <Icon className="icon" icon="hide" />
+      <Icon className="icon" icon="pdf" />
+      <Icon className="icon" icon="img" />
+      <Icon className="icon" icon="edi" />
+      <Icon className="icon" icon="baan" />
+      <Icon className="icon" icon="xml" />
+      <Icon className="icon" icon="sap" />
+      <Icon className="icon" icon="excel" />
+      <Icon className="icon" icon="html" />
+      <Icon className="icon" icon="ifs" />
+      <Icon className="icon" icon="txt" />
     </>
   ))
