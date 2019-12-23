@@ -8,14 +8,16 @@ interface IProps extends IBaseProps {
 }
 
 const Row: React.FC<IProps> = ({ item, columns }) => {
-  const cells = columns.map((x, i) => (
-    <div
-      key={ i }
-      className="cell"
-      style={{ flex: x.size }}
-      title={ typeof item[x.key] === 'string' ? item[x.key] : null }
-    >{ item[x.key] }</div>
-  ))
+  const cells = columns.map((x, i) => {
+    return !!x.isHidden
+      ? null
+      : <div
+          key={ i }
+          className="cell"
+          style={{ flex: x.size }}
+          title={ typeof item[x.key] === 'string' ? item[x.key] : null }
+        >{ item[x.key] }</div>
+  })
 
   return <Styled>{ cells }</Styled>
 }
