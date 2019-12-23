@@ -4,6 +4,10 @@ export default styled.i`
   font-family: 'Icons';
   font-style: normal;
 
+  &.clickable {
+    cursor: pointer;
+  }
+
   &.add::before {
     content: '\\e000';
   }

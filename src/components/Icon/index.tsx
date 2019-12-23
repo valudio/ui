@@ -9,7 +9,10 @@ interface IProps extends IBaseProps {
 
 const Icon: React.FC<IProps> = ({ isHidden, className, icon, style, onClick }) => {
   if (isHidden) return null
-  return <Styled className={ `${ className } ${ icon }` } style={ style } onClick={ onClick } />
+
+  const classNames =  `${ className || '' } ${ !!onClick ? 'clickable' : '' } ${ icon }`
+
+  return <Styled className={ classNames } style={ style } onClick={ onClick } />
 }
 
 export default Icon
