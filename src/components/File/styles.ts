@@ -5,11 +5,16 @@ export default styled.div`
   height: 32px;
   border-radius: 32px;
   border: 1px solid ${ ({ theme }) => theme.colors.grey.medium };
-  padding: 0 10px;
+  padding: 0 25px 0 10px;
   align-items: center;
   justify-content: flex-start;
   background: ${ ({ theme }) => theme.colors.white };
   cursor: pointer;
+
+  &.disabled {
+    background: ${ ({ theme }) => theme.colors.grey.medium };
+    cursor: not-allowed;
+  }
 
   .icon {
     margin-right: 5px;
