@@ -9,7 +9,7 @@ export interface ITableColumn extends IBaseProps {
 }
 
 export const tableColumnsMock: ITableColumn[] = [
-  { label: '', key: 'archived', size: 0.1, isHidden: true },
+  { label: '', key: 'archived', size: 0.1 },
   { label: 'Partner name', key: 'partnerName', sort: 'ASC' },
   { label: 'Description', key: 'description', size: 4 },
   { label: 'Exchanges', key: 'exchanges', size: 2 },
