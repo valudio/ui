@@ -44,9 +44,9 @@ const items = [
   },
 ]
 
+// tslint:disable: max-line-length
 storiesOf('Table', module)
   .addDecorator(decorator2)
   .add('default', () => <List columns={ tableColumnsMock } items={ items } />)
   .add('empty', () => <List columns={ tableColumnsMock } items={ [] } fallbackMessage="This is a test fallback" />)
-  // tslint:disable-next-line: max-line-length
   .add('hidden column', () => <List columns={ [...tableColumnsMock, { ...tableColumnsMock[0], isHidden: true }] } items={ items } />)
