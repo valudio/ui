@@ -7,12 +7,12 @@ interface IProps extends IBaseProps {
   columns: ITableColumn[]
 }
 
-const Row: React.FC<IProps> = ({ item, columns, style }) => {
+const Row: React.FC<IProps> = ({ item, columns }) => {
   const cells = columns.map((x, i) => {
     return !x.isHidden && <div
         key={ i }
         className="cell"
-        style={ style }
+        style={ x.style }
         title={ typeof item[x.key] === 'string' ? item[x.key] : null }
       >{ item[x.key] }</div>
   })
