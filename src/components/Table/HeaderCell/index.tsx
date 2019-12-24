@@ -15,7 +15,7 @@ const HeaderCell: React.FC<IProps> = ({ column }) => {
   if (column.isHidden) return null
 
   return (
-    <Styled style={{ flex: column.size }} onClick={ column.onClick }>
+    <Styled style={ column.style } onClick={ column.onClick }>
       <span className="label">{ column.label }</span>
       { sort }
     </Styled>
