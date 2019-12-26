@@ -12,6 +12,7 @@ export default styled.article`
   bottom: 0;
   justify-content: center;
   align-items: center;
+  z-index: 100;
 
   .frame {
     background: white;
