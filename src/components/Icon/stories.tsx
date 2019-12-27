@@ -8,7 +8,7 @@ storiesOf('Icon', module)
   .add('default', () => <Icon className="icon" icon="calendar" />)
   .add('clickable', () => <Icon className="icon" icon="calendar" onClick={ alert } />)
   .add('icons list', () => (
-    <>
+    <div className="icon-list">
       <Icon className="icon" icon="add" />
       <Icon className="icon" icon="atention" />
       <Icon className="icon" icon="calendar" />
@@ -40,5 +40,5 @@ storiesOf('Icon', module)
       <Icon className="icon" icon="html" />
       <Icon className="icon" icon="ifs" />
       <Icon className="icon" icon="txt" />
-    </>
+    </div>
   ))
