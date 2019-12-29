@@ -17,7 +17,7 @@ const Item: React.FC<IProps> = ({ isHidden, label, onClick, isSelected }) => {
       className={ `option ${ isSelected ? 'selected' : '' }` }
       onClick={ onClick }
     >
-      <Checkbox className="checkbox" defaultValue={ isSelected } />
+      <Checkbox className="checkbox" value={ isSelected } />
       <label className="label">{ label }</label>
     </Styled>
   )
