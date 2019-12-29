@@ -4,6 +4,7 @@ import Checkbox from './components/Checkbox'
 import File from './components/File'
 import Icon from './components/Icon'
 import Input from './components/Input'
+import Menu from './components/Menu'
 import Modal from './components/Modal'
 import MultiSelect from './components/MultiSelect'
 import Pagination from './components/Pagination'
@@ -30,5 +31,6 @@ export {
   Table,
   Pagination,
   Toggle,
-  Modal
+  Modal,
+  Menu
 }
