@@ -6,6 +6,7 @@ import File from './components/File'
 import Icon from './components/Icon'
 import Input from './components/Input'
 import Menu from './components/Menu'
+import MenuItem from './components/Menu/MenuItem'
 import Modal from './components/Modal'
 import MultiSelect from './components/MultiSelect'
 import Pagination from './components/Pagination'
@@ -34,5 +35,6 @@ export {
   Toggle,
   Modal,
   Menu,
+  MenuItem,
   DateTime
 }
