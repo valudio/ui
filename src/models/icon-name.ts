@@ -29,4 +29,5 @@ export type IconName =
   'txt' |
   'edi' |
   'eye' |
-  'hide'
+  'hide' |
+  'menu'
