@@ -1,12 +1,12 @@
 import React, { Children, cloneElement, isValidElement, ReactNode, useState } from 'react'
-import { IBaseProps } from '../../models'
+import { IBaseProps, ILanguage } from '../../models'
 import LanguageItem from './LanguageItem'
 import MenuItem from './MenuItem'
 import Styled from './styles'
 
 interface IProps extends IBaseProps {
   onLanguageClick?: (language: string) => void
-  languages?: string[]
+  languages?: ILanguage[]
   username?: string
 }
 
