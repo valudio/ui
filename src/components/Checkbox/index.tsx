@@ -5,14 +5,16 @@ import Styled from './styles'
 
 interface IProps extends IBaseProps {
   onChange?: (value: boolean) => void
-  defaultValue?: boolean
+  value?: boolean
   isDisabled?: boolean
 }
 
-const Checkbox: React.FC<IProps> = ({ onChange, isHidden, defaultValue, isDisabled, style }) => {
-  const [ isChecked, setIsChecked ] = useState(!!defaultValue)
+const Checkbox: React.FC<IProps> = ({ onChange, isHidden, value, isDisabled, style }) => {
+  const [ isChecked, setIsChecked ] = useState(value)
   const classNames = `checkbox ${ isChecked ? 'checked' : '' } ${ isDisabled ? 'disabled' : '' }`
+
   if (isHidden) return null
+  if (value !== isChecked) setIsChecked(value)
 
   const handleChange = () => {
     if (isDisabled || !onChange) return

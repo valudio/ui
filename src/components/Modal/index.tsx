@@ -6,9 +6,9 @@ const Modal: React.FC<IBaseProps> = ({ isHidden, className, style, children }) =
   if (isHidden) {
     document.body.style.overflow = 'visible'
     return null
+  } else {
+    document.body.style.overflow = 'hidden'
   }
-
-  document.body.style.overflow = 'hidden'
 
   return (
     <Styled className={ className || '' } style={ style }>
