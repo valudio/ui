@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { isChildNode } from '../../../helpers/dom'
-import { IBaseProps } from '../../../models'
+import { IBaseProps, ILanguage } from '../../../models'
 import MenuItem from '../MenuItem'
 import Styled from './styles'
 
 interface IProps extends IBaseProps {
   isExpanded: boolean
-  languages: string[]
+  languages: ILanguage[]
   onLanguageClick?: (language: string) => void
 }
 
@@ -16,13 +16,13 @@ const LanguageItem: React.FC<IProps> = ({ isHidden, className, style, isExpanded
   const [ isOpen, setIsOpen ] = useState(false)
   const ref = useRef(null)
 
-  const handleLanguageClick = (language: string) => {
-    if (onLanguageClick) onLanguageClick(language)
+  const handleLanguageClick = (language: ILanguage) => {
+    if (onLanguageClick) onLanguageClick(language.locale)
     setIsOpen(false)
   }
 
   const options = languages.map((x, i) => (
-    <li onClick={ handleLanguageClick.bind(undefined, x) } className="option" key={ i }>{ x }</li>
+    <li onClick={ handleLanguageClick.bind(undefined, x) } className="option" key={ i }>{ x.label }</li>
   ))
 
   const handleClick = () => {

@@ -1,6 +1,7 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { decorator } from '../../helpers/storybook'
+import { languagesMock } from '../../models'
 import Menu from './'
 import MenuItem from './MenuItem'
 
@@ -11,7 +12,7 @@ storiesOf('Menu', module)
       className="menu"
       username="John Doe"
       onLanguageClick={ alert }
-      languages={ [ 'Spanish', 'English', 'German' ] }
+      languages={ languagesMock }
     >
       <MenuItem onClick={ alert } label="Dashboard" icon="dashboard" />
       <MenuItem onClick={ alert } label="Calendar" icon="calendar" />
