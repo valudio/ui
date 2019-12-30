@@ -2,39 +2,50 @@ import styled from 'styled-components'
 
 export default styled.article`
   display: flex;
-  flex-direction: column;
   width: 64px;
   height: 100vh;
-  background: ${ ({ theme }) => theme.colors.grey.medium };
-  padding: 8px 8px 28px;
-  box-sizing: border-box;
 
-  &.expanded {
-    width: 200px;
-  }
-
-  .logo {
-    height: 48px;
-    margin: 0 0 56px;
-    background: white;
-    border-radius: 2px;
-    border: 0;
-    cursor: pointer;
-  }
-
-  .items {
+  .wrapper {
     display: flex;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
     flex-direction: column;
-    margin: 0 0 auto;
+    background: ${ ({ theme }) => theme.colors.grey.medium };
+    padding: 8px 8px 28px;
+    box-sizing: border-box;
+    z-index: 50;
+    width: 64px;
 
-    .item {
-      flex: 1;
-      margin-bottom: 16px;
+    &.expanded {
+      width: 200px;
+      box-shadow: 2px 0 2px 1px rgba(66,74,97,0.12);
     }
-  }
 
-  .username {
-    pointer-events: none;
-    margin: 16px 0 0;
+    .logo {
+      height: 48px;
+      margin: 0 0 56px;
+      background: white;
+      border-radius: 2px;
+      border: 0;
+      cursor: pointer;
+    }
+
+    .items {
+      display: flex;
+      flex-direction: column;
+      margin: 0 0 auto;
+
+      .item {
+        flex: 1;
+        margin-bottom: 16px;
+      }
+    }
+
+    .username {
+      pointer-events: none;
+      margin: 16px 0 0;
+    }
   }
 `
