@@ -141,4 +141,8 @@ export default styled.i`
   &.eye:before {
     content: "\\e01e";
   }
+
+  &.menu:before {
+    content: "\\e01f"
+  }
 `
