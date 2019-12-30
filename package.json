@@ -1,6 +1,6 @@
 {
   "name": "@valudio/ui",
-  "version": "0.0.38",
+  "version": "0.0.39",
   "main": "dist/index.js",
   "license": "MIT",
   "private": false,
@@ -42,6 +42,8 @@
     "prepublishOnly": "tsc -p ./dist.tsconfig.json && npm run copy:assets"
   },
   "dependencies": {
+    "moment": "^2.24.0",
+    "rc-datetime-picker": "^1.6.1",
     "react": "^16.11.0",
     "styled-components": "^4.4.1"
   }
