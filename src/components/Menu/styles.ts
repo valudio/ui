@@ -32,6 +32,7 @@ export default styled.article`
       align-items: center;
       justify-content: center;
       display: flex;
+      flex: 0;
     }
 
     .items {
