@@ -12,7 +12,7 @@ interface IProps extends IBaseProps {
 
 const Pagination: React.FC<IProps> = ({ className, isHidden, style, totalPages, currentPage, onClick }) => {
   const disabledStyles: CSSProperties = { pointerEvents: 'none', opacity: '0.6' }
-  
+
   if (isHidden) return null
   return (
     <Styled className={ `${ className || '' }` } style={ style }>
