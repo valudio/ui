@@ -8,6 +8,11 @@ export default styled.i`
     cursor: pointer;
   }
 
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
   &.add::before {
     content: '\\e000';
   }
