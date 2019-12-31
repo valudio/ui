@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { CSSProperties } from 'react'
 import { IBaseProps } from '../../models'
 import Icon from '../Icon'
 import Page from './Page'
@@ -11,13 +11,15 @@ interface IProps extends IBaseProps {
 }
 
 const Pagination: React.FC<IProps> = ({ className, isHidden, style, totalPages, currentPage, onClick }) => {
+  const disabledStyles: CSSProperties = { pointerEvents: 'none', opacity: '0.6' }
+  
   if (isHidden) return null
   return (
     <Styled className={ `${ className || '' }` } style={ style }>
       <Icon
         className="arrow"
         icon="left"
-        isHidden={ currentPage === 1 }
+        style={ currentPage === 1 ? disabledStyles : undefined }
         onClick={ onClick.bind(undefined, currentPage - 1) }
       />
       <Page isHidden={ currentPage < 5 } onClick={ onClick }>{ 1 }</Page>
@@ -32,7 +34,7 @@ const Pagination: React.FC<IProps> = ({ className, isHidden, style, totalPages, 
       <Icon
         className="arrow"
         icon="right"
-        isHidden={ currentPage === totalPages }
+        style={ currentPage === totalPages ? disabledStyles : undefined }
         onClick={ onClick.bind(undefined, currentPage + 1) }
       />
     </Styled>

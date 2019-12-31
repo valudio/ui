@@ -5,4 +5,4 @@ import Pagination from './'
 
 storiesOf('Pagination', module)
   .addDecorator(decorator2)
-  .add('default', () => <Pagination currentPage={ 13 } totalPages={ 20 } onClick={ alert } />)
+  .add('default', () => <Pagination currentPage={ 1 } totalPages={ 20 } onClick={ alert } />)
