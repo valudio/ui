@@ -26,10 +26,12 @@ export default styled.article`
     .logo {
       height: 48px;
       margin: 0 0 56px;
-      background: white;
-      border-radius: 2px;
       border: 0;
       cursor: pointer;
+      font-size: 24px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
     }
 
     .items {
