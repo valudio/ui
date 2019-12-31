@@ -2,7 +2,11 @@ import React from 'react'
 import { IBaseProps } from '../../models'
 import Styled from './styles'
 
-const Modal: React.FC<IBaseProps> = ({ isHidden, className, style, children }) => {
+interface IProps extends IBaseProps {
+  onOverlayClick?: () => void
+}
+
+const Modal: React.FC<IProps> = ({ isHidden, className, style, children, onOverlayClick }) => {
   if (isHidden) {
     document.body.style.overflow = 'visible'
     return null
@@ -10,8 +14,13 @@ const Modal: React.FC<IBaseProps> = ({ isHidden, className, style, children }) =
     document.body.style.overflow = 'hidden'
   }
 
+  const handleOverlayClick = ({ currentTarget, target }: MouseEvent) => {
+    if (!onOverlayClick || currentTarget !== target) return
+    onOverlayClick()
+  }
+
   return (
-    <Styled className={ className || '' } style={ style }>
+    <Styled className={ className || '' } style={ style } onClick={ handleOverlayClick }>
       <section className="frame">{ children }</section>
     </Styled>
   )
