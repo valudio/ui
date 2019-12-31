@@ -14,7 +14,12 @@ const Pagination: React.FC<IProps> = ({ className, isHidden, style, totalPages, 
   if (isHidden) return null
   return (
     <Styled className={ `${ className || '' }` } style={ style }>
-      <Icon className="arrow" icon="left" onClick={ onClick.bind(undefined, currentPage - 1) } />
+      <Icon
+        className="arrow"
+        icon="left"
+        isHidden={ currentPage === 1 }
+        onClick={ onClick.bind(undefined, currentPage - 1) }
+      />
       <Page isHidden={ currentPage < 5 } onClick={ onClick }>{ 1 }</Page>
       { currentPage >= 5 && '...' }
       <Page isHidden={ currentPage - 2 <= 0 } onClick={ onClick }>{ currentPage - 2 }</Page>
@@ -24,7 +29,12 @@ const Pagination: React.FC<IProps> = ({ className, isHidden, style, totalPages, 
       <Page isHidden={ currentPage + 2 > totalPages } onClick={ onClick }>{ currentPage + 2 }</Page>
       { totalPages - currentPage >= 5 && '...' }
       <Page isHidden={ totalPages - currentPage < 5 } onClick={ onClick }>{ totalPages }</Page>
-      <Icon className="arrow" icon="right" onClick={ onClick.bind(undefined, currentPage + 1) } />
+      <Icon
+        className="arrow"
+        icon="right"
+        isHidden={ currentPage === totalPages }
+        onClick={ onClick.bind(undefined, currentPage + 1) }
+      />
     </Styled>
   )
 }
