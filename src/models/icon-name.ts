@@ -30,4 +30,5 @@ export type IconName =
   'edi' |
   'eye' |
   'hide' |
-  'menu'
+  'menu' |
+  'sign-out'

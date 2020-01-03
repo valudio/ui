@@ -14,6 +14,7 @@ storiesOf('Menu', module)
       onLanguageClick={ alert }
       languages={ languagesMock }
       logoSrc="https://valudio.com/themes/valudio/assets/images/logo.svg"
+      onSignOut={ alert }
     >
       <MenuItem onClick={ alert } label="Dashboard" icon="dashboard" />
       <MenuItem onClick={ alert } label="Calendar" icon="calendar" />

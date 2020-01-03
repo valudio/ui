@@ -10,10 +10,11 @@ interface IProps extends IBaseProps {
   onLanguageClick?: (language: string) => void
   languages?: ILanguage[]
   username?: string
+  onSignOut?: () => void
 }
 
 // tslint:disable-next-line: max-line-length
-const Menu: React.FC<IProps> = ({ children, isHidden, className, style, languages, username, onLanguageClick, logoSrc }) => {
+const Menu: React.FC<IProps> = ({ children, isHidden, className, style, languages, username, onLanguageClick, onSignOut, logoSrc }) => {
   if (isHidden) return null
 
   const [ isExpanded, setIsExpanded ] = useState(false)
@@ -38,8 +39,9 @@ const Menu: React.FC<IProps> = ({ children, isHidden, className, style, language
           isExpanded={ isExpanded }
           isHidden={ !username }
           label={ username || '' }
-          className="username"
-          icon={ <div className="badge" /> as ReactNode }
+          className={ `username ${ !!onSignOut ? 'sign-out' : '' }` }
+          icon={ !!onSignOut ? 'sign-out' : '' }
+          onClick={ onSignOut }
         />
       </div>
     </Styled>

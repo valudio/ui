@@ -139,15 +139,19 @@ export default styled.i`
     color: #473CB9;
   }
 
-  &.hide:before {
+  &.hide::before {
     content: "\\e01d";
   }
 
-  &.eye:before {
+  &.eye::before {
     content: "\\e01e";
   }
 
-  &.menu:before {
-    content: "\\e01f"
+  &.menu::before {
+    content: "\\e01f";
+  }
+
+  &.sign-out::before {
+    content: "\\e020";
   }
 `

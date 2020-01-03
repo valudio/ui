@@ -24,7 +24,7 @@ export default styled.article`
     }
 
     .logo {
-      height: 48px;
+      min-height: 48px;
       margin: 0 0 56px;
       border: 0;
       cursor: pointer;
@@ -48,7 +48,15 @@ export default styled.article`
 
     .username {
       pointer-events: none;
-      margin: 16px 0 0;
+      margin: 16px 4px 0;
+
+      &.sign-out {
+        pointer-events: initial;
+      }
+
+      .icon {
+        font-size: 22px;
+      }
     }
   }
 `
