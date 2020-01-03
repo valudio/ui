@@ -24,7 +24,6 @@ export default styled.article`
     }
 
     .logo {
-      min-height: 48px;
       margin: 0 0 56px;
       border: 0;
       cursor: pointer;
@@ -33,6 +32,16 @@ export default styled.article`
       justify-content: center;
       display: flex;
       flex: 0;
+    }
+
+    img.logo {
+      height: 48px;
+      max-width: 100%;
+      width: auto;
+    }
+
+    i.logo {
+      min-height: 48px;
     }
 
     .items {
