@@ -8,4 +8,12 @@ export type FileType =
   'sap' |
   'edi' |
   'ifs' |
-  'excel'
+  'excel' |
+  'xls' |
+  'csv' |
+  'idoc' |
+  'jpg' |
+  'jpeg' |
+  'png' |
+  'tif' |
+  'tiff'
