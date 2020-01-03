@@ -47,6 +47,13 @@ export default styled.article`
     }
 
     .username {
+      pointer-events: none;
+      margin: 16px 4px 0;
+
+      &.sign-out {
+        pointer-events: initial;
+      }
+
       .icon {
         font-size: 22px;
       }

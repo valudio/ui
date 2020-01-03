@@ -39,8 +39,8 @@ const Menu: React.FC<IProps> = ({ children, isHidden, className, style, language
           isExpanded={ isExpanded }
           isHidden={ !username }
           label={ username || '' }
-          className="username"
-          icon="sign-out"
+          className={ `username ${ !!onSignOut ? 'sign-out' : '' }` }
+          icon={ !!onSignOut ? 'sign-out' : '' }
           onClick={ onSignOut }
         />
       </div>
