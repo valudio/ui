@@ -8,11 +8,15 @@ import Styled from './styles'
 interface IProps extends IBaseProps {
   onChange: (value: string) => void
   initialValue?: string
+  minDate?: string
+  maxDate?: string
 }
 
-const DateTime: React.FC<IProps> = ({ isHidden, className, style, initialValue, onChange }) => {
+const DateTime: React.FC<IProps> = ({ isHidden, className, style, initialValue, onChange, minDate, maxDate }) => {
   if (isHidden) return null
   const [ value, setValue ] = useState(moment(initialValue))
+  const min = minDate && moment(minDate)
+  const max = maxDate && moment(maxDate)
 
   const handleChange = (nextValue: moment.Moment) => {
     setValue(nextValue)
@@ -21,7 +25,7 @@ const DateTime: React.FC<IProps> = ({ isHidden, className, style, initialValue, 
 
   return (
     <Styled className={ className || '' } style={ style }>
-      <DatetimePickerTrigger moment={ value } onChange={ handleChange }>
+      <DatetimePickerTrigger moment={ value } onChange={ handleChange } minDate={ min } maxDate={ max }>
         <input className="input" value={ value.format('DD/MM/YYYY hh:mm:ss') } readOnly />
       </DatetimePickerTrigger>
     </Styled>
