@@ -10,7 +10,7 @@ interface IProps {
   language?: string
 }
 
-const Provider: React.FC<IProps> = ({ theme = defaultTheme, language = 'en', children }) => (
+const Provider: React.FC<IProps> = ({ theme = defaultTheme, language = 'en-US', children }) => (
   <ThemeProvider theme={ theme }>
     <LanguageContext.Provider value={ language }>
       { children }
