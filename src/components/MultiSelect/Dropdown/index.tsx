@@ -1,5 +1,7 @@
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, useContext, useState } from 'react'
+import literals from '../../../literals'
 import { IBaseProps, IOption } from '../../../models'
+import LanguageContext from '../../Provider/LanguageContext'
 import Item from '../Item'
 import Styled from './styles'
 
@@ -12,9 +14,11 @@ interface IProps extends IBaseProps {
 }
 
 const Dropdown: React.FC<IProps> = ({ isHidden, options, labelProp, selected, onClick, onBulkSelect }) => {
-  const [ query, setQuery ] = useState('')
-  const bulkLabel = selected.length > 0 ? 'Unselect all' : 'Select all'
   if (isHidden) return null
+
+  const [ query, setQuery ] = useState('')
+  const language = useContext(LanguageContext)
+  const bulkLabel = selected.length > 0 ? literals[language].unselectAll : literals[language].selectAll
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setQuery(event.currentTarget.value)
@@ -42,7 +46,7 @@ const Dropdown: React.FC<IProps> = ({ isHidden, options, labelProp, selected, on
   return (
     <Styled>
       <button className="bulk-select" onClick={ handleBulkSelect }>{ bulkLabel }</button>
-      <input className="input" onChange={ handleChange } placeholder="Search..." />
+      <input className="input" onChange={ handleChange } placeholder={ `${ literals[language].search }...` } />
       <ul className="options">{ optionItems }</ul>
     </Styled>
   )
