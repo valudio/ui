@@ -42,7 +42,7 @@
     "prepublishOnly": "tsc -p ./dist.tsconfig.json && npm run copy:assets"
   },
   "dependencies": {
-    "imrc-datetime-picker": "https://github.com/valudio/imrc-datetime-picker",
+    "imrc-datetime-picker": "git+ssh://git@github.com:valudio/imrc-datetime-picker.git",
     "moment": "^2.24.0",
     "moment-jalaali": "^0.9.1",
     "react": "^16.11.0",
