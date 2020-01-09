@@ -1,6 +1,6 @@
+import { DatetimePickerTrigger } from 'imrc-datetime-picker'
+import 'imrc-datetime-picker/dist/imrc-datetime-picker.min.css'
 import moment from 'moment'
-import { DatetimePickerTrigger } from 'rc-datetime-picker'
-import 'rc-datetime-picker/dist/picker.min.css'
 import React, { useState } from 'react'
 import { IBaseProps } from '../../models'
 import Styled from './styles'
@@ -26,7 +26,7 @@ const DateTime: React.FC<IProps> = ({ isHidden, className, style, initialValue, 
   return (
     <Styled className={ className || '' } style={ style }>
       <DatetimePickerTrigger moment={ value } onChange={ handleChange } minDate={ min } maxDate={ max }>
-        <input className="input" value={ value.format('DD/MM/YYYY hh:mm:ss') } readOnly />
+        <input className="input" value={ value.format('DD/MM/YYYY HH:mm:ss') } readOnly />
       </DatetimePickerTrigger>
     </Styled>
   )

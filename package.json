@@ -1,6 +1,6 @@
 {
   "name": "@valudio/ui",
-  "version": "0.0.52",
+  "version": "0.0.53",
   "main": "dist/index.js",
   "license": "MIT",
   "private": false,
@@ -42,8 +42,9 @@
     "prepublishOnly": "tsc -p ./dist.tsconfig.json && npm run copy:assets"
   },
   "dependencies": {
+    "imrc-datetime-picker": "https://github.com/valudio/imrc-datetime-picker",
     "moment": "^2.24.0",
-    "rc-datetime-picker": "^1.6.1",
+    "moment-jalaali": "^0.9.1",
     "react": "^16.11.0",
     "styled-components": "^4.4.1"
   }

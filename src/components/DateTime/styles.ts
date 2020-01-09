@@ -16,4 +16,18 @@ export default styled.article`
     font-family: ${ ({ theme }) => theme.fontFamily };
     font-size: 14px;
   }
+
+  table thead th {
+    color: ${ ({ theme }) => theme.colors.primary.medium } !important;
+  }
+
+  table tbody {
+    td._1PHXZRv9_4KmFMrk8q46oq {
+      background-color: ${ ({ theme }) => theme.colors.primary.light } !important;
+      color: ${ ({ theme }) => theme.colors.primary.dark } !important;
+    }
+    td._2CQ5vWlIzMzWrunFH0Ghn9 {
+      color: ${ ({ theme }) => theme.colors.primary.medium } !important;
+    }
+  }
 `
