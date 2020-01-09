@@ -20,3 +20,16 @@ storiesOf('Menu', module)
       <MenuItem onClick={ alert } label="Calendar" icon="calendar" />
     </Menu>
   ))
+  .add('Long username', () => (
+    <Menu
+      className="menu"
+      username="development@valudio.com"
+      onLanguageClick={ alert }
+      languages={ languagesMock }
+      logoSrc="https://valudio.com/themes/valudio/assets/images/logo.svg"
+      onSignOut={ alert }
+    >
+      <MenuItem onClick={ alert } label="Dashboard" icon="dashboard" />
+      <MenuItem onClick={ alert } label="Calendar" icon="calendar" />
+    </Menu>
+  ))
