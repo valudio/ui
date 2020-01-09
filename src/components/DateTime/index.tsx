@@ -14,7 +14,8 @@ interface IProps extends IBaseProps {
 
 const DateTime: React.FC<IProps> = ({ isHidden, className, style, initialValue, onChange, minDate, maxDate }) => {
   if (isHidden) return null
-  const [ value, setValue ] = useState(moment(initialValue))
+  const [ value, setValue ] = useState(initialValue ? moment(initialValue) : undefined)
+  const momentValue = !!value ? value : moment()
   const min = minDate && moment(minDate)
   const max = maxDate && moment(maxDate)
 
@@ -25,8 +26,8 @@ const DateTime: React.FC<IProps> = ({ isHidden, className, style, initialValue, 
 
   return (
     <Styled className={ className || '' } style={ style }>
-      <DatetimePickerTrigger moment={ value } onChange={ handleChange } minDate={ min } maxDate={ max }>
-        <input className="input" value={ value.format('DD/MM/YYYY HH:mm:ss') } readOnly />
+      <DatetimePickerTrigger moment={ momentValue } onChange={ handleChange } minDate={ min } maxDate={ max }>
+        <input className="input" value={ !!value ? value.format('DD/MM/YYYY HH:mm:ss') : '' } readOnly />
       </DatetimePickerTrigger>
     </Styled>
   )
