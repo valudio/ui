@@ -4,20 +4,15 @@ on:
     branches:
       - master
 jobs:
-  git:
-    name: Install git
-    runs-on: ubuntu-latest
-    steps: 
-      - run: sudo apt-get install git
   lint:
     name: Lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: borales/actions-yarn@v2.0.0
+      - uses: borales/actions-yarn@v2.0.2
         with:
           cmd: install
-      - uses: borales/actions-yarn@v2.0.0
+      - uses: borales/actions-yarn@v2.0.2
         with:
           cmd: lint
 
@@ -26,9 +21,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: borales/actions-yarn@v2.0.0
+      - uses: borales/actions-yarn@v2.0.2
         with:
           cmd: install
-      - uses: borales/actions-yarn@v2.0.0
+      - uses: borales/actions-yarn@v2.0.2
         with:
           cmd: test
