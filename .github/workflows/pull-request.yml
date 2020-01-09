@@ -4,6 +4,11 @@ on:
     branches:
       - master
 jobs:
+  git:
+    name: Install git
+    runs-on: ubuntu-latest
+    steps: 
+      - run: sudo apt-get install git
   lint:
     name: Lint
     runs-on: ubuntu-latest
