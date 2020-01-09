@@ -66,6 +66,15 @@ export default styled.article`
       .icon {
         font-size: 22px;
       }
+
+      .label {
+        text-align: left;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
     }
   }
 `
