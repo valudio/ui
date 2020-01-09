@@ -5349,9 +5349,9 @@ import-local@^2.0.0:
     pkg-dir "^3.0.0"
     resolve-cwd "^2.0.0"
 
-"imrc-datetime-picker@git+ssh://git@github.com:valudio/imrc-datetime-picker.git":
+"imrc-datetime-picker@https://github.com/valudio/imrc-datetime-picker":
   version "2.2.0"
-  resolved "git+ssh://git@github.com:valudio/imrc-datetime-picker.git#feda9cf17db6fe8a207fa50016e05e03c6a2c359"
+  resolved "https://github.com/valudio/imrc-datetime-picker#feda9cf17db6fe8a207fa50016e05e03c6a2c359"
   dependencies:
     blacklist "^1.1.4"
     classnames "^2.2.5"
