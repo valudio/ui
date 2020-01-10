@@ -50,7 +50,7 @@ export default styled.section`
     padding: 0;
     margin: 0;
     max-height: 240px;
-    overflow: hidden scroll;
-    overflow-y: auto; /*for msft edge*/
+    overflow-x: hidden;
+    overflow-y: scroll;
   }
 `
