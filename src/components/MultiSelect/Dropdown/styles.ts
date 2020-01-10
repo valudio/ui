@@ -51,5 +51,6 @@ export default styled.section`
     margin: 0;
     max-height: 240px;
     overflow: hidden scroll;
+    overflow-y: auto; /*for msft edge*/
   }
 `
