@@ -40,3 +40,11 @@ const Component: React.FC<IProps> = ({ className }) => {
   return <Styled { ...props } style={ style }>...</Styled>
 }
 ```
+
+### Debugging
+
+In order to run locally
+
+ `npm i`
+
+ `npm run storybook`
