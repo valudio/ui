@@ -8,7 +8,7 @@ interface IProps extends IBaseProps {
   message: string
 }
 
-const SnackBar: React.FC<IProps> = ({ isHidden, style, className, type, message }) => {
+const Snackbar: React.FC<IProps> = ({ isHidden, style, className, type, message }) => {
   if (isHidden) return null
   let iconName: IconName
 
@@ -37,4 +37,4 @@ const SnackBar: React.FC<IProps> = ({ isHidden, style, className, type, message 
   )
 }
 
-export default SnackBar
+export default Snackbar
