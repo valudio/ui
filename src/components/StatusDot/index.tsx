@@ -6,8 +6,10 @@ interface IProps extends IBaseProps {
   type?: StatusType
 }
 
-const StatusDot: React.FC<IProps> = ({ type, style }) => {
-  return <Styled style={ style } className={ `label ${ type || '' }` } />
+const StatusDot: React.FC<IProps> = ({ isHidden, className, type, style }) => {
+  if (isHidden) return null
+
+  return <Styled style={ style } className={ `${ className } ${ type || '' }` } />
 }
 
 export default StatusDot

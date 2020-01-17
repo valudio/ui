@@ -12,6 +12,7 @@ export default styled.div`
   &.success {
     background: ${ ({ theme }) => theme.colors.system.success };
   }
+
   &.info {
     background: ${ ({ theme }) => theme.colors.system.ongoing };
   }
