@@ -7,4 +7,3 @@ import Field from './'
 storiesOf('Field', module)
   .addDecorator(decorator)
   .add('default', () => <Field label="test"><Toggle /></Field>)
-  
