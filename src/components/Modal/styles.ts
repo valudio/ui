@@ -16,7 +16,7 @@ export default styled.article`
 
   .frame {
     background: white;
-    width: 704px;
+    width: auto;
     border-radius: 4px;
     padding: 16px 8px;
     box-shadow: 0 4px 10px 0 rgba(66, 74, 97, 0.15);

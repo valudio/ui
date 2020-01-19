@@ -2,6 +2,7 @@ import Bubble from './components/Bubble'
 import Button from './components/Button'
 import Checkbox from './components/Checkbox'
 import DateTime from './components/DateTime'
+import Field from './components/Field'
 import File from './components/File'
 import Icon from './components/Icon'
 import Input from './components/Input'
@@ -38,5 +39,6 @@ export {
   Menu,
   MenuItem,
   Snackbar,
-  DateTime
+  DateTime,
+  Field
 }
