@@ -1,5 +1,6 @@
 import React, { ChangeEvent } from 'react'
 import { IBaseProps } from '../../models'
+import Field from '../Field'
 import Styled from './styles'
 
 interface IProps extends IBaseProps {
@@ -17,19 +18,18 @@ const Input: React.FC<IProps> = props => {
 
   if (isHidden) return null
 
-  const classNames = `${ className || '' } ${ isDisabled ? 'disabled' : '' } ${ isInvalid ? 'invalid' : '' }`
+  const classNames = `${ className || '' } ${ isInvalid ? 'invalid' : '' }`
 
   return (
-    <Styled className={ classNames } style={ style }>
-      <label className="label">{ label }</label>
-      <input
-        className="input"
+    <Field label={ label } isDisabled={ isDisabled }>
+      <Styled
+        className={ classNames }
         type={ type }
         placeholder={ placeholder }
         onChange={ handleChange }
         disabled={ isDisabled }
       />
-    </Styled>
+    </Field>
   )
 }
 
