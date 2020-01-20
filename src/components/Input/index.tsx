@@ -1,10 +1,8 @@
 import React, { ChangeEvent } from 'react'
 import { IBaseProps } from '../../models'
-import Field from '../Field'
 import Styled from './styles'
 
 interface IProps extends IBaseProps {
-  label: string
   type?: string
   placeholder?: string
   onChange?: (value: string) => void
@@ -13,7 +11,7 @@ interface IProps extends IBaseProps {
 }
 
 const Input: React.FC<IProps> = props => {
-  const { onChange, className, type = 'text', isHidden, label, placeholder, isDisabled, isInvalid, style } = props
+  const { onChange, className, type = 'text', isHidden, placeholder, isDisabled, isInvalid, style } = props
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => onChange && onChange(event.currentTarget.value)
 
   if (isHidden) return null
@@ -21,15 +19,14 @@ const Input: React.FC<IProps> = props => {
   const classNames = `${ className || '' } ${ isInvalid ? 'invalid' : '' }`
 
   return (
-    <Field label={ label } isDisabled={ isDisabled }>
-      <Styled
-        className={ classNames }
-        type={ type }
-        placeholder={ placeholder }
-        onChange={ handleChange }
-        disabled={ isDisabled }
-      />
-    </Field>
+    <Styled
+      className={ classNames }
+      type={ type }
+      placeholder={ placeholder }
+      onChange={ handleChange }
+      disabled={ isDisabled }
+      style={ style }
+    />
   )
 }
 
