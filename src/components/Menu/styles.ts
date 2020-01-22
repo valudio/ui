@@ -24,7 +24,7 @@ export default styled.article`
     }
 
     .logo {
-      margin: 0 0 56px;
+      margin: 6px 6px 56px;
       border: 0;
       cursor: pointer;
       font-size: 24px;
@@ -77,4 +77,20 @@ export default styled.article`
       }
     }
   }
+
+  @media only screen and (max-width: 736px) {
+    .menu {
+      position: fixed;
+    }
+
+    .wrapper {
+      display: none;
+
+      &.expanded {
+        display: flex;
+        width: 75vw;
+      }
+    }
+  }
+
 `

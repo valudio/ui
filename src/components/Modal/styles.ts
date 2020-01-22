@@ -22,6 +22,6 @@ export default styled.article`
     box-shadow: 0 4px 10px 0 rgba(66, 74, 97, 0.15);
     max-height: 80vh;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 `
