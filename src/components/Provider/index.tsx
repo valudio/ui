@@ -1,8 +1,8 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import defaultTheme from '../../default-theme'
-import GlobalStyle from '../../global-style'
 import { ITheme } from '../../models'
+import GlobalStyle from '../../styles/global'
 import LanguageContext from './LanguageContext'
 
 interface IProps {
