@@ -13,6 +13,7 @@ export default styled.article`
   border-radius: 2px;
   border: 1.5px solid transparent;
   cursor: pointer;
+  box-sizing: border-box;
 
   &.open {
     border: 1.5px solid ${ ({ theme }) => theme.colors.primary.medium };
