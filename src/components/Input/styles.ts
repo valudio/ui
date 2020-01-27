@@ -12,9 +12,10 @@ export default styled.input`
   font-size: 14px;
   max-width: 400px;
   box-sizing: border-box;
+  border: 1.5px solid transparent;
 
   &:focus {
-    border: 1px solid ${ ({ theme }) => theme.colors.primary.medium };
+    border: 1.5px solid ${ ({ theme }) => theme.colors.primary.medium };
     background: ${ ({ theme }) => theme.colors.white };
     color: ${ ({ theme }) => theme.colors.typography.medium };
   }
@@ -26,7 +27,7 @@ export default styled.input`
 
   &.invalid {
     background: ${ ({ theme }) => theme.colors.white };
-    border: 1px solid ${ ({ theme }) => theme.colors.system.error };
+    border: 1.5px solid ${ ({ theme }) => theme.colors.system.error };
     color: ${ ({ theme }) => theme.colors.system.error };
   }
 `
