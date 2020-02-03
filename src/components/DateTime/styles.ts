@@ -15,6 +15,7 @@ export default styled.article`
     color: ${ ({ theme }) => theme.colors.typography.medium };
     font-family: ${ ({ theme }) => theme.fontFamily };
     font-size: 14px;
+    box-sizing: border-box;
   }
 
   table thead th {
