@@ -14,15 +14,16 @@ interface IProps extends IBaseProps {
   placeholder?: string
   isDisabled?: boolean
   isInvalid?: boolean
+  initialValue?: IOption
 }
 
 // tslint:disable-next-line: max-line-length
-const Select: React.FC<IProps> = ({ isHidden, className, style, isDisabled, isInvalid, options, labelProp, onChange, placeholder }) => {
+const Select: React.FC<IProps> = ({ isHidden, className, style, isDisabled, isInvalid, options, labelProp, onChange, placeholder, initialValue }) => {
   if (isHidden) return null
 
   const ref = useRef()
   const [ isOpen, setIsOpen ] = useState(false)
-  const [ selected, setSelected ] = useState<IOption>()
+  const [ selected, setSelected ] = useState<IOption | void>(initialValue)
   const isDisabledOrEmpty = isDisabled || !options || !!options && !options.length
   const classNames = `
     ${ className || '' }

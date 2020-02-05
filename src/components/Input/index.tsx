@@ -1,8 +1,9 @@
-import React, { ChangeEvent } from 'react'
+import React, { ChangeEvent, useState } from 'react'
 import { IBaseProps } from '../../models'
 import Styled from './styles'
 
 interface IProps extends IBaseProps {
+  initialValue?: string
   type?: string
   placeholder?: string
   onChange?: (value: string) => void
@@ -10,9 +11,14 @@ interface IProps extends IBaseProps {
   isInvalid?: boolean
 }
 
-const Input: React.FC<IProps> = props => {
-  const { onChange, className, type = 'text', isHidden, placeholder, isDisabled, isInvalid, style } = props
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => onChange && onChange(event.currentTarget.value)
+// tslint:disable-next-line: max-line-length
+const Input: React.FC<IProps> = ({ initialValue, onChange, className, type = 'text', isHidden, placeholder, isDisabled, isInvalid, style }) => {
+  const [ value, setValue ] = useState(initialValue ?? '')
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const nextValue = event.currentTarget.value
+    setValue(nextValue)
+    if (onChange) onChange(nextValue)
+  }
 
   if (isHidden) return null
 
@@ -26,6 +32,7 @@ const Input: React.FC<IProps> = props => {
       onChange={ handleChange }
       disabled={ isDisabled }
       style={ style }
+      value={ value }
     />
   )
 }
