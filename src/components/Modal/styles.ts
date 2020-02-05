@@ -15,6 +15,8 @@ export default styled.article`
   z-index: 100;
 
   .frame {
+    display: flex;
+    flex-direction: column;
     background: white;
     width: auto;
     border-radius: 4px;

@@ -20,5 +20,5 @@ const content = (
 
 storiesOf('Modal', module)
   .addDecorator(decorator)
-  .add('default', () => <Modal onOverlayClick={ alert }>{ content }</Modal>)
+  .add('default', () => <Modal style={{ width: 500 }} onOverlayClick={ alert }>{ content }</Modal>)
   .add('hidden', () => <Modal isHidden={ true } />)
