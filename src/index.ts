@@ -12,6 +12,7 @@ import Modal from './components/Modal'
 import MultiSelect from './components/MultiSelect'
 import Pagination from './components/Pagination'
 import Provider from './components/Provider'
+import Select from './components/Select'
 import Snackbar from './components/SnackBar'
 import Spinner from './components/Spinner'
 import StatusDot from './components/StatusDot'
@@ -40,5 +41,6 @@ export {
   MenuItem,
   Snackbar,
   DateTime,
-  Field
+  Field,
+  Select
 }
