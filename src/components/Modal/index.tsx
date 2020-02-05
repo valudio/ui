@@ -14,13 +14,15 @@ const Modal: React.FC<IProps> = ({ isHidden, className, style, children, onOverl
     document.body.style.overflow = 'hidden'
   }
 
+  const classNames = `frame ${ className || '' }`
+
   const handleOverlayClick = ({ currentTarget, target }: MouseEvent) => {
     if (!onOverlayClick || currentTarget !== target) return
     onOverlayClick()
   }
 
   return (
-    <Styled className={ className || '' } style={ style } onClick={ handleOverlayClick }>
+    <Styled className={ classNames } style={ style } onClick={ handleOverlayClick }>
       <section className="frame">{ children }</section>
     </Styled>
   )

@@ -15,8 +15,11 @@ interface IProps extends IBaseProps {
   isInvalid?: boolean
 }
 
-const MultiSelect: React.FC<IProps> = props => {
-  const { className, labelProp, options, onChange, placeholder, isHidden, style, isInvalid, isDisabled } = props
+// tslint:disable-next-line: max-line-length
+const MultiSelect: React.FC<IProps> = ({ className, labelProp, options, onChange, placeholder, isHidden, style, isInvalid, isDisabled }) => {
+  if (isHidden) return null
+
+  const ref = useRef()
   const [ selected, setSelected ] = useState<IOption[]>([])
   const [ isOpen, setIsOpen ] = useState(false)
   const isDisabledOrEmpty = isDisabled || !options || !!options && !options.length
@@ -26,9 +29,6 @@ const MultiSelect: React.FC<IProps> = props => {
     ${ isInvalid ? 'invalid' : '' }
     ${ isDisabledOrEmpty ? 'disabled' : '' }
   `
-  const ref = useRef()
-
-  if (isHidden) return null
 
   const values = !!selected.length
     ? selected.map((s, i) => <Bubble type="primary" className="value" key={ i }>{ s[labelProp] }</Bubble>)
