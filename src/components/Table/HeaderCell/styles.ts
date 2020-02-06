@@ -11,7 +11,7 @@ export default styled.div`
   .label {
     font-family: ${ ({ theme }) => theme.fontFamily };
     color: ${ ({ theme }) => theme.colors.typography.medium };
-    font-size: 14px;
+    font-size: 16px;
     margin: 0 14px 0 0;
   }
 
