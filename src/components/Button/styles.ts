@@ -15,7 +15,7 @@ export default styled.button`
   border: none;
   font-size: 14px;
 
-  &.secondary {
+  &.secondary:not(:disabled) {
     border: 1px solid ${ ({ theme }) => theme.colors.primary.medium };
     color: ${ ({ theme }) => theme.colors.primary.medium };
     background: ${ ({ theme }) => theme.colors.white };

@@ -17,6 +17,7 @@ import Snackbar from './components/SnackBar'
 import Spinner from './components/Spinner'
 import StatusDot from './components/StatusDot'
 import Table from './components/Table'
+import Title from './components/Title'
 import Toggle from './components/Toggle'
 import defaultTheme from './default-theme'
 export * from './models'
@@ -42,5 +43,6 @@ export {
   Snackbar,
   DateTime,
   Field,
-  Select
+  Select,
+  Title
 }
