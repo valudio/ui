@@ -151,7 +151,31 @@ export default styled.i`
     content: "\\e01f";
   }
 
-  &.sign-out::before {
+  &.print:before {
     content: "\\e020";
+  }
+
+  &.user:before {
+    content: "\\e021";
+  }
+
+  &.sign-out:before {
+    content: "\\e022";
+  }
+
+  &.map:before {
+    content: "\\e023";
+  }
+
+  &.edit:before {
+    content: "\\e024";
+  }
+
+  &.documents:before {
+    content: "\\e025";
+  }
+
+  &.delete:before {
+    content: "\\e026";
   }
 `

@@ -31,4 +31,9 @@ export type IconName =
   'eye' |
   'hide' |
   'menu' |
-  'sign-out'
+  'sign-out' |
+  'user' |
+  'map' |
+  'edit' |
+  'documents' |
+  'delete'
