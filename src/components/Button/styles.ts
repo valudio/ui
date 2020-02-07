@@ -12,8 +12,8 @@ export default styled.button`
   font-family: ${ ({ theme }) => theme.fontFamily };
   background: ${ ({ theme }) => theme.colors.primary.medium };
   color: ${ ({ theme }) => theme.colors.white };
-  border-radius: 24px;
-  height: 48px;
+  border-radius: 20px;
+  height: 40px;
   width: 200px;
   border: 1px solid transparent;
   font-size: 14px;
@@ -41,6 +41,6 @@ export default styled.button`
   }
 
   &.circular {
-    width: 48px;
+    width: 40px;
   }
 `
