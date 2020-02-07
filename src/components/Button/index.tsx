@@ -6,15 +6,16 @@ interface IProps extends IBaseProps {
   onClick?: () => void
   isDisabled?: boolean
   isSecondary?: boolean
+  isCircular?: boolean
 }
 
-const Button: React.FC<IProps> = props => {
-  const { children, className, isHidden, onClick, isDisabled, isSecondary, style } = props
+// tslint:disable-next-line: max-line-length
+const Button: React.FC<IProps> = ({ children, className, isHidden, onClick, isDisabled, isSecondary, style, isCircular }) => {
   const handleClick = () => onClick && onClick()
 
   if (isHidden) return null
 
-  const classNames = `${ className ? className : '' } ${ isSecondary ? 'secondary' : '' }`
+  const classNames = `${ className ? className : '' } ${ isSecondary ? 'secondary' : '' } ${ isCircular ? 'circular' : '' }`
 
   return (
     <Styled

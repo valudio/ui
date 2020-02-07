@@ -8,23 +8,24 @@ export default styled.button`
   box-sizing: border-box;
   outline: 0;
   margin: 0;
-  padding: 5px 20px;
+  padding: 0;
   font-family: ${ ({ theme }) => theme.fontFamily };
   background: ${ ({ theme }) => theme.colors.primary.medium };
   color: ${ ({ theme }) => theme.colors.white };
-  border-radius: 20px;
-  height: 40px;
+  border-radius: 24px;
+  height: 48px;
   width: 200px;
-  border: none;
+  border: 1px solid transparent;
   font-size: 14px;
+  box-sizing: border-box;
 
   &.secondary:not(:disabled) {
-    border: 1px solid ${ ({ theme }) => theme.colors.primary.medium };
+    border-color: ${ ({ theme }) => theme.colors.primary.medium };
     color: ${ ({ theme }) => theme.colors.primary.medium };
     background: ${ ({ theme }) => theme.colors.white };
   }
 
-  &:hover {
+  &:hover:not(:disabled) {
     background: ${ ({ theme }) => theme.colors.primary.dark };
     color: ${ ({ theme }) => theme.colors.white };
   }
@@ -37,5 +38,9 @@ export default styled.button`
   &:disabled {
     background: ${ ({ theme }) => theme.colors.grey.light };
     color: ${ ({ theme }) => theme.colors.typography.light };
+  }
+
+  &.circular {
+    width: 48px;
   }
 `
