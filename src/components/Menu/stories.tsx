@@ -1,5 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import React, { useState } from 'react'
+import { jsxDecorator } from 'storybook-addon-jsx'
 import { decorator } from '../../helpers/storybook'
 import { languagesMock } from '../../models'
 import Icon from '../Icon'
@@ -7,6 +8,7 @@ import Menu from './'
 import MenuItem from './MenuItem'
 
 storiesOf('Menu', module)
+  .addDecorator(jsxDecorator)
   .addDecorator(decorator)
   .add('default', () => (
     <Menu

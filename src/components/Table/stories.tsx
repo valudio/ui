@@ -1,5 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
+import { jsxDecorator } from 'storybook-addon-jsx'
 import { decorator2 } from '../../helpers/storybook'
 import { tableColumnsMock } from '../../models'
 import File from '../File'
@@ -46,6 +47,7 @@ const items = [
 
 // tslint:disable: max-line-length
 storiesOf('Table', module)
+  .addDecorator(jsxDecorator)
   .addDecorator(decorator2)
   .add('default', () => <List columns={ tableColumnsMock } items={ items } />)
   .add('empty', () => <List columns={ tableColumnsMock } items={ [] } fallbackMessage="This is a test fallback" />)
