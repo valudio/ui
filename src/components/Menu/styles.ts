@@ -4,6 +4,7 @@ export default styled.article`
   display: flex;
   width: 64px;
   height: 100vh;
+  flex-shrink: 0;
 
   .wrapper {
     display: flex;
