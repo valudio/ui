@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { jsxDecorator } from 'storybook-addon-jsx';
+import { jsxDecorator } from 'storybook-addon-jsx'
 import Provider from '../Provider'
 import Icon from './'
 
