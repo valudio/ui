@@ -1,5 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
+import { jsxDecorator } from 'storybook-addon-jsx'
 import { decorator } from '../../helpers/storybook'
 import File from '../File'
 import Modal from './'
@@ -19,6 +20,7 @@ const content = (
 )
 
 storiesOf('Modal', module)
+  .addDecorator(jsxDecorator)
   .addDecorator(decorator)
   .add('default', () => <Modal style={{ width: 500 }} onOverlayClick={ alert }>{ content }</Modal>)
   .add('hidden', () => <Modal isHidden={ true } />)

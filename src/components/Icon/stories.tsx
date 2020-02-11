@@ -1,9 +1,11 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
+import { jsxDecorator } from 'storybook-addon-jsx'
 import Provider from '../Provider'
 import Icon from './'
 
 storiesOf('Icon', module)
+  .addDecorator(jsxDecorator)
   .addDecorator(x => <Provider>{ x() }</Provider>)
   .add('default', () => <Icon className="icon" icon="calendar" />)
   .add('clickable', () => <Icon className="icon" icon="calendar" onClick={ alert } />)

@@ -1,10 +1,12 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
+import { jsxDecorator } from 'storybook-addon-jsx'
 import { decorator } from '../../helpers/storybook'
 import Icon from '../Icon'
 import Button from './'
 
 storiesOf('Button', module)
+  .addDecorator(jsxDecorator)
   .addDecorator(decorator)
   .add('default', () => <Button>Click me!</Button>)
   .add('circular', () => <Button isCircular><Icon icon="edit" /></Button>)
