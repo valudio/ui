@@ -31,6 +31,7 @@ const Button: React.FC<IProps> = ({ children, className, isHidden, onClick, isDi
 
   return (
     <Styled
+      type="button"
       className={ classNames }
       onClick={ handleClick }
       disabled={ isDisabled }
