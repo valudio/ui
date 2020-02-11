@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { jsxDecorator } from 'storybook-addon-jsx'
+import React, { useState, MutableRefObject } from 'react'
 import { decorator } from '../../helpers/storybook'
 import { optionsMock } from '../../models'
 import MultiSelect from './'

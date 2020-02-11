@@ -1,26 +1,22 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { isChildNode } from '../../helpers/dom'
-import { IBaseProps, IOption } from '../../models'
+import { IInputProps, IOption } from '../../models'
 import Bubble from '../Bubble'
 import Icon from '../Icon'
 import Dropdown from './Dropdown'
 import Styled from './styles'
 
-interface IProps extends IBaseProps {
+interface IProps extends IInputProps<IOption[]> {
   labelProp: string
   options: IOption[]
-  onChange: (selected: IOption[]) => void
-  placeholder?: string
-  isDisabled?: boolean
-  isInvalid?: boolean
 }
 
 // tslint:disable-next-line: max-line-length
-const MultiSelect: React.FC<IProps> = ({ className, labelProp, options, onChange, placeholder, isHidden, style, isInvalid, isDisabled }) => {
+const MultiSelect: React.FC<IProps> = ({ className, labelProp, options, onChange, placeholder, isHidden, style, isInvalid, isDisabled, initialValue, form }) => {
   if (isHidden) return null
 
   const ref = useRef()
-  const [ selected, setSelected ] = useState<IOption[]>([])
+  const [ selected, setSelected ] = useState<IOption[]>(initialValue ?? [])
   const [ isOpen, setIsOpen ] = useState(false)
   const isDisabledOrEmpty = isDisabled || !options || !!options && !options.length
   const classNames = `
@@ -55,8 +51,9 @@ const MultiSelect: React.FC<IProps> = ({ className, labelProp, options, onChange
   }
 
   useEffect(() => {
+    if (form) form.addEventListener('reset', setSelected.bind(undefined, initialValue ?? []))
     document.addEventListener('click', handleDocumentClick)
-  })
+  }, [ form ])
 
   return (
     <Styled className={ classNames } style={ style } ref={ ref }>

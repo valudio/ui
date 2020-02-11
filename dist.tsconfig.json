@@ -10,7 +10,7 @@
     "moduleResolution": "node",
     "rootDirs": [ "src" ],
     "baseUrl": "src",
-    "strictNullChecks": true,
+    "strictNullChecks": false,
     "esModuleInterop": true,
     "declaration": true,
     "typeRoots": [ "src/typings.d.ts" ]

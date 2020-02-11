@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { IBaseProps, IOption } from '../../models'
+import { IInputProps, IOption } from '../../models'
 import Icon from '../Icon'
 import Dropdown from './Dropdown'
 import Styled from './styles'
@@ -7,18 +7,13 @@ import Styled from './styles'
 import { isChildNode } from '../../helpers/dom'
 import Item from './Item'
 
-interface IProps extends IBaseProps {
+interface IProps extends IInputProps<IOption> {
   labelProp: string
   options: IOption[]
-  onChange: (selected: IOption) => void
-  placeholder?: string
-  isDisabled?: boolean
-  isInvalid?: boolean
-  initialValue?: IOption
 }
 
 // tslint:disable-next-line: max-line-length
-const Select: React.FC<IProps> = ({ isHidden, className, style, isDisabled, isInvalid, options, labelProp, onChange, placeholder, initialValue }) => {
+const Select: React.FC<IProps> = ({ isHidden, className, style, isDisabled, isInvalid, options, labelProp, onChange, placeholder, initialValue, form }) => {
   if (isHidden) return null
 
   const ref = useRef()
@@ -48,8 +43,9 @@ const Select: React.FC<IProps> = ({ isHidden, className, style, isDisabled, isIn
   }
 
   useEffect(() => {
+    if (form) form.addEventListener('reset', setSelected.bind(undefined, initialValue ?? []))
     document.addEventListener('click', handleDocumentClick)
-  })
+  }, [ form ])
 
   return (
     <Styled

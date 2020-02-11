@@ -1,20 +1,17 @@
 import { DatetimePickerTrigger } from 'imrc-datetime-picker'
 import 'imrc-datetime-picker/dist/imrc-datetime-picker.min.css'
 import moment from 'moment'
-import React, { useState } from 'react'
-import { IBaseProps } from '../../models'
+import React, { useEffect, useState } from 'react'
+import { IInputProps } from '../../models'
 import Styled from './styles'
 
-interface IProps extends IBaseProps {
-  onChange: (value: string) => void
-  initialValue?: string
+interface IProps extends IInputProps<string> {
   minDate?: string
   maxDate?: string
-  placeholder?: string
 }
 
 // tslint:disable-next-line: max-line-length
-const DateTime: React.FC<IProps> = ({ isHidden, className, style, initialValue, onChange, minDate, maxDate, placeholder }) => {
+const DateTime: React.FC<IProps> = ({ isHidden, className, style, initialValue, onChange, minDate, maxDate, placeholder, form }) => {
   if (isHidden) return null
   const [ value, setValue ] = useState(initialValue ? moment(initialValue) : undefined)
   const momentValue = !!value ? value : moment()
@@ -25,6 +22,10 @@ const DateTime: React.FC<IProps> = ({ isHidden, className, style, initialValue, 
     setValue(nextValue)
     onChange(nextValue.toISOString())
   }
+
+  useEffect(() => {
+    if (form) form.addEventListener('reset', setValue.bind(undefined, initialValue ? moment(initialValue) : undefined))
+  }, [ form ])
 
   return (
     <Styled className={ className || '' } style={ style }>
