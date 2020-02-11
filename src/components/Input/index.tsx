@@ -1,24 +1,23 @@
-import React, { ChangeEvent, useState } from 'react'
-import { IBaseProps } from '../../models'
+import React, { ChangeEvent, useEffect, useState } from 'react'
+import { IInputProps } from '../../models'
 import Styled from './styles'
 
-interface IProps extends IBaseProps {
-  initialValue?: string
+interface IProps extends IInputProps<string> {
   type?: string
-  placeholder?: string
-  onChange?: (value: string) => void
-  isDisabled?: boolean
-  isInvalid?: boolean
 }
 
 // tslint:disable-next-line: max-line-length
-const Input: React.FC<IProps> = ({ initialValue, onChange, className, type = 'text', isHidden, placeholder, isDisabled, isInvalid, style }) => {
+const Input: React.FC<IProps> = ({ initialValue, onChange, className, type = 'text', isHidden, placeholder, isDisabled, isInvalid, style, form }) => {
   const [ value, setValue ] = useState(initialValue ?? '')
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const nextValue = event.currentTarget.value
     setValue(nextValue)
     if (onChange) onChange(nextValue)
   }
+
+  useEffect(() => {
+    if (form) form.addEventListener('reset', setValue.bind(undefined, initialValue ?? ''))
+  }, [ form ])
 
   if (isHidden) return null
 

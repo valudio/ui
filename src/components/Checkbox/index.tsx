@@ -1,17 +1,19 @@
-import React, { useState } from 'react'
-import { IBaseProps } from '../../models'
+import React, { useEffect, useState } from 'react'
+import { IInputProps } from '../../models'
 import Icon from '../Icon'
 import Styled from './styles'
 
-interface IProps extends IBaseProps {
-  onChange?: (value: boolean) => void
+interface IProps extends IInputProps<boolean> {
   value?: boolean
-  isDisabled?: boolean
 }
 
-const Checkbox: React.FC<IProps> = ({ onChange, isHidden, value, isDisabled, style }) => {
+const Checkbox: React.FC<IProps> = ({ onChange, isHidden, value, isDisabled, style, form }) => {
   const [ isChecked, setIsChecked ] = useState(value)
   const classNames = `checkbox ${ isChecked ? 'checked' : '' } ${ isDisabled ? 'disabled' : '' }`
+
+  useEffect(() => {
+    if (form) form.addEventListener('reset', setIsChecked.bind(undefined, value))
+  }, [ form ])
 
   if (isHidden) return null
   if (value !== isChecked) setIsChecked(value)
