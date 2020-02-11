@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { IInputProps } from '../../models'
 import Icon from '../Icon'
 import Styled from './styles'
