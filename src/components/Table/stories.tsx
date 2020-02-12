@@ -41,7 +41,8 @@ const items = [
     ),
     date: '10/09/2019 11:02 AM',
     messageType: 'Order',
-    status: <StatusDot type="error" />
+    status: <StatusDot type="error" />,
+    onClick: () => alert('row click!')
   },
 ]
 
