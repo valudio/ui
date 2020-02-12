@@ -13,7 +13,16 @@ interface IProps extends IBaseProps {
 const Table: React.FC<IProps> = ({ className, items, columns, fallbackMessage, style }) => {
   const headerCells = columns.map((x, i) => <HeaderCell key={ i } column={ x } />)
   const content = !!items.length
-    ? items.map((x, i) => <Row key={ i } item={ x } columns={ columns } isHidden={ x.isHidden } />)
+    ? items.map((x, i) => (
+      <Row
+        key={ i }
+        item={ x }
+        columns={ columns }
+        isHidden={ x.isHidden }
+        style={ x.style }
+        className={ x.className }
+      />
+    ))
     : <span className="fallback-message">{ fallbackMessage || 'No content provided' }</span>
 
   return (
