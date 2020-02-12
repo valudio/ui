@@ -12,10 +12,16 @@ export default styled.article`
     border-radius: 2px;
     border: 1.5px solid transparent;
     cursor: pointer;
-    color: ${ ({ theme }) => theme.colors.typography.medium };
+    color: ${ ({ theme }) => theme.colors.typography.dark };
     font-family: ${ ({ theme }) => theme.fontFamily };
-    font-size: 14px;
+    font-size: 16px;
     box-sizing: border-box;
+
+    &:disabled {
+      color: ${ ({ theme }) => theme.colors.typography.light };
+      background: ${ ({ theme }) => theme.colors.grey.medium };
+      cursor: not-allowed;
+    }
   }
 
   table thead th {

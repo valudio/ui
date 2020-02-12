@@ -8,8 +8,8 @@ export default styled.input`
   padding: 0;
   background: ${ ({ theme }) => theme.colors.grey.light };
   text-indent: 12px;
-  color: ${ ({ theme }) => theme.colors.typography.light };
-  font-size: 14px;
+  color: ${ ({ theme }) => theme.colors.typography.dark };
+  font-size: 16px;
   max-width: 400px;
   box-sizing: border-box;
   border: 1.5px solid transparent;
@@ -23,6 +23,7 @@ export default styled.input`
   &:disabled {
     color: ${ ({ theme }) => theme.colors.typography.light };
     background: ${ ({ theme }) => theme.colors.grey.medium };
+    cursor: not-allowed;
   }
 
   &.invalid {

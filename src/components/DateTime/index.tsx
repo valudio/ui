@@ -11,7 +11,7 @@ interface IProps extends IInputProps<string> {
 }
 
 // tslint:disable-next-line: max-line-length
-const DateTime: React.FC<IProps> = ({ isHidden, className, style, initialValue, onChange, minDate, maxDate, placeholder, form }) => {
+const DateTime: React.FC<IProps> = ({ isHidden, className, style, initialValue, onChange, minDate, maxDate, placeholder, form, isDisabled }) => {
   if (isHidden) return null
   const [ value, setValue ] = useState(initialValue ? moment(initialValue) : undefined)
   const momentValue = !!value ? value : moment()
@@ -34,6 +34,7 @@ const DateTime: React.FC<IProps> = ({ isHidden, className, style, initialValue, 
           className="input"
           placeholder={ placeholder }
           value={ !!value ? value.format('DD/MM/YYYY HH:mm:ss') : '' }
+          disabled={ isDisabled }
           readOnly
         />
       </DatetimePickerTrigger>

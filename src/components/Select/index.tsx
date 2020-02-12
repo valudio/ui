@@ -54,7 +54,8 @@ const Select: React.FC<IProps> = ({ isHidden, className, style, isDisabled, isIn
       onClick={ setIsOpen.bind(undefined, !isDisabledOrEmpty && !isOpen) }
       ref={ ref }
     >
-      <span className="value">{ selected && selected[labelProp] || placeholder }</span>
+      {/* <span className="value">{ selected && selected[labelProp] || placeholder }</span> */}
+      <input className="value" placeholder={ placeholder } readOnly value={ selected && selected[labelProp] } />
       <Icon className="icon" icon={ isOpen && !isDisabledOrEmpty ? 'up' : 'down' }/>
       <Dropdown isHidden={ !isOpen || isDisabledOrEmpty }>{ items }</Dropdown>
     </Styled>

@@ -48,5 +48,10 @@ export default styled.article`
     text-overflow: ellipsis;
     overflow: hidden;
     margin: 0 5px 0 0;
+    color: ${ ({ theme }) => theme.colors.typography.dark };
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    pointer-events: none;
   }
 `
