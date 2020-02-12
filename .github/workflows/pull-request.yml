@@ -14,8 +14,12 @@ jobs:
           ref: master
 
       - name: Check package version
-        uses: EndBug/version-check@v1.0.0
         id: check
+        uses: EndBug/version-check@v1.0.0
+        with:
+          diff-search: true
+          file-name: package.json
+          token: ${{ secrets.GH_TOKEN }}
 
   lint:
     name: Lint
