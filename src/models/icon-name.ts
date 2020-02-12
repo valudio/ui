@@ -35,5 +35,6 @@ export type IconName =
   'user' |
   'map' |
   'edit' |
+  'print' |
   'documents' |
   'delete'

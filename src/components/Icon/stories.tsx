@@ -36,6 +36,7 @@ storiesOf('Icon', module)
       <Icon className="icon" icon="user" />
       <Icon className="icon" icon="map" />
       <Icon className="icon" icon="edit" />
+      <Icon className="icon" icon="print" />
       <Icon className="icon" icon="documents" />
       <Icon className="icon" icon="delete" />
       <Icon className="icon" icon="pdf" />
