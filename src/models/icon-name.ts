@@ -37,4 +37,12 @@ export type IconName =
   'edit' |
   'print' |
   'documents' |
-  'delete'
+  'delete' |
+  'reports' |
+  'projects' |
+  'worksteps' |
+  'workers' |
+  'material' |
+  'home' |
+  'change-password' |
+  'customer'
