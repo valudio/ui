@@ -178,4 +178,36 @@ export default styled.i`
   &.delete:before {
     content: "\\e026";
   }
+
+  &.reports:before {
+    content: "\\e027";
+  }
+
+  &.projects:before {
+    content: "\\e028";
+  }
+
+  &.worksteps:before {
+    content: "\\e029";
+  }
+
+  &.workers:before {
+    content: "\\e02a";
+  }
+
+  &.material:before {
+    content: "\\e02b";
+  }
+
+  &.home:before {
+    content: "\\e02c";
+  }
+
+  &.change-password:before {
+    content: "\\e02d";
+  }
+
+  &.customer:before {
+    content: "\\e02e";
+  }
 `
