@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
 export default styled.article`
+  * {
+    font-family: ${ ({ theme }) => theme.fontFamily } !important;
+  }
+
   .input {
     display: flex;
     flex: 0 0 auto;
@@ -26,9 +30,12 @@ export default styled.article`
 
   table thead th {
     color: ${ ({ theme }) => theme.colors.primary.medium } !important;
+    font-family: ${ ({ theme }) => theme.fontFamily };
   }
 
   table tbody {
+    font-family: ${ ({ theme }) => theme.fontFamily };
+
     td._1PHXZRv9_4KmFMrk8q46oq {
       background-color: ${ ({ theme }) => theme.colors.primary.light } !important;
       color: ${ ({ theme }) => theme.colors.primary.dark } !important;

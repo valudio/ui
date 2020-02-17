@@ -8,6 +8,7 @@ export default styled.input`
   padding: 0;
   background: ${ ({ theme }) => theme.colors.grey.light };
   text-indent: 12px;
+  font-family: ${ ({ theme }) => theme.fontFamily };
   color: ${ ({ theme }) => theme.colors.typography.dark };
   font-size: 16px;
   max-width: 400px;
