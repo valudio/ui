@@ -63,6 +63,7 @@ const DateTime: React.FC<IProps> = ({ isHidden, className, style, initialValue, 
         maxDate={ max }
         weeks={ weekDays }
         months={ months }
+        lang={ language }
       >
         <input
           className="input"
