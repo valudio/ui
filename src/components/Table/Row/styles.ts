@@ -23,6 +23,6 @@ export default styled.article`
     flex: 1;
     font-size: 16px;
     overflow: hidden;
-    justify-content: center;
+    justify-content: flex-start;
   }
 `
