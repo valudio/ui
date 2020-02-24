@@ -38,7 +38,7 @@ export default {
     february: 'Febrero',
     march: 'Marzo',
     april: 'Abril',
-    may: 'MAyo',
+    may: 'Mayo',
     june: 'Junio',
     july: 'Julio',
     august: 'Agosto',
