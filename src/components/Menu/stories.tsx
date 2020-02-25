@@ -54,7 +54,7 @@ storiesOf('Menu', module)
           onSignOut={ alert }
           isExpanded={ isVisible }
         >
-          <MenuItem onClick={ alert } label="Dashboard" icon="dashboard" />
+          <MenuItem onClick={ alert } label="Dashboard" icon="dashboard" isActive/>
           <MenuItem onClick={ alert } label="Calendar" icon="calendar" />
         </Menu>
       </>
