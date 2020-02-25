@@ -25,8 +25,8 @@ export default styled.article`
     }
 
     .header {
-      flex-basis: 50px;
-      padding: 6px 6px 60px;
+      flex-basis: 100px;
+      padding: 6px 6px 0;
       border: 0;
       cursor: pointer;
       font-size: 24px;
