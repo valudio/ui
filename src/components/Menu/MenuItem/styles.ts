@@ -15,7 +15,12 @@ export default styled.button`
 
   &:hover {
     background: ${ ({ theme }) => theme.colors.grey.dark };
-    color: ${ ({ theme }) => theme.colors.primary.medium };
+    color: ${ ({ theme }) => theme.colors.typography.dark };
+  }
+
+  &.active {
+    background: ${ ({ theme }) => theme.colors.grey.dark };
+    color: ${ ({ theme }) => theme.colors.primary.dark };
   }
 
   .icon {
