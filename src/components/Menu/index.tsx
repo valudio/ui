@@ -25,7 +25,7 @@ const Menu: React.FC<IProps> = ({ children, isHidden, className, style, language
   const items = Children
     .map(children, x => isValidElement(x) && cloneElement(x, { className: 'item', isExpanded: isExpandedComputed }))
   const logo = isExpandedComputed
-    ? <img src={ logoSrc } className="logo" onClick={ setIsExpanded.bind(undefined, false) } />
+    ? <img src={ logoSrc } loading="lazy" className="logo" onClick={ setIsExpanded.bind(undefined, false) } />
     : <Icon icon="menu" className="logo" onClick={ setIsExpanded.bind(undefined, true) } />
 
   const handleClickOutside = (event: Event) => {
@@ -42,8 +42,10 @@ const Menu: React.FC<IProps> = ({ children, isHidden, className, style, language
 
   return (
     <Styled className={ className || '' } style={ style }>
-      <div className={ classNames } ref={ menuRef }>
-        { logo }
+      <div className={ classNames } ref={ menuRef } onClick={ setIsExpanded.bind(undefined, !isExpanded) }>
+        <section className="header">
+          { logo }
+        </section>
         <section className="items">{ items }</section>
         <LanguageItem
           isHidden={ !languages || !languages.length }

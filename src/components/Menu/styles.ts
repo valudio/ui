@@ -24,26 +24,33 @@ export default styled.article`
       box-shadow: 2px 0 2px 1px rgba(66,74,97,0.12);
     }
 
-    .logo {
-      margin: 6px 6px 56px;
+    .header {
+      flex-basis: 50px;
+      padding: 6px 6px 60px;
       border: 0;
       cursor: pointer;
       font-size: 24px;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
       display: flex;
-      flex: 0;
+
+        .logo {
+          font-size: 24px;
+          flex: 0;
+        }
+
+        img.logo {
+          height: auto;
+          max-width: 100%;
+          width: 100%;
+          flex: 1;
+        }
+
+        i.logo {
+          min-height: 48px;
+        }
     }
 
-    img.logo {
-      height: 48px;
-      max-width: 100%;
-      width: auto;
-    }
-
-    i.logo {
-      min-height: 48px;
-    }
 
     .items {
       display: flex;
