@@ -1,4 +1,5 @@
 import React, { Children, cloneElement, isValidElement, useEffect, useRef, useState } from 'react'
+import { isChildNode } from '../../helpers/dom'
 import { IBaseProps, ILanguage } from '../../models'
 import Icon from '../Icon'
 import LanguageItem from './LanguageItem'
@@ -21,7 +22,7 @@ const Menu: React.FC<IProps> = ({ children, isHidden, className, style, language
   const [ isExpanded, setIsExpanded ] = useState(false)
   const isExpandedComputed = isForced ?? isExpanded
   const classNames = `wrapper ${ isExpandedComputed ? 'expanded' : '' }`
-  const menuRef = useRef(null)
+  const menuRef = useRef<HTMLDivElement>(null)
   const items = Children
     .map(children, x => isValidElement(x) && cloneElement(x, { className: 'item', isExpanded: isExpandedComputed }))
   const logo = isExpandedComputed
@@ -29,7 +30,11 @@ const Menu: React.FC<IProps> = ({ children, isHidden, className, style, language
     : <Icon icon="menu" className="logo" onClick={ setIsExpanded.bind(undefined, true) } />
 
   const handleClickOutside = (event: Event) => {
-    if (isExpanded && event.target !== menuRef.current) setIsExpanded(false)
+    if (
+      isExpanded &&
+      !isChildNode(menuRef.current, event.target) &&
+      menuRef.current !== event.target
+    ) setIsExpanded(false)
   }
 
   useEffect(() => {
@@ -41,8 +46,8 @@ const Menu: React.FC<IProps> = ({ children, isHidden, className, style, language
   })
 
   return (
-    <Styled className={ className || '' } style={ style }>
-      <div className={ classNames } ref={ menuRef } onClick={ setIsExpanded.bind(undefined, !isExpanded) }>
+    <Styled className={ className || '' } style={ style } >
+      <div className={ classNames } ref={ menuRef } >
         <section className="header">
           { logo }
         </section>

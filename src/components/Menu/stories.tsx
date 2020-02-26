@@ -7,6 +7,7 @@ import Icon from '../Icon'
 import Menu from './'
 import MenuItem from './MenuItem'
 
+// tslint:disable: jsx-no-lambda
 storiesOf('Menu', module)
   .addDecorator(jsxDecorator)
   .addDecorator(decorator)
@@ -17,23 +18,23 @@ storiesOf('Menu', module)
       onLanguageClick={ alert }
       languages={ languagesMock }
       logoSrc="https://valudio.com/themes/valudio/assets/images/logo.svg"
-      onSignOut={ alert }
+      onSignOut={ () => { return } }
     >
-      <MenuItem onClick={ alert } label="Dashboard" icon="dashboard" isActive/>
-      <MenuItem onClick={ alert } label="Calendar" icon="calendar" />
+      <MenuItem onClick={ () => { return } } label="Dashboard" icon="dashboard" isActive/>
+      <MenuItem onClick={ () => { return } } label="Calendar" icon="calendar" />
     </Menu>
   ))
   .add('Long username', () => (
     <Menu
       className="menu"
       username="development@valudio.com"
-      onLanguageClick={ alert }
+      onLanguageClick={ () => { return } }
       languages={ languagesMock }
       logoSrc="https://valudio.com/themes/valudio/assets/images/logo.svg"
-      onSignOut={ alert }
+      onSignOut={ () => { return } }
     >
-      <MenuItem onClick={ alert } label="Dashboard" icon="dashboard" isActive/>
-      <MenuItem onClick={ alert } label="Calendar" icon="calendar" />
+      <MenuItem onClick={ () => { return } } label="Dashboard" icon="dashboard" isActive/>
+      <MenuItem onClick={ () => { return } } label="Calendar" icon="calendar" />
     </Menu>
   ))
   .add('force expanded', () => {
@@ -48,14 +49,14 @@ storiesOf('Menu', module)
         <Menu
           className="menu"
           username="development@valudio.com"
-          onLanguageClick={ alert }
+          onLanguageClick={ () => { return } }
           languages={ languagesMock }
           logoSrc="https://valudio.com/themes/valudio/assets/images/logo.svg"
           onSignOut={ alert }
           isExpanded={ isVisible }
         >
-          <MenuItem onClick={ alert } label="Dashboard" icon="dashboard" isActive/>
-          <MenuItem onClick={ alert } label="Calendar" icon="calendar" />
+          <MenuItem onClick={ () => { return } } label="Dashboard" icon="dashboard" isActive/>
+          <MenuItem onClick={ () => { return } } label="Calendar" icon="calendar" />
         </Menu>
       </>
     )
