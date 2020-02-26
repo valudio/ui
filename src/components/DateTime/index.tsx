@@ -10,11 +10,10 @@ import Styled from './styles'
 interface IProps extends IInputProps<string> {
   minDate?: string
   maxDate?: string
-  lang?: string
 }
 
 // tslint:disable-next-line: max-line-length
-const DateTime: React.FC<IProps> = ({ isHidden, className, style, initialValue, onChange, minDate, maxDate, placeholder, form, isDisabled, lang }) => {
+const DateTime: React.FC<IProps> = ({ isHidden, className, style, initialValue, onChange, minDate, maxDate, placeholder, form, isDisabled }) => {
   if (isHidden) return null
 
   const [ value, setValue ] = useState(initialValue ? moment(initialValue) : undefined)
@@ -64,7 +63,7 @@ const DateTime: React.FC<IProps> = ({ isHidden, className, style, initialValue, 
         maxDate={ max }
         weeks={ weekDays }
         months={ months }
-        lang={ lang ? lang : language }
+        lang={ language }
       >
         <input
           className="input"
