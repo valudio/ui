@@ -35,6 +35,10 @@ const LanguageItem: React.FC<IProps> = ({ isHidden, className, style, isExpanded
 
   useEffect(() => {
     document.addEventListener('click', handleDocumentClick)
+
+    return () => {
+      document.removeEventListener('click', handleDocumentClick)
+    }
   })
 
   return (
