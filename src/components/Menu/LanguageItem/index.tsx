@@ -14,7 +14,7 @@ const LanguageItem: React.FC<IProps> = ({ isHidden, className, style, isExpanded
   if (isHidden) return null
 
   const [ isOpen, setIsOpen ] = useState(false)
-  const ref = useRef(null)
+  const languageRef = useRef<HTMLDivElement>()
 
   const handleLanguageClick = (language: ILanguage) => {
     if (onLanguageClick) onLanguageClick(language.locale)
@@ -30,7 +30,7 @@ const LanguageItem: React.FC<IProps> = ({ isHidden, className, style, isExpanded
   }
 
   const handleDocumentClick = (event: MouseEvent) => {
-    if (isOpen && !isChildNode(ref.current, event.target)) setIsOpen(false)
+    if (isOpen && !isChildNode(languageRef.current, event.target)) setIsOpen(false)
   }
 
   useEffect(() => {
@@ -42,7 +42,7 @@ const LanguageItem: React.FC<IProps> = ({ isHidden, className, style, isExpanded
   })
 
   return (
-    <Styled className={ className || '' } style={ style } ref={ ref }>
+    <Styled className={ className || '' } style={ style } ref={ languageRef }>
       <MenuItem
         style={{ flex: 1 }}
         isExpanded={ isExpanded }

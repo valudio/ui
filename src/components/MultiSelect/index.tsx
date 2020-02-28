@@ -15,7 +15,8 @@ interface IProps extends IInputProps<IOption[]> {
 const MultiSelect: React.FC<IProps> = ({ className, labelProp, options, onChange, placeholder, isHidden, style, isInvalid, isDisabled, initialValue, form }) => {
   if (isHidden) return null
 
-  const ref = useRef()
+  const ref = useRef<HTMLDivElement>()
+  const wrapperRef = useRef<HTMLDivElement>()
   const [ selected, setSelected ] = useState<IOption[]>(initialValue ?? [])
   const [ isOpen, setIsOpen ] = useState(false)
   const isDisabledOrEmpty = isDisabled || !options || !!options && !options.length
@@ -46,8 +47,11 @@ const MultiSelect: React.FC<IProps> = ({ className, labelProp, options, onChange
     onChange(nextSelected)
   }
 
-  const handleDocumentClick = (event: MouseEvent) => {
-    if (isOpen && !isChildNode(ref.current, event.target)) setIsOpen(false)
+  const handleDocumentClick = (event: Event) => {
+    if (
+      (!isChildNode(ref.current, event.target) && ref.current !== event.target) &&
+      (!isChildNode(wrapperRef.current, event.target) &&  wrapperRef.current !== event.target)
+    ) setIsOpen(false)
   }
 
   useEffect(() => {
@@ -57,7 +61,7 @@ const MultiSelect: React.FC<IProps> = ({ className, labelProp, options, onChange
 
   return (
     <Styled className={ classNames } style={ style } ref={ ref }>
-      <section className="wrapper" onClick={ setIsOpen.bind(undefined, !isDisabledOrEmpty && !isOpen) }>
+      <section className="wrapper" onClick={ setIsOpen.bind(undefined, !isDisabledOrEmpty && !isOpen) } ref={ wrapperRef }>
         <div className="values">{ values }</div>
         <Icon className="icon" icon={ isOpen && !isDisabledOrEmpty ? 'up' : 'down' }/>
       </section>
