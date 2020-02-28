@@ -32,4 +32,8 @@ export default styled.input`
     border: 1.5px solid ${ ({ theme }) => theme.colors.system.error };
     color: ${ ({ theme }) => theme.colors.system.error };
   }
+
+  &::placeholder {
+    color: ${ ({ theme }) => theme.colors.typography.light };
+  }
 `
