@@ -50,8 +50,7 @@ export default styled.article`
       margin: 0 8px 0 0;
 
       .placeholder {
-        color: ${ ({ theme }) => theme.colors.typography.light } !important;
-        opacity: 0.5;
+        color: ${ ({ theme }) => theme.colors.typography.light };
         font-family: ${ ({ theme }) => theme.fontFamily };
         user-select: none;
       }
