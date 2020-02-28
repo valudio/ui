@@ -16,7 +16,7 @@ interface IProps extends IInputProps<IOption> {
 const Select: React.FC<IProps> = ({ isHidden, className, style, isDisabled, isInvalid, options, labelProp, onChange, placeholder, initialValue, form }) => {
   if (isHidden) return null
 
-  const ref = useRef()
+  const ref = useRef<HTMLDivElement>()
   const [ isOpen, setIsOpen ] = useState(false)
   const [ selected, setSelected ] = useState<IOption | void>(initialValue)
   const isDisabledOrEmpty = isDisabled || !options || !!options && !options.length
@@ -38,13 +38,17 @@ const Select: React.FC<IProps> = ({ isHidden, className, style, isDisabled, isIn
     <Item key={ x.id } isSelected={ selected === x } onClick={ handleChange.bind(undefined, x) }>{ x[labelProp] }</Item>
   )
 
-  const handleDocumentClick = (event: MouseEvent) => {
-    if (isOpen && !isChildNode(ref.current, event.target)) setIsOpen(false)
+  const handleDocumentClick = (event: Event) => {
+    if ((isOpen && !isChildNode(ref.current, event.target)) || ref.current !== event.target) setIsOpen(false)
   }
 
   useEffect(() => {
     if (form) form.addEventListener('reset', setSelected.bind(undefined, initialValue ?? []))
     document.addEventListener('click', handleDocumentClick)
+
+    return () => {
+      document.removeEventListener('click', handleDocumentClick)
+    }
   }, [ form ])
 
   return (
