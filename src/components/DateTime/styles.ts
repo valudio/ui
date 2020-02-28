@@ -21,6 +21,10 @@ export default styled.article`
     font-size: 16px;
     box-sizing: border-box;
 
+    ::placeholder {
+      color: ${ ({ theme }) => theme.colors.typography.light };
+    }
+
     &:disabled {
       color: ${ ({ theme }) => theme.colors.typography.light };
       background: ${ ({ theme }) => theme.colors.grey.medium };
