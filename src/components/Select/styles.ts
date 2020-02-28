@@ -53,5 +53,9 @@ export default styled.article`
     border: none;
     box-shadow: none;
     pointer-events: none;
+
+    &::placeholder {
+      color: ${ ({ theme }) => theme.colors.typography.light };
+    }
   }
 `
