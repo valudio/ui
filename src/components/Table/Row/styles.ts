@@ -21,7 +21,7 @@ export default styled.article`
     color: ${ ({ theme }) => theme.colors.typography.dark };
     margin: 0 16px;
     flex: 1;
-    font-size: 16px;
+    font-size: 14px;
     overflow: hidden;
     justify-content: flex-start;
   }
