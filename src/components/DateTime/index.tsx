@@ -8,16 +8,18 @@ import LanguageContext from '../Provider/LanguageContext'
 import Styled from './styles'
 
 interface IProps extends IInputProps<string> {
+  locale: string
   minDate?: string
   maxDate?: string
 }
 
 // tslint:disable-next-line: max-line-length
-const DateTime: React.FC<IProps> = ({ isHidden, className, style, initialValue, onChange, minDate, maxDate, placeholder, form, isDisabled }) => {
+const DateTime: React.FC<IProps> = ({ isHidden, className, style, initialValue, onChange, minDate, maxDate, locale, placeholder, form, isDisabled }) => {
   if (isHidden) return null
 
   const [ value, setValue ] = useState(initialValue ? moment(initialValue) : undefined)
   const language = useContext(LanguageContext)
+  const [lang, setLang] = useState(!!locale ? locale : language)
   const momentValue = !!value ? value : moment()
   const min = minDate && moment(minDate)
   const max = maxDate && moment(maxDate)
@@ -29,7 +31,8 @@ const DateTime: React.FC<IProps> = ({ isHidden, className, style, initialValue, 
 
   useEffect(() => {
     if (form) form.addEventListener('reset', setValue.bind(undefined, initialValue ? moment(initialValue) : undefined))
-  }, [ form ])
+    setLang(locale)
+  }, [ form, locale ])
 
   return (
     <Styled className={ className || '' } style={ style }>
@@ -38,7 +41,7 @@ const DateTime: React.FC<IProps> = ({ isHidden, className, style, initialValue, 
         onChange={ handleChange }
         minDate={ min }
         maxDate={ max }
-        lang={ language }
+        lang={ lang }
       >
         <input
           className="input"
