@@ -21,29 +21,6 @@ const DateTime: React.FC<IProps> = ({ isHidden, className, style, initialValue, 
   const momentValue = !!value ? value : moment()
   const min = minDate && moment(minDate)
   const max = maxDate && moment(maxDate)
-  const weekDays = [
-    literals[language].sun,
-    literals[language].mon,
-    literals[language].tue,
-    literals[language].wed,
-    literals[language].thu,
-    literals[language].fri,
-    literals[language].sat
-  ]
-  const months = [
-    literals[language].january,
-    literals[language].february,
-    literals[language].march,
-    literals[language].april,
-    literals[language].may,
-    literals[language].june,
-    literals[language].july,
-    literals[language].august,
-    literals[language].september,
-    literals[language].october,
-    literals[language].november,
-    literals[language].december,
-  ]
 
   const handleChange = (nextValue: moment.Moment) => {
     setValue(nextValue)
@@ -61,8 +38,6 @@ const DateTime: React.FC<IProps> = ({ isHidden, className, style, initialValue, 
         onChange={ handleChange }
         minDate={ min }
         maxDate={ max }
-        weeks={ weekDays }
-        months={ months }
         lang={ language }
       >
         <input
