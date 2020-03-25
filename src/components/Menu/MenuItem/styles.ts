@@ -23,6 +23,17 @@ export default styled.button`
     color: ${ ({ theme }) => theme.colors.primary.dark };
   }
 
+  &.button {
+    background:  ${ ({ theme }) => theme.colors.primary.medium };
+    color: ${ ({ theme }) => theme.colors.white };
+    border-radius: 20px;
+    max-height: 40px;
+
+    &:hover {
+      background:  ${ ({ theme }) => theme.colors.primary.dark };
+    }
+  }
+
   .icon {
     font-size: 24px;
   }
