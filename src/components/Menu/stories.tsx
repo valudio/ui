@@ -22,6 +22,7 @@ storiesOf('Menu', module)
     >
       <MenuItem onClick={ () => { return } } label="Dashboard" icon="dashboard" isActive/>
       <MenuItem onClick={ () => { return } } label="Calendar" icon="calendar" />
+      <MenuItem onClick={ () => { return } } label="Add file" icon="add" isButton/>
     </Menu>
   ))
   .add('Long username', () => (
