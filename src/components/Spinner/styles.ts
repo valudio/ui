@@ -22,4 +22,9 @@ export default styled.article`
   .double-bounce2 {
     animation-delay: -1.0s;
   }
+
+  &.button {
+    width: 30px;
+    height: 30px;
+  }
 `
