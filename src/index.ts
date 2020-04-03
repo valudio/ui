@@ -4,6 +4,7 @@ import Checkbox from './components/Checkbox'
 import DateTime from './components/DateTime'
 import Field from './components/Field'
 import File from './components/File'
+import FileInput from './components/FileInput'
 import Icon from './components/Icon'
 import Input from './components/Input'
 import Menu from './components/Menu'
@@ -27,6 +28,7 @@ export {
   Button,
   Checkbox,
   File,
+  FileInput,
   Icon,
   Input,
   Bubble,
