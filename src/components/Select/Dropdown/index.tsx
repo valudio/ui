@@ -8,6 +8,7 @@ interface IProps extends IBaseProps {
 
 const Dropdown: React.FC<IProps> = ({ isHidden, children, className, parentRef }) => {
   if (isHidden) return null
+
   const selectContainer = parentRef.current.getBoundingClientRect()
   const dropdownPosition = {
     top: selectContainer.top + 48,
