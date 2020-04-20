@@ -11,7 +11,7 @@ const Dropdown: React.FC<IProps> = ({ isHidden, children, className, parentRef }
 
   const selectContainer = parentRef.current.getBoundingClientRect()
   const dropdownPosition = {
-    top: selectContainer.top + 48,
+    top: selectContainer.top + selectContainer.height + 8,
     left: selectContainer.left
   }
 
