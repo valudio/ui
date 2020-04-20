@@ -21,6 +21,7 @@ const Select: React.FC<IProps> = ({ isHidden, className, style, isDisabled, isIn
   const [ selected, setSelected ] = useState<IOption | void>(initialValue)
   const isDisabledOrEmpty = isDisabled || !options || !!options && !options.length
   const classNames = `
+    select-container
     ${ className || '' }
     ${ !!selected ? 'filled' : '' }
     ${ isOpen ? 'active' : '' }
@@ -61,7 +62,7 @@ const Select: React.FC<IProps> = ({ isHidden, className, style, isDisabled, isIn
       {/* <span className="value">{ selected && selected[labelProp] || placeholder }</span> */}
       <input className="value" placeholder={ placeholder } readOnly value={ selected && selected[labelProp] } />
       <Icon className="icon" icon={ isOpen && !isDisabledOrEmpty ? 'up' : 'down' }/>
-      <Dropdown isHidden={ !isOpen || isDisabledOrEmpty }>{ items }</Dropdown>
+      <Dropdown parentRef={ ref } isHidden={ !isOpen || isDisabledOrEmpty }>{ items }</Dropdown>
     </Styled>
   )
 }

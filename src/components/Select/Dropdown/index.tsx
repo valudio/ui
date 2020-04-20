@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { RefObject } from 'react'
 import { IBaseProps } from '../../../models'
 import Styled from './styles'
 
-const Dropdown: React.FC<IBaseProps> = ({ isHidden, children, className }) => {
+interface IProps extends IBaseProps {
+  parentRef: RefObject<HTMLDivElement>
+}
+
+const Dropdown: React.FC<IProps> = ({ isHidden, children, className, parentRef }) => {
   if (isHidden) return null
 
-  return <Styled className={ className || '' }>{ children }</Styled>
+  const selectContainer = parentRef.current.getBoundingClientRect()
+  const dropdownPosition = {
+    top: selectContainer.top + selectContainer.height + 8,
+    left: selectContainer.left
+  }
+
+  return <Styled className={ className || '' } style={ dropdownPosition } >{ children }</Styled>
 }
 
 export default Dropdown
