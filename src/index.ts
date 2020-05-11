@@ -20,6 +20,7 @@ import StatusDot from './components/StatusDot'
 import Table from './components/Table'
 import Title from './components/Title'
 import Toggle from './components/Toggle'
+import Tooltip from './components/Tooltip'
 import defaultTheme from './default-theme'
 export * from './models'
 
@@ -46,5 +47,6 @@ export {
   DateTime,
   Field,
   Select,
-  Title
+  Title,
+  Tooltip
 }
