@@ -10,24 +10,29 @@ const Tooltip: React.FC<IProps> = ({ children, isHidden, className, style, trigg
   const tooltipRef = useRef<HTMLDivElement>(null)
 
   const isTooltipInViewport = () => {
+    const parentCoords = triggerRef.current.getBoundingClientRect()
     const tooltipCoords = tooltipRef.current.getBoundingClientRect()
-    // tslint:disable-next-line: no-console
-    console.log('TooltipCoords', tooltipCoords)
+    const isTooltipTopVisible = tooltipCoords.top >= 0
+    const isTooltipLeftVisible = tooltipCoords.left >= 0
+    const isTooltipRightVisible =
+      (parentCoords.right + tooltipCoords.width) <= (window.innerWidth || document.documentElement.clientWidth)
+    const isTooltipBottomVisible =
+      (parentCoords.bottom + tooltipCoords.height) <= (window.innerHeight || document.documentElement.clientHeight)
 
-    return tooltipCoords.top >= 0 ||
-      tooltipCoords.left >= 0 ||
-      tooltipCoords.right <= (window.innerWidth || document.documentElement.clientWidth) ||
-      tooltipCoords.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+    return isTooltipTopVisible || isTooltipLeftVisible || isTooltipRightVisible || isTooltipBottomVisible
   }
 
   const positionTooltip = () => {
     const parentCoords = triggerRef.current.getBoundingClientRect()
 
-    // tslint:disable-next-line: no-console
-    console.log('IS IN?', isTooltipInViewport())
-
     if (isTooltipInViewport()) {
-      tooltipRef.current.style.top = `${ parentCoords.height }px`
+      tooltipRef.current.style.top = `${ parentCoords.top + parentCoords.height }px`
+      tooltipRef.current.style.left = `${ parentCoords.left }px`
+      tooltipRef.current.style.visibility = 'visible'
+    } else {
+      tooltipRef.current.style.bottom = `${ parentCoords.top + parentCoords.height }px`
+      tooltipRef.current.style.right = '0'
+      tooltipRef.current.style.visibility = 'visible'
     }
   }
 
