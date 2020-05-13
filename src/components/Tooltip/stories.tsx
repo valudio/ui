@@ -11,7 +11,7 @@ storiesOf('Tooltip', module)
   .add('default', () => {
     const [isTooltipVisible, setIsTooltipVisible] = useState(false)
     const divRef = useRef<HTMLDivElement>(null)
-  
+
     return (
       <div
         ref={ divRef }
