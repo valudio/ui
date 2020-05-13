@@ -10,29 +10,30 @@ const Tooltip: React.FC<IProps> = ({ children, isHidden, className, style, trigg
   const tooltipRef = useRef<HTMLDivElement>(null)
 
   const positionTooltip = () => {
-    const parentCoords = triggerRef?.current.getBoundingClientRect()
-    const tooltipCoords = tooltipRef?.current.getBoundingClientRect()
-    const isTooltipTopVisible = tooltipCoords.top >= 0
-    const isTooltipLeftVisible = tooltipCoords.left >= 0
+    if (!triggerRef.current || !tooltipRef.current) return
+
+    const parentCoords = triggerRef.current.getBoundingClientRect()
+    const tooltipCoords = tooltipRef.current.getBoundingClientRect()
     const isTooltipBottomVisible =
       (parentCoords.bottom + tooltipCoords.height) <= (window.innerHeight || document.documentElement.clientHeight)
     const isTooltipRightVisible =
-      (parentCoords.right + tooltipCoords.width) <= (window.innerWidth || document.documentElement.clientWidth)
+      (parentCoords.right + tooltipCoords.width / 2) <= (window.innerWidth || document.documentElement.clientWidth)
 
-    if (isTooltipTopVisible && isTooltipLeftVisible) {
-      tooltipRef.current.style.top = `${ parentCoords.top + parentCoords.height }px`
-      tooltipRef.current.style.left = `${ parentCoords.left }px`
-    } else if (!isTooltipBottomVisible && !isTooltipRightVisible) {
-      tooltipRef.current.style.bottom = `${ parentCoords.top + parentCoords.height }px`
+
+    if (!isTooltipBottomVisible && !isTooltipRightVisible) {
+      tooltipRef.current.style.top = `${ parentCoords.top - tooltipCoords.height }px`
       tooltipRef.current.style.right = '0'
       tooltipRef.current.style.left = 'initial'
     } else if (!isTooltipBottomVisible && isTooltipRightVisible) {
-      tooltipRef.current.style.bottom = `${ parentCoords.top + parentCoords.height }px`
+      tooltipRef.current.style.top = `${ parentCoords.top - parentCoords.height }px`
       tooltipRef.current.style.left = `${ parentCoords.left }px`
     } else if (isTooltipBottomVisible && !isTooltipRightVisible) {
       tooltipRef.current.style.top = `${ parentCoords.top + parentCoords.height }px`
       tooltipRef.current.style.right = '0'
       tooltipRef.current.style.left = 'initial'
+    } else {
+      tooltipRef.current.style.top = `${ parentCoords.top + parentCoords.height }px`
+      tooltipRef.current.style.left = `${ parentCoords.left }px`
     }
 
     tooltipRef.current.style.visibility = 'visible'
