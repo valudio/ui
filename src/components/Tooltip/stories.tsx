@@ -10,16 +10,17 @@ storiesOf('Tooltip', module)
   .addDecorator(decorator)
   .add('default', () => {
     const [isTooltipVisible, setIsTooltipVisible] = useState(false)
-
-
+    const divRef = useRef<HTMLDivElement>(null)
+  
     return (
       <div
-        style={ { position: 'relative', cursor: 'pointer' } }
+        ref={ divRef }
+        style={ { position: 'relative', left: '1000px', cursor: 'pointer' } }
         onMouseEnter={ () => setIsTooltipVisible(true) }
         onMouseLeave={ () => setIsTooltipVisible(false) }
       >
         <h3 className="hover-item">Hover me!</h3>
-        <Tooltip isHidden={ !isTooltipVisible }>
+        <Tooltip triggerRef={ divRef } isHidden={ !isTooltipVisible }>
           <h3>Tooltip title</h3>
           <span>Tooltip content</span>
         </Tooltip>
