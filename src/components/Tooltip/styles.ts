@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export default styled.section`
-  transition: all 0.2s;
+  transition: visibility 0.2s, opacity 0.1s ease-in;
   font-family: ${ ({ theme }) => theme.fontFamily };
   position: fixed;
   left: 0;
@@ -13,6 +13,7 @@ export default styled.section`
   padding: 12px;
   z-index: 9999;
   visibility: hidden;
+  opacity: 0;
 
   &.hidden {
     display: none;
