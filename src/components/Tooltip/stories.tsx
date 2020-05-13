@@ -15,14 +15,14 @@ storiesOf('Tooltip', module)
     return (
       <div
         ref={ divRef }
-        style={ { position: 'relative', left: '1000px', cursor: 'pointer' } }
+        style={ { position: 'relative', cursor: 'pointer' } }
         onMouseEnter={ () => setIsTooltipVisible(true) }
         onMouseLeave={ () => setIsTooltipVisible(false) }
       >
         <h3 className="hover-item">Hover me!</h3>
         <Tooltip triggerRef={ divRef } isHidden={ !isTooltipVisible }>
           <h3>Tooltip title</h3>
-          <span>Tooltip content</span>
+          <span>Tooltip content asdfasdfasdefasdfasdfasdf long content</span>
         </Tooltip>
       </div>
     )
