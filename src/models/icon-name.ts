@@ -45,4 +45,8 @@ export type IconName =
   'material' |
   'home' |
   'change-password' |
-  'customer'
+  'customer' |
+  'validation' |
+  'validation-expert' |
+  'warning' |
+  'error'
