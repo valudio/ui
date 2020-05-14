@@ -47,6 +47,10 @@ storiesOf('Icon', module)
       <Icon className="icon" icon="home" />
       <Icon className="icon" icon="change-password" />
       <Icon className="icon" icon="customer" />
+      <Icon className="icon" icon="validation" />
+      <Icon className="icon" icon="validation-expert" />
+      <Icon className="icon" icon="error" />
+      <Icon className="icon" icon="warning" />
       <Icon className="icon" icon="pdf" />
       <Icon className="icon" icon="img" />
       <Icon className="icon" icon="edi" />

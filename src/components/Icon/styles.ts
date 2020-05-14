@@ -210,4 +210,20 @@ export default styled.i`
   &.customer:before {
     content: "\\e02e";
   }
+
+  &.validation:before {
+    content: "\\e02f";
+  }
+
+  &.validation-expert:before {
+    content: "\\e030";
+  }
+
+  &.warning:before {
+    content: "\\e031";
+  }
+
+  &.error:before {
+    content: "\\e032";
+  }
 `
