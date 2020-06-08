@@ -20,7 +20,7 @@ const Snackbar: React.FC<IProps> = ({ isHidden, style, className, type, message 
       iconName = 'ok'
       break
     case 'warning':
-      iconName = 'atention'
+      iconName = 'attention'
       break
     case 'error':
       iconName = 'close'
