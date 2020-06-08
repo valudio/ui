@@ -10,7 +10,7 @@ storiesOf('Icon', module)
   .add('default', () => <Icon className="icon" icon="calendar" />)
   .add('clickable', () => <Icon className="icon" icon="calendar" onClick={ alert } />)
   .add('icons list', () => (
-    <div 
+    <div
       className="icon-list"
       style={{ flex: 1, display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}
     >
