@@ -10,9 +10,12 @@ storiesOf('Icon', module)
   .add('default', () => <Icon className="icon" icon="calendar" />)
   .add('clickable', () => <Icon className="icon" icon="calendar" onClick={ alert } />)
   .add('icons list', () => (
-    <div className="icon-list">
+    <div
+      className="icon-list"
+      style={{ flex: 1, display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}
+    >
       <Icon className="icon" icon="add" />
-      <Icon className="icon" icon="atention" />
+      <Icon className="icon" icon="attention" />
       <Icon className="icon" icon="calendar" />
       <Icon className="icon" icon="check" />
       <Icon className="icon" icon="close" />
@@ -46,11 +49,25 @@ storiesOf('Icon', module)
       <Icon className="icon" icon="material" />
       <Icon className="icon" icon="home" />
       <Icon className="icon" icon="change-password" />
-      <Icon className="icon" icon="customer" />
+      <Icon className="icon" icon="customer"/>
+      <Icon className="icon" icon="sign-out"/>
       <Icon className="icon" icon="validation" />
       <Icon className="icon" icon="validation-expert" />
       <Icon className="icon" icon="error" />
       <Icon className="icon" icon="warning" />
+      <Icon className="icon" icon="export" />
+      <Icon className="icon" icon="export-emergency" />
+      <Icon className="icon" icon="share" />
+      <Icon className="icon" icon="template" />
+      <Icon className="icon" icon="sample-assign" />
+      <Icon className="icon" icon="assay-assign" />
+      <Icon className="icon" icon="well-view" />
+      <Icon className="icon" icon="target-view" />
+      <Icon className="icon" icon="plate-view" />
+      <Icon className="icon" icon="refresh" />
+      <Icon className="icon" icon="group-validation" />
+      <Icon className="icon" icon="legend" />
+      <Icon className="icon" icon="sync" />
       <Icon className="icon" icon="pdf" />
       <Icon className="icon" icon="img" />
       <Icon className="icon" icon="edi" />

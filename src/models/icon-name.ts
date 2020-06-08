@@ -2,7 +2,7 @@ export type IconName =
   'add' |
   'points' |
   'received' |
-  'atention' |
+  'attention' |
   'calendar' |
   'right' |
   'search' |
@@ -49,4 +49,17 @@ export type IconName =
   'validation' |
   'validation-expert' |
   'warning' |
-  'error'
+  'error' |
+  'export' |
+  'export-emergency' |
+  'share' |
+  'template' |
+  'sample-assign' |
+  'assay-assign' |
+  'well-view' |
+  'target-view' |
+  'plate-view' |
+  'refresh' |
+  'group-validation' |
+  'legend' |
+  'sync'
