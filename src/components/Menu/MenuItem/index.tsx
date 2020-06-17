@@ -22,11 +22,11 @@ const MenuItem: React.FC<IProps> = ({ isHidden, className, style, icon, label, d
   const classNames = `${ className || '' } ${isActive ? 'active' : ''} ${ isButton ? 'button' : '' }`
   const expandedLabel = isExpanded && <span className="label">{ label }</span>
   const dropdownIcon = (isExpanded && isDropdown) && <Icon icon={ `dropdown-icon ${ isOpen ? 'up' : 'down' }` as IconName } />
-  const items = dropdownItems 
-    && dropdownItems.map(item => (
-        <li className={ `dropdown-item ${ item.isActive && 'active' }` } onClick={ item.onClick }>{ item.label }</li>
+  const items = dropdownItems
+    && dropdownItems.map((item, i) => (
+        <li key={ i } className={ `dropdown-item ${ item.isActive && 'active' }` } onClick={ item.onClick }>{ item.label }</li>
       ))
-  const dropdownList = isDropdown 
+  const dropdownList = isDropdown
     && <StyledList className={ `dropdown-list ${ isOpen && 'open' }` }>{ items }</StyledList>
 
   const toggleOpen = () => setIsOpen(!isOpen)
