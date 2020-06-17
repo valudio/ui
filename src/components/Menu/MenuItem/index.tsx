@@ -10,21 +10,21 @@ interface IProps extends IBaseProps {
   onClick?: () => void
   isExpanded?: boolean
   isButton?: boolean
-  isDrodown?: boolean
+  isDropdown?: boolean
 }
 
-const MenuItem: React.FC<IProps> = ({ isHidden, className, style, icon, label, isActive, onClick, isExpanded, isButton, isDrodown, children }) => {
+const MenuItem: React.FC<IProps> = ({ isHidden, className, style, icon, label, isActive, onClick, isExpanded, isButton, isDropdown, children }) => {
   if (isHidden) return null
 
   const [isOpen, setIsOpen] = useState(false)
   const badge = isValidElement(icon) ? icon : <Icon className="icon" icon={ icon as IconName } />
   const classNames = `${ className || '' } ${isActive ? 'active' : ''} ${ isButton ? 'button' : '' }`
   const expandedLabel = isExpanded && <span className="label">{ label }</span>
-  const dropdownIcon = (isExpanded && isDrodown) && <Icon icon={ `dropdown-icon ${ isOpen ? 'up' : 'down' }` as IconName } />
-  const dropdownItems = isDrodown && <StyledList className={ `dropdown-items ${ isOpen && 'open' }` }>{ children }</StyledList>
+  const dropdownIcon = (isExpanded && isDropdown) && <Icon icon={ `dropdown-icon ${ isOpen ? 'up' : 'down' }` as IconName } />
+  const dropdownItems = isDropdown && <StyledList className={ `dropdown-items ${ isOpen && 'open' }` }>{ children }</StyledList>
 
   const toggleOpen = () => setIsOpen(!isOpen)
-  const handleClick = () => isDrodown ? toggleOpen() : onClick()
+  const handleClick = () => isDropdown ? toggleOpen() : onClick()
 
   return (
     <>

@@ -23,7 +23,7 @@ storiesOf('Menu', module)
       <MenuItem onClick={ () => { return } } label="Dashboard" icon="dashboard" isActive/>
       <MenuItem onClick={ () => { return } } label="Calendar" icon="calendar" />
       <MenuItem onClick={ () => { return } } label="Add file" icon="add" isButton/>
-      <MenuItem onClick={ () => { return } } label="Settings" icon="settings" isDrodown>
+      <MenuItem onClick={ () => { return } } label="Settings" icon="settings" isDropdown>
         <li>Cycler</li>
         <li>Protocol</li>
       </MenuItem>
