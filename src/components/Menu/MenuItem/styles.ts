@@ -63,7 +63,7 @@ const StyledList = styled.ul`
     height: auto;
   }
 
-  li {
+  .dropdown-item {
     font-family: ${ ({ theme }) => theme.fontFamily };
     font-size: 16px;
     font-weight: normal;
@@ -73,9 +73,9 @@ const StyledList = styled.ul`
     cursor: pointer;
     background: transparent;
 
-    &:hover {
+    &:hover,
+    &.active {
       color: ${ ({ theme }) => theme.colors.typography.medium };
-      background: ${ ({ theme }) => theme.colors.grey.medium };
     }
   }
   

@@ -23,10 +23,6 @@ storiesOf('Menu', module)
       <MenuItem onClick={ () => { return } } label="Dashboard" icon="dashboard" isActive/>
       <MenuItem onClick={ () => { return } } label="Calendar" icon="calendar" />
       <MenuItem onClick={ () => { return } } label="Add file" icon="add" isButton/>
-      <MenuItem onClick={ () => { return } } label="Settings" icon="settings" isDropdown>
-        <li>Cycler</li>
-        <li>Protocol</li>
-      </MenuItem>
     </Menu>
   ))
   .add('Long username', () => (
@@ -66,3 +62,30 @@ storiesOf('Menu', module)
       </>
     )
   })
+  .add('with dropdown item', () => (
+    <Menu
+      className="menu"
+      username="John Doe"
+      onLanguageClick={ alert }
+      languages={ languagesMock }
+      logoSrc="http://valudio.com/themes/valudio/assets/images/logo.svg"
+      onSignOut={ () => { return } }
+    >
+      <MenuItem onClick={ () => { return } } label="Dashboard" icon="dashboard" isActive/>
+      <MenuItem onClick={ () => { return } } label="Calendar" icon="calendar" />
+      <MenuItem onClick={ () => { return } } label="Add file" icon="add" isButton/>
+      <MenuItem
+        label="Settings"
+        icon="settings"
+        // tslint:disable-next-line: jsx-no-multiline-js
+        dropdownItems={[
+          { label: 'Layout', onClick: () => undefined, isActive: true },
+          { label: 'Account', onClick: () => undefined, isActive: false },
+        ]}
+        isDropdown
+      >
+        <li>Cycler</li>
+        <li>Protocol</li>
+      </MenuItem>
+    </Menu>
+  ))
