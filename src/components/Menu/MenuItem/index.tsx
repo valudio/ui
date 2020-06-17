@@ -1,4 +1,4 @@
-import React, { isValidElement, ReactNode, useState, useEffect } from 'react'
+import React, { isValidElement, ReactNode, useEffect, useState } from 'react'
 import { IBaseProps, IconName, IDropdownItem } from '../../../models'
 import Icon from '../../Icon'
 import { StyledButton, StyledList } from './styles'
