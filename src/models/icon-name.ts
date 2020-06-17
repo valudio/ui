@@ -62,4 +62,5 @@ export type IconName =
   'refresh' |
   'group-validation' |
   'legend' |
-  'sync'
+  'sync' |
+  'settings'

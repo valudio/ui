@@ -17,12 +17,16 @@ storiesOf('Menu', module)
       username="John Doe"
       onLanguageClick={ alert }
       languages={ languagesMock }
-      logoSrc="https://valudio.com/themes/valudio/assets/images/logo.svg"
+      logoSrc="http://valudio.com/themes/valudio/assets/images/logo.svg"
       onSignOut={ () => { return } }
     >
       <MenuItem onClick={ () => { return } } label="Dashboard" icon="dashboard" isActive/>
       <MenuItem onClick={ () => { return } } label="Calendar" icon="calendar" />
       <MenuItem onClick={ () => { return } } label="Add file" icon="add" isButton/>
+      <MenuItem onClick={ () => { return } } label="Settings" icon="settings" isDrodown>
+        <li>Cycler</li>
+        <li>Protocol</li>
+      </MenuItem>
     </Menu>
   ))
   .add('Long username', () => (
@@ -31,7 +35,7 @@ storiesOf('Menu', module)
       username="development@valudio.com"
       onLanguageClick={ () => { return } }
       languages={ languagesMock }
-      logoSrc="https://valudio.com/themes/valudio/assets/images/logo.svg"
+      logoSrc="http://valudio.com/themes/valudio/assets/images/logo.svg"
       onSignOut={ () => { return } }
     >
       <MenuItem onClick={ () => { return } } label="Dashboard" icon="dashboard" isActive/>
@@ -52,7 +56,7 @@ storiesOf('Menu', module)
           username="development@valudio.com"
           onLanguageClick={ () => { return } }
           languages={ languagesMock }
-          logoSrc="https://valudio.com/themes/valudio/assets/images/logo.svg"
+          logoSrc="http://valudio.com/themes/valudio/assets/images/logo.svg"
           onSignOut={ alert }
           isExpanded={ isVisible }
         >

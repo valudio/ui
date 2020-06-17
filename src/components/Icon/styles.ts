@@ -215,4 +215,7 @@ export default styled.i`
   &.well-view:before {
     content: "\\e03f";
   }
+  &.settings:before {
+    content: "\\e040";
+  }
 `

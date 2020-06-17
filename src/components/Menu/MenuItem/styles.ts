@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export default styled.button`
+const StyledButton = styled.button`
   display: flex;
   margin: 0 4px;
   padding: 8px;
@@ -12,6 +12,7 @@ export default styled.button`
   border-radius: 2px;
   cursor: pointer;
   font-family: ${ ({ theme }) => theme.fontFamily };
+  position: relative;
 
   &:hover {
     background: ${ ({ theme }) => theme.colors.grey.dark };
@@ -39,7 +40,44 @@ export default styled.button`
   }
 
   .label {
-    font-size: 14px;
+    font-size: 16px;
     text-indent: 14px;
   }
+
+  .dropdown-icon {
+    font-size: 18px;
+    position: absolute;
+    right: 8px;
+  }
 `
+
+const StyledList = styled.ul`
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  list-style: none;
+  margin-bottom: 16px;
+
+  &.open {
+    height: auto;
+  }
+
+  li {
+    font-family: ${ ({ theme }) => theme.fontFamily };
+    font-size: 16px;
+    font-weight: normal;
+    color: ${ ({ theme }) => theme.colors.typography.light };
+    padding-left: 32px;
+    height: 40px;
+    cursor: pointer;
+    background: transparent;
+
+    &:hover {
+      color: ${ ({ theme }) => theme.colors.typography.medium };
+      background: ${ ({ theme }) => theme.colors.grey.medium };
+    }
+  }
+  
+`
+export { StyledButton, StyledList }
