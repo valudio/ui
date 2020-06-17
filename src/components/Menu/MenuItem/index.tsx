@@ -1,11 +1,12 @@
-import React, { isValidElement, ReactNode, useState } from 'react'
-import { IBaseProps, IconName } from '../../../models'
+import React, { isValidElement, ReactNode, useState, useEffect } from 'react'
+import { IBaseProps, IconName, IDropdownItem } from '../../../models'
 import Icon from '../../Icon'
 import { StyledButton, StyledList } from './styles'
 
 interface IProps extends IBaseProps {
   icon: IconName | ReactNode
   label: string
+  dropdownItems?: IDropdownItem[]
   isActive?: boolean
   onClick?: () => void
   isExpanded?: boolean
@@ -13,7 +14,7 @@ interface IProps extends IBaseProps {
   isDropdown?: boolean
 }
 
-const MenuItem: React.FC<IProps> = ({ isHidden, className, style, icon, label, isActive, onClick, isExpanded, isButton, isDropdown, children }) => {
+const MenuItem: React.FC<IProps> = ({ isHidden, className, style, icon, label, dropdownItems, isActive, onClick, isExpanded, isButton, isDropdown }) => {
   if (isHidden) return null
 
   const [isOpen, setIsOpen] = useState(false)
@@ -21,10 +22,22 @@ const MenuItem: React.FC<IProps> = ({ isHidden, className, style, icon, label, i
   const classNames = `${ className || '' } ${isActive ? 'active' : ''} ${ isButton ? 'button' : '' }`
   const expandedLabel = isExpanded && <span className="label">{ label }</span>
   const dropdownIcon = (isExpanded && isDropdown) && <Icon icon={ `dropdown-icon ${ isOpen ? 'up' : 'down' }` as IconName } />
-  const dropdownItems = isDropdown && <StyledList className={ `dropdown-items ${ isOpen && 'open' }` }>{ children }</StyledList>
+  const items = dropdownItems 
+    && dropdownItems.map(item => (
+        <li className={ `dropdown-item ${ item.isActive && 'active' }` } onClick={ item.onClick }>{ item.label }</li>
+      ))
+  const dropdownList = isDropdown 
+    && <StyledList className={ `dropdown-list ${ isOpen && 'open' }` }>{ items }</StyledList>
 
   const toggleOpen = () => setIsOpen(!isOpen)
-  const handleClick = () => isDropdown ? toggleOpen() : onClick()
+  const handleClick = () => {
+    if (isDropdown) toggleOpen()
+    if (onClick && typeof onClick === 'function') onClick()
+  }
+
+  useEffect(() => {
+    if (isDropdown && !isExpanded) setIsOpen(false)
+  }, [isExpanded, isDropdown])
 
   return (
     <>
@@ -33,7 +46,7 @@ const MenuItem: React.FC<IProps> = ({ isHidden, className, style, icon, label, i
         { expandedLabel }
         { dropdownIcon }
       </StyledButton>
-      { dropdownItems }
+      { dropdownList }
     </>
   )
 }
