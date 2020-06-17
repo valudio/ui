@@ -19,7 +19,7 @@ const MenuItem: React.FC<IProps> = ({ isHidden, className, style, icon, label, d
 
   const [isOpen, setIsOpen] = useState(false)
   const badge = isValidElement(icon) ? icon : <Icon className="icon" icon={ icon as IconName } />
-  const classNames = `${ className || '' } ${isActive ? 'active' : ''} ${ isButton ? 'button' : '' }`
+  const classNames = `${ className || '' } ${ isActive && 'active' } ${ isButton && 'button' } ${ isDropdown && 'dropdown' }`
   const expandedLabel = isExpanded && <span className="label">{ label }</span>
   const dropdownIcon = (isExpanded && isDropdown) && <Icon icon={ `dropdown-icon ${ isOpen ? 'up' : 'down' }` as IconName } />
   const items = dropdownItems

@@ -29,7 +29,7 @@ const Menu: React.FC<IProps> = ({ children, isHidden, className, style, language
     ? <img src={ logoSrc } className="logo" onClick={ setIsExpanded.bind(undefined, false) } />
     : <Icon icon="menu" className="logo" onClick={ setIsExpanded.bind(undefined, true) } />
 
-  const handleClickOutside = (event: Event) => {
+  const handleClickOutside = (event: MouseEvent) => {
     if (
       isExpanded &&
       !isChildNode(menuRef.current, event.target) &&
@@ -37,11 +37,23 @@ const Menu: React.FC<IProps> = ({ children, isHidden, className, style, language
     ) setIsExpanded(false)
   }
 
+  const handleDropDownClick = () => {
+    if (!isExpanded) setIsExpanded(true)
+  }
+
   useEffect(() => {
+    const dropDownButtons = document.getElementsByClassName('dropdown')
+
     document.addEventListener('click', handleClickOutside)
+    if (dropDownButtons && dropDownButtons.length) {
+      Array.from(dropDownButtons).map(dropdown => dropdown.addEventListener('click', handleDropDownClick))
+    }
 
     return () => {
       document.removeEventListener('click', handleClickOutside)
+      if (dropDownButtons && dropDownButtons.length) {
+        Array.from(dropDownButtons).map(dropdown => dropdown.removeEventListener('click', handleDropDownClick))
+      }
     }
   })
 
