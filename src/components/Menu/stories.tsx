@@ -75,12 +75,13 @@ storiesOf('Menu', module)
       <MenuItem onClick={ () => { return } } label="Calendar" icon="calendar" />
       <MenuItem onClick={ () => { return } } label="Add file" icon="add" isButton/>
       <MenuItem
-        label="Settings" 
+        label="Settings"
         icon="settings"
-        dropdownItems={ [
-          { label: 'Layout', onClick: () => console.log('Layout pressed'), isActive: true },
-          { label: 'Account', onClick: () => console.log('Account pressed'), isActive: false },
-        ] }
+        // tslint:disable-next-line: jsx-no-multiline-js
+        dropdownItems={[
+          { label: 'Layout', onClick: () => undefined, isActive: true },
+          { label: 'Account', onClick: () => undefined, isActive: false },
+        ]}
         isDropdown
       >
         <li>Cycler</li>
