@@ -63,4 +63,5 @@ export type IconName =
   'group-validation' |
   'legend' |
   'sync' |
-  'settings'
+  'settings' | 
+  'less'
