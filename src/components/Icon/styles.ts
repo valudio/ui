@@ -218,4 +218,7 @@ export default styled.i`
   &.settings:before {
     content: "\\e040";
   }
+  &.less:before {
+    content: "\\e041";
+  }
 `

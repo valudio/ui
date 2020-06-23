@@ -15,6 +15,7 @@ storiesOf('Icon', module)
       style={{ flex: 1, display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}
     >
       <Icon className="icon" icon="add" />
+      <Icon className="icon" icon="less" />
       <Icon className="icon" icon="attention" />
       <Icon className="icon" icon="calendar" />
       <Icon className="icon" icon="check" />
