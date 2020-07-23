@@ -10,10 +10,11 @@ import Styled from './styles'
 interface IProps extends IInputProps<string> {
   minDate?: string
   maxDate?: string
+  showTime?: boolean
 }
 
 // tslint:disable-next-line: max-line-length
-const DateTime: React.FC<IProps> = ({ isHidden, className, style, initialValue, onChange, minDate, maxDate, placeholder, form, isDisabled }) => {
+const DateTime: React.FC<IProps> = ({ isHidden, className, style, initialValue, onChange, minDate, maxDate, placeholder, form, isDisabled, showTime = true }) => {
   if (isHidden) return null
 
   const [ value, setValue ] = useState(initialValue ? moment(initialValue) : undefined)
@@ -45,6 +46,14 @@ const DateTime: React.FC<IProps> = ({ isHidden, className, style, initialValue, 
     literals[language].december,
   ]
 
+  const formattedValue = () => {
+    if (!!value) {
+      return showTime ? value.format('DD/MM/YYYY HH:mm:ss') : value.format('DD/MM/YYYY')
+    } else {
+      return ''
+    }
+  }
+
   const handleChange = (nextValue: moment.Moment) => {
     setValue(nextValue)
     onChange(nextValue.toISOString())
@@ -64,11 +73,13 @@ const DateTime: React.FC<IProps> = ({ isHidden, className, style, initialValue, 
         weeks={ weekDays }
         months={ months }
         lang={ language }
+        showTimePicker={ showTime }
+        showSecondsPicker={ showTime }
       >
         <input
           className="input"
           placeholder={ placeholder }
-          value={ !!value ? value.format('DD/MM/YYYY HH:mm:ss') : '' }
+          value={ formattedValue() }
           disabled={ isDisabled }
           readOnly
         />
