@@ -53,7 +53,7 @@ const Select: React.FC<IProps> = ({ isHidden, className, style, isDisabled, isIn
   }, [ form ])
 
   useEffect(() => {
-    if (selected && initialValue !== selected) setSelected(initialValue)
+    if (initialValue !== selected) setSelected(initialValue)
   }, [initialValue])
 
   return (
