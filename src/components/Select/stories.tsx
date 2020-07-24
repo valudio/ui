@@ -1,8 +1,8 @@
 import { storiesOf } from '@storybook/react'
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { jsxDecorator } from 'storybook-addon-jsx'
 import { decorator } from '../../helpers/storybook'
-import { optionsMock, IOption } from '../../models'
+import { IOption, optionsMock } from '../../models'
 import Modal from '../Modal'
 import Select from './'
 
@@ -27,7 +27,7 @@ storiesOf('Select', module)
     useEffect(() => {
       setTimeout(() => {
         setInit(optionsMock[2])
-      }, 3000);
+      }, 3000)
     }, [])
 
     return <Select placeholder="Select..." options={ optionsMock } labelProp="value" onChange={ console.log } initialValue={ init } />
