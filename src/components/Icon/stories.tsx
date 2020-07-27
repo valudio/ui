@@ -69,6 +69,7 @@ storiesOf('Icon', module)
       <Icon className="icon" icon="group-validation" />
       <Icon className="icon" icon="legend" />
       <Icon className="icon" icon="sync" />
+      <Icon className="icon" icon="layers" />
       <Icon className="icon" icon="pdf" />
       <Icon className="icon" icon="img" />
       <Icon className="icon" icon="edi" />
