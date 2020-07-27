@@ -221,4 +221,7 @@ export default styled.i`
   &.less:before {
     content: "\\e041";
   }
+  &.layers:before {
+    content: "\\e042";
+  }
 `

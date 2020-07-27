@@ -64,4 +64,5 @@ export type IconName =
   'legend' |
   'sync' |
   'settings' | 
-  'less'
+  'less' |
+  'layers'
