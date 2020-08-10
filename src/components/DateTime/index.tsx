@@ -60,7 +60,7 @@ const DateTime: React.FC<IProps> = ({ isHidden, className, style, initialValue, 
   }
 
   useEffect(() => {
-    if (form) form.addEventListener('reset', setValue.bind(undefined, initialValue ? moment(initialValue) : undefined))
+    if (form) form.addEventListener('reset', setValue.bind(undefined, undefined))
   }, [ form ])
 
   return (

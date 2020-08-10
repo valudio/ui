@@ -16,7 +16,7 @@ const Input: React.FC<IProps> = ({ initialValue, onChange, className, type = 'te
   }
 
   useEffect(() => {
-    if (form) form.addEventListener('reset', setValue.bind(undefined, initialValue ?? ''))
+    if (form) form.addEventListener('reset', setValue.bind(undefined, ''))
   }, [ form ])
 
   if (isHidden) return null

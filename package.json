@@ -1,6 +1,6 @@
 {
   "name": "@valudio/ui",
-  "version": "0.3.15",
+  "version": "0.3.16",
   "main": "dist/index.js",
   "license": "MIT",
   "private": false,
