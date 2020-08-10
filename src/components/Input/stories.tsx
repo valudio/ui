@@ -1,9 +1,8 @@
 import { storiesOf } from '@storybook/react'
-import React, { useRef, useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { jsxDecorator } from 'storybook-addon-jsx'
 import { decorator } from '../../helpers/storybook'
 import Input from './'
-import { useState } from '@storybook/addons'
 
 storiesOf('Input', module)
   .addDecorator(jsxDecorator)
@@ -27,13 +26,13 @@ storiesOf('Input', module)
 
     return (
       <form ref={ formRef } >
-        <Input 
-          form={ formRef.current || undefined } 
-          onChange={ alert } 
-          initialValue={ initValue } 
+        <Input
+          form={ formRef.current || undefined }
+          onChange={ alert }
+          initialValue={ initValue }
           placeholder="Introduce your name"
         />
         <button type="reset">Reset value</button>
       </form>
     )
-  } )
+  })
