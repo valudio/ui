@@ -83,9 +83,6 @@ storiesOf('Menu', module)
           { label: 'Account', onClick: () => undefined, isActive: false },
         ]}
         isDropdown
-      >
-        <li>Cycler</li>
-        <li>Protocol</li>
-      </MenuItem>
+      />
     </Menu>
   ))
