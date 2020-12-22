@@ -8,7 +8,7 @@ interface IProps extends IBaseProps {
   message: string
 }
 
-const Snackbar: React.FC<IProps> = ({ isHidden, style, className, type, message }) => {
+const Snackbar: React.FC<IProps> = ({ isHidden, style, className, type, message, children }) => {
   if (isHidden) return null
   let iconName: IconName
 
@@ -33,6 +33,7 @@ const Snackbar: React.FC<IProps> = ({ isHidden, style, className, type, message 
     <Styled style={ style } className={ `${ className } ${ type }` }>
       <Icon icon={ iconName } className="icon" />
       <span className="message">{ message }</span>
+      { children ?? null }
     </Styled>
   )
 }
