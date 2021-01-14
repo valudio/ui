@@ -13,9 +13,9 @@ interface IProps extends IBaseProps {
 const Table: React.FC<IProps> = ({ className, items, columns, fallbackMessage, style }) => {
   const headerCells = columns.map((x, i) => <HeaderCell key={ i } column={ x } />)
   const content = !!items.length
-    ? items.map((x, i) => (
+    ? items.map(x => (
       <Row
-        key={ i }
+        key={ x.id }
         item={ x }
         columns={ columns }
         isHidden={ x.isHidden }
