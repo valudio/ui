@@ -12,7 +12,7 @@ export default styled.article`
   bottom: 0;
   justify-content: center;
   align-items: center;
-  z-index: 100;
+  z-index: 4000;
 
   .frame {
     display: flex;
