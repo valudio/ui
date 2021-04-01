@@ -35,6 +35,11 @@ const Select: React.FC<IProps> = ({ isHidden, className, style, isDisabled, isIn
     setIsOpen(false)
   }
 
+  const handleIconClick = (event: MouseEvent) => {
+    event.stopPropagation()
+    setIsOpen(!isDisabledOrEmpty && !isOpen)
+  }
+
   const items = options.map(x =>
     <Item key={ x.id } isSelected={ selected === x } onClick={ handleChange.bind(undefined, x) }>{ x[labelProp] }</Item>
   )
@@ -65,7 +70,7 @@ const Select: React.FC<IProps> = ({ isHidden, className, style, isDisabled, isIn
     >
       {/* <span className="value">{ selected && selected[labelProp] || placeholder }</span> */}
       <input className="value" placeholder={ placeholder } readOnly value={ selected && selected[labelProp] } />
-      <Icon className="icon" icon={ isOpen && !isDisabledOrEmpty ? 'up' : 'down' }/>
+      <Icon className="icon" icon={ isOpen && !isDisabledOrEmpty ? 'up' : 'down' } onClick={ handleIconClick }/>
       <Dropdown parentRef={ ref } isHidden={ !isOpen || isDisabledOrEmpty }>{ items }</Dropdown>
     </Styled>
   )
