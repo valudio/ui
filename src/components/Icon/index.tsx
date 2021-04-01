@@ -4,7 +4,7 @@ import Styled from './styles'
 
 interface IProps extends IBaseProps {
   icon: IconName
-  onClick?: () => void
+  onClick?: (event?: MouseEvent) => void
 }
 
 const Icon: React.FC<IProps> = ({ isHidden, className, icon, style, onClick }) => {
