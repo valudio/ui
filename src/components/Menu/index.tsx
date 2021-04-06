@@ -9,14 +9,17 @@ import Styled from './styles'
 interface IProps extends IBaseProps {
   logoSrc: string
   onLanguageClick?: (language: string) => void
+  languageLabel?: string
   languages?: ILanguage[]
   username?: string
   onSignOut?: () => void
   isExpanded?: boolean
 }
 
-// tslint:disable-next-line: max-line-length
-const Menu: React.FC<IProps> = ({ children, isHidden, className, style, languages, username, onLanguageClick, onSignOut, logoSrc, isExpanded: isForced }) => {
+// tslint:disable max-line-length
+const Menu: React.FC<IProps> = ({
+  children, isHidden, className, style, languageLabel, languages, username, onLanguageClick, onSignOut, logoSrc, isExpanded: isForced
+}) => {
   if (isHidden) return null
 
   const [ isExpanded, setIsExpanded ] = useState(false)
@@ -67,6 +70,7 @@ const Menu: React.FC<IProps> = ({ children, isHidden, className, style, language
         <LanguageItem
           isHidden={ !languages || !languages.length }
           isExpanded={ isExpandedComputed }
+          languageLabel={ languageLabel }
           languages={ languages || [] }
           onLanguageClick={ onLanguageClick }
         />
