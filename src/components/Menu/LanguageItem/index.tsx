@@ -9,10 +9,13 @@ import Styled from './styles'
 interface IProps extends IBaseProps {
   isExpanded: boolean
   languages: ILanguage[]
+  languageLabel?: string
   onLanguageClick?: (language: string) => void
 }
 
-const LanguageItem: React.FC<IProps> = ({ isHidden, className, style, isExpanded, languages, onLanguageClick }) => {
+const LanguageItem: React.FC<IProps> = ({
+  isHidden, className, style, isExpanded, languages, languageLabel, onLanguageClick
+}) => {
   if (isHidden) return null
 
   const [ isOpen, setIsOpen ] = useState(false)
@@ -49,7 +52,7 @@ const LanguageItem: React.FC<IProps> = ({ isHidden, className, style, isExpanded
       <MenuItem
         style={{ flex: 1 }}
         isExpanded={ isExpanded }
-        label={ literals[language].language }
+        label={ languageLabel ? languageLabel : literals[language].language }
         onClick={ handleClick } icon="language"
       />
       { isOpen && <ul className="options">{ options }</ul> }
