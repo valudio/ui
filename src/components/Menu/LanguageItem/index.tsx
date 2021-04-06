@@ -14,13 +14,13 @@ interface IProps extends IBaseProps {
 
 const LanguageItem: React.FC<IProps> = ({ isHidden, className, style, isExpanded, languages, onLanguageClick }) => {
   if (isHidden) return null
-  
+
   const [ isOpen, setIsOpen ] = useState(false)
   const language = useContext(LanguageContext)
   const languageRef = useRef<HTMLDivElement>()
 
-  const handleLanguageClick = (language: ILanguage) => {
-    if (onLanguageClick) onLanguageClick(language.locale)
+  const handleLanguageClick = (lang: ILanguage) => {
+    if (onLanguageClick) onLanguageClick(lang.locale)
     setIsOpen(false)
   }
 

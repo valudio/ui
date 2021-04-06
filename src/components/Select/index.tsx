@@ -14,7 +14,7 @@ interface IProps extends IInputProps<IOption> {
 }
 
 // tslint:disable: max-line-length
-const Select: React.FC<IProps> = ({ 
+const Select: React.FC<IProps> = ({
   value, isHidden, className, style, isDisabled, isInvalid, options, labelProp, onChange, placeholder, form
 }) => {
   if (isHidden) return null
