@@ -1,6 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { isChildNode } from '../../../helpers/dom'
+import literals from '../../../literals'
 import { IBaseProps, ILanguage } from '../../../models'
+import LanguageContext from '../../Provider/LanguageContext'
 import MenuItem from '../MenuItem'
 import Styled from './styles'
 
@@ -12,8 +14,9 @@ interface IProps extends IBaseProps {
 
 const LanguageItem: React.FC<IProps> = ({ isHidden, className, style, isExpanded, languages, onLanguageClick }) => {
   if (isHidden) return null
-
+  
   const [ isOpen, setIsOpen ] = useState(false)
+  const language = useContext(LanguageContext)
   const languageRef = useRef<HTMLDivElement>()
 
   const handleLanguageClick = (language: ILanguage) => {
@@ -46,7 +49,7 @@ const LanguageItem: React.FC<IProps> = ({ isHidden, className, style, isExpanded
       <MenuItem
         style={{ flex: 1 }}
         isExpanded={ isExpanded }
-        label="Language"
+        label={ literals[language].language }
         onClick={ handleClick } icon="language"
       />
       { isOpen && <ul className="options">{ options }</ul> }

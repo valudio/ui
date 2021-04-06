@@ -4,7 +4,7 @@ export interface ILanguage {
 }
 
 export const languagesMock: ILanguage[] = [
-  { locale: 'es', label: 'Spanish' },
-  { locale: 'en', label: 'English' },
-  { locale: 'de', label: 'German' },
+  { locale: 'es-ES', label: 'Spanish' },
+  { locale: 'en-US', label: 'English' },
+  { locale: 'ca-ES', label: 'Catalan' },
 ]
