@@ -15,7 +15,7 @@ storiesOf('Select', module)
   .add('empty options', () => <Select placeholder="Select..." options={ [] } labelProp="value" onChange={ console.log } />)
   .add('disabled', () => <Select placeholder="Select..." options={ [] } labelProp="value" onChange={ console.log } isDisabled />)
   .add('invalid', () => <Select placeholder="Select..." options={ optionsMock } labelProp="value" onChange={ console.log } isInvalid />)
-  .add('with initial value', () => <Select placeholder="Select..." options={ optionsMock } labelProp="value" onChange={ console.log } initialValue={ optionsMock[2] } />)
+  .add('with initial value', () => <Select placeholder="Select..." options={ optionsMock } labelProp="value" onChange={ console.log } value={ optionsMock[2] } />)
   .add('inside a Modal', () => (
     <Modal style={{ width: '430px', height: '100px' }}>
       <Select placeholder="Select..." options={ optionsMock } labelProp="value" onChange={ console.log } />
@@ -30,5 +30,5 @@ storiesOf('Select', module)
       }, 3000)
     }, [])
 
-    return <Select placeholder="Select..." options={ optionsMock } labelProp="value" onChange={ console.log } initialValue={ init } />
+    return <Select placeholder="Select..." options={ optionsMock } labelProp="value" onChange={ console.log } value={ init } />
   })

@@ -10,27 +10,30 @@ import Item from './Item'
 interface IProps extends IInputProps<IOption> {
   labelProp: string
   options: IOption[]
+  value?: IOption
 }
 
-// tslint:disable-next-line: max-line-length
-const Select: React.FC<IProps> = ({ isHidden, className, style, isDisabled, isInvalid, options, labelProp, onChange, placeholder, initialValue, form }) => {
+// tslint:disable: max-line-length
+const Select: React.FC<IProps> = ({ 
+  value, isHidden, className, style, isDisabled, isInvalid, options, labelProp, onChange, placeholder, form
+}) => {
   if (isHidden) return null
 
   const ref = useRef<HTMLDivElement>()
   const [ isOpen, setIsOpen ] = useState(false)
-  const [ selected, setSelected ] = useState<IOption | void>(initialValue)
+  // const [ selected, setSelected ] = useState<IOption | void>(initialValue)
   const isDisabledOrEmpty = isDisabled || !options || !!options && !options.length
   const classNames = `
     select-container
     ${ className || '' }
-    ${ !!selected ? 'filled' : '' }
+    ${ value ? 'filled' : '' }
     ${ isOpen ? 'active' : '' }
     ${ isInvalid ? 'invalid' : '' }
     ${ isDisabledOrEmpty ? 'disabled' : '' }
 `
 
   const handleChange = (option: IOption) => {
-    setSelected(option)
+    // setSelected(option)
     onChange(option)
     setIsOpen(false)
   }
@@ -41,7 +44,7 @@ const Select: React.FC<IProps> = ({ isHidden, className, style, isDisabled, isIn
   }
 
   const items = options.map(x =>
-    <Item key={ x.id } isSelected={ selected === x } onClick={ handleChange.bind(undefined, x) }>{ x[labelProp] }</Item>
+    <Item key={ x.id } isSelected={ value?.id === x.id } onClick={ handleChange.bind(undefined, x) }>{ x[labelProp] }</Item>
   )
 
   const handleDocumentClick = (event: Event) => {
@@ -49,7 +52,7 @@ const Select: React.FC<IProps> = ({ isHidden, className, style, isDisabled, isIn
   }
 
   useEffect(() => {
-    if (form) form.addEventListener('reset', setSelected.bind(undefined, initialValue ?? []))
+    // if (form) form.addEventListener('reset', setSelected.bind(undefined, initialValue ?? []))
     document.addEventListener('click', handleDocumentClick)
 
     return () => {
@@ -57,9 +60,9 @@ const Select: React.FC<IProps> = ({ isHidden, className, style, isDisabled, isIn
     }
   }, [ form ])
 
-  useEffect(() => {
-    if (initialValue !== selected) setSelected(initialValue)
-  }, [initialValue])
+  // useEffect(() => {
+  //   if (initialValue !== selected) setSelected(initialValue)
+  // }, [initialValue])
 
   return (
     <Styled
@@ -69,7 +72,7 @@ const Select: React.FC<IProps> = ({ isHidden, className, style, isDisabled, isIn
       ref={ ref }
     >
       {/* <span className="value">{ selected && selected[labelProp] || placeholder }</span> */}
-      <input className="value" placeholder={ placeholder } readOnly value={ selected && selected[labelProp] } />
+      <input className="value" placeholder={ placeholder } readOnly value={ value ? value[labelProp] : '' } />
       <Icon className="icon" icon={ isOpen && !isDisabledOrEmpty ? 'up' : 'down' } onClick={ handleIconClick }/>
       <Dropdown parentRef={ ref } isHidden={ !isOpen || isDisabledOrEmpty }>{ items }</Dropdown>
     </Styled>
