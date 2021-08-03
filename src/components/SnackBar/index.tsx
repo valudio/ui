@@ -32,7 +32,7 @@ const Snackbar: React.FC<IProps> = ({ isHidden, style, className, type, message,
   return (
     <Styled style={ style } className={ `${ className } ${ type }` }>
       <Icon icon={ iconName } className="icon" />
-      <span className="message">{ message }</span>
+      <span className="message" dangerouslySetInnerHTML={{ __html: message}} />
       { children ?? null }
     </Styled>
   )
