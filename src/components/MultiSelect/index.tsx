@@ -9,15 +9,16 @@ import Styled from './styles'
 interface IProps extends IInputProps<IOption[]> {
   labelProp: string
   options: IOption[]
+  value?: IOption[]
 }
 
 // tslint:disable-next-line: max-line-length
-const MultiSelect: React.FC<IProps> = ({ className, labelProp, options, onChange, placeholder, isHidden, style, isInvalid, isDisabled, initialValue, form }) => {
+const MultiSelect: React.FC<IProps> = ({ value, className, labelProp, options, onChange, placeholder, isHidden, style, isInvalid, isDisabled, initialValue, form }) => {
   if (isHidden) return null
 
   const ref = useRef<HTMLDivElement>()
   const wrapperRef = useRef<HTMLDivElement>()
-  const [ selected, setSelected ] = useState<IOption[]>(initialValue ?? [])
+  // const [ selected, setSelected ] = useState<IOption[]>(initialValue ?? [])
   const [ isOpen, setIsOpen ] = useState(false)
   const isDisabledOrEmpty = isDisabled || !options || !!options && !options.length
   const classNames = `
@@ -27,23 +28,23 @@ const MultiSelect: React.FC<IProps> = ({ className, labelProp, options, onChange
     ${ isDisabledOrEmpty ? 'disabled' : '' }
   `
 
-  const values = !!selected.length
-    ? selected.map((s, i) => <Bubble type="primary" className="value" key={ i }>{ s[labelProp] }</Bubble>)
+  const values = !!value && !!value.length
+    ? value.map((s, i) => <Bubble type="primary" className="value" key={ i }>{ s[labelProp] }</Bubble>)
     : <span className="placeholder">{ placeholder }</span>
 
   const handleClick = (option: IOption) => {
-    const selectedOptions = !!selected.find(s => s.id === option.id)
-      ? selected.filter(s => s.id !== option.id)
-      : [ ...selected, option ]
+    const selectedOptions = !!value.find(s => s.id === option.id)
+      ? value.filter(s => s.id !== option.id)
+      : [ ...value, option ]
 
-    setSelected(selectedOptions)
+    // setSelected(selectedOptions)
     onChange(selectedOptions)
   }
 
   const handleBulkSelect = (filtered?: IOption[]) => {
-    const nextSelected = selected.length > 0 ? [] : filtered || options
+    const nextSelected = value.length > 0 ? [] : filtered || options
 
-    setSelected(nextSelected)
+    // setSelected(nextSelected)
     onChange(nextSelected)
   }
 
@@ -55,7 +56,7 @@ const MultiSelect: React.FC<IProps> = ({ className, labelProp, options, onChange
   }
 
   useEffect(() => {
-    if (form) form.addEventListener('reset', setSelected.bind(undefined, initialValue ?? []))
+    // if (form) form.addEventListener('reset', setSelected.bind(undefined, initialValue ?? []))
     document.addEventListener('click', handleDocumentClick)
   }, [ form ])
 
@@ -69,7 +70,7 @@ const MultiSelect: React.FC<IProps> = ({ className, labelProp, options, onChange
         isHidden={ !isOpen || isDisabledOrEmpty }
         options={ options }
         labelProp={ labelProp }
-        selected={ selected }
+        selected={ value }
         onClick={ handleClick }
         onBulkSelect={ handleBulkSelect }
       />
