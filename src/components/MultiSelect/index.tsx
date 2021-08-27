@@ -70,7 +70,7 @@ const MultiSelect: React.FC<IProps> = ({ value, className, labelProp, options, o
         isHidden={ !isOpen || isDisabledOrEmpty }
         options={ options }
         labelProp={ labelProp }
-        selected={ value }
+        selected={ value ?? [] }
         onClick={ handleClick }
         onBulkSelect={ handleBulkSelect }
       />
