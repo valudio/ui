@@ -28,7 +28,7 @@ const MultiSelect: React.FC<IProps> = ({ value, className, labelProp, options, o
     ${ isDisabledOrEmpty ? 'disabled' : '' }
   `
 
-  const values = !!value.length
+  const values = !!value && !!value.length
     ? value.map((s, i) => <Bubble type="primary" className="value" key={ i }>{ s[labelProp] }</Bubble>)
     : <span className="placeholder">{ placeholder }</span>
 
