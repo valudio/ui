@@ -7,6 +7,6 @@ export interface IMenuItem {
 }
 
 export const menuItemsMock: IMenuItem[] = [
-  { icon: 'dashboard', label: 'Dashboard', onClick: jest.fn() },
-  { icon: 'calendar', label: 'Calendar', onClick: jest.fn() }
+  { icon: 'dashboard', label: 'Dashboard', onClick: console.log },
+  { icon: 'calendar', label: 'Calendar', onClick: console.log }
 ]
