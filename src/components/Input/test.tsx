@@ -6,7 +6,7 @@ import Input from './'
 test('Input', () => {
   const component = renderer.create(
     <Provider>
-      <Input label="test" onChange={ alert } />
+      <Input onChange={ jest.fn() } />
     </Provider>
   )
   expect(component).toBeTruthy()

@@ -12,11 +12,11 @@ test('Menu', () => {
         className="menu"
         username="John Doe"
         logoSrc=""
-        onLanguageClick={ alert }
+        onLanguageClick={ jest.fn() }
         languages={ languagesMock }
       >
-        <MenuItem onClick={ alert } label="Dashboard" icon="dashboard" />
-        <MenuItem onClick={ alert } label="Calendar" icon="calendar" />
+        <MenuItem onClick={ jest.fn() } label="Dashboard" icon="dashboard" />
+        <MenuItem onClick={ jest.fn() } label="Calendar" icon="calendar" />
       </Menu>
     </Provider>
   )

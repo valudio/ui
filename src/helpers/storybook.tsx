@@ -1,5 +1,5 @@
 import { DecoratorFunction } from '@storybook/addons'
-import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/types'
+import { StoryFnReactReturnType } from '@storybook/react/dist/ts3.9/client/preview/types'
 import React from 'react'
 import Provider from '../components/Provider'
 import defaultTheme from '../default-theme'
