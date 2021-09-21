@@ -1,11 +1,17 @@
 const path = require('path');
 
 module.exports = {
-  stories: ['../**/stories.tsx'],
+  typescript: {
+    check: false,
+    checkOptions: {},
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: true,
+      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+    },
+  },
+  stories: ['../src/**/stories.tsx'],
   addons: [
-    'storybook-addon-jsx/register',
-    'storybook-addon-jsx',
-    '@storybook/preset-typescript',
     {
       name: '@storybook/preset-typescript',
       options: {
@@ -14,6 +20,7 @@ module.exports = {
         },
         include: [path.resolve(__dirname, '../src')],
       },
-    }
+    },
+    'storybook-addon-jsx'
   ]
 };
