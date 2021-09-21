@@ -6,7 +6,7 @@ import Toggle from './'
 test('Toggle', () => {
   const component = renderer.create(
     <Provider>
-      <Toggle onChange={ alert } />
+      <Toggle onChange={ jest.fn() } />
     </Provider>
   )
   expect(component).toBeTruthy()
