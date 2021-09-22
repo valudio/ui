@@ -3,6 +3,13 @@ import styled from 'styled-components'
 export default styled.i`
   font-family: 'Icons';
   font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   &.clickable {
     cursor: pointer;

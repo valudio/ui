@@ -1,1 +1,41 @@
-<style>@import url('https://fonts.googleapis.com/css?family=Fira+Sans:100,200,300,400,500,600,700&display=swap');</style>
+<!-- <link rel="preload" type="text/css" href="https://fonts.googleapis.com/css?family=Fira+Sans:100,200,300,400,500,600,700&display=swap">
+<link rel="stylesheet" type="text/css" href="./styles.css"> -->
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Fira+Sans:100,200,300,400,500,600,700&display=swap');
+
+  @font-face {
+    font-family: "Icons";
+    src:url("assets/fonts/icons.eot");
+    src:url("assets/fonts/icons.eot?#iefix") format("embedded-opentype"),
+      url("assets/fonts/icons.woff") format("woff"),
+      url("assets/fonts/icons.ttf") format("truetype"),
+      url("assets/fonts/icons.svg#valudio-icons") format("svg");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  .icon-list .icon {
+    margin: 10px;
+    font-size: 24px;
+  }
+
+  .menu .username .badge {
+    width: 32px;
+    height: 32px;
+    background: #D1D6E5;
+    border-radius: 18px;
+    flex-shrink: 0;
+  }
+
+  .cell .file-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .cell .file-container > .icon {
+    margin: 0 0 0 5px;
+    color: #687494;
+  }
+</style>
