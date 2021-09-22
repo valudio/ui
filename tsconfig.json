@@ -11,7 +11,9 @@
     "rootDirs": [ "src" ],
     "baseUrl": "src",
     "strictNullChecks": false,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "declaration": true,
+    "typeRoots": ["src/typings.d.ts"]
   },
   "include": [
     "src/**/*"
