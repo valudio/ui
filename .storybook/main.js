@@ -3,16 +3,9 @@ const path = require('path');
 module.exports = {
   stories: ['../src/**/stories.tsx'],
   addons: [
-    {
-      name: '@storybook/preset-typescript',
-      options: {
-        tsLoaderOptions: {
-          configFile: path.resolve(__dirname, '../storybook.tsconfig.json'),
-        },
-        include: [path.resolve(__dirname, '../src')],
-      },
-    },
-    'storybook-addon-jsx'
+    '@storybook/preset-typescript',
+    'storybook-addon-jsx',
+    '@storybook/addon-actions'
   ],
   typescript: {
     check: false,

@@ -1,6 +1,6 @@
 {
   "name": "@valudio/ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/index.js",
   "license": "MIT",
   "private": false,
@@ -13,6 +13,7 @@
     "@babel/preset-env": "^7.15.6",
     "@babel/preset-react": "^7.14.5",
     "@babel/preset-typescript": "^7.15.0",
+    "@storybook/addon-actions": "^6.3.8",
     "@storybook/addons": "^6.3.8",
     "@storybook/preset-typescript": "^3.0.0",
     "@storybook/react": "^6.3.8",
@@ -40,7 +41,7 @@
     "styled-components": ">= 5.0.0"
   },
   "scripts": {
-    "storybook": "start-storybook -p 9009 -s public",
+    "storybook": "start-storybook -p 9009 -c .storybook watch-css -s ./src",
     "deploy-storybook": "storybook-to-ghpages",
     "lint": "tslint -c tslint.json 'src/**/*.tsx'",
     "test": "jest",

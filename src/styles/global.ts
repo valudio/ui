@@ -1,9 +1,11 @@
 import { createGlobalStyle } from 'styled-components'
-import icons from '../assets/fonts/icons.ttf'
+import iconsTtf from '../assets/fonts/icons.ttf'
 
 export default createGlobalStyle`
   @font-face {
     font-family: 'Icons';
-    src: url(${ icons });
+    src: url(${ iconsTtf }) format("truetype");
+    font-weight: normal;
+    font-style: normal;
   }
 `
