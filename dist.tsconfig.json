@@ -13,8 +13,7 @@
     "strictNullChecks": false,
     "esModuleInterop": true,
     "declaration": true,
-    "typeRoots": ["src/typings.d.ts"],
-    "skipLibCheck": true
+    "typeRoots": ["src/typings.d.ts"]
   },
   "include": [
     "src/**/*"
