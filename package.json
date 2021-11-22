@@ -46,7 +46,8 @@
     "lint": "tslint -c tslint.json 'src/**/*.tsx'",
     "test": "jest",
     "copy:assets": "copyfiles -u 2 \"./src/assets/**/*\" \"./dist/assets\"",
-    "prepublishOnly": "tsc -p ./dist.tsconfig.json && npm run copy:assets"
+    "prepublishOnly": "tsc -p ./dist.tsconfig.json && npm run copy:assets",
+    "format:icons": "npx @svgr/cli --icon --typescript --replace-attr-values '#000=currentColor,#141414=currentColor,#003765=currentColor' -d src/components/icons --ignore-existing src/assets/icons"
   },
   "dependencies": {
     "imrc-datetime-picker": "https://github.com/valudio/imrc-datetime-picker",
