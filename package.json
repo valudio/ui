@@ -26,7 +26,6 @@
     "babel-jest": "26.6.3",
     "babel-loader": "^8.2.2",
     "babel-plugin-file-loader": "^2.0.0",
-    "copyfiles": "^2.4.1",
     "jest": "26.6.3",
     "react-docgen-typescript-loader": "^3.7.2",
     "react-test-renderer": "17.0.1",
@@ -45,8 +44,7 @@
     "deploy-storybook": "storybook-to-ghpages",
     "lint": "tslint -c tslint.json 'src/**/*.tsx'",
     "test": "jest",
-    "copy:assets": "copyfiles -u 2 \"./src/assets/**/*\" \"./dist/assets\"",
-    "prepublishOnly": "tsc -p ./dist.tsconfig.json && npm run copy:assets",
+    "prepublishOnly": "tsc -p ./dist.tsconfig.json",
     "format:icons": "npx @svgr/cli --icon --typescript --svg-props fill=currentColor -d src/components/icons --ignore-existing src/assets/icons"
   },
   "dependencies": {
