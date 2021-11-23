@@ -1,4 +1,5 @@
 import React, { SyntheticEvent } from 'react'
+import { IBaseProps, IconName } from '../../models'
 import {
   Add,
   AssayAssign,
@@ -68,7 +69,6 @@ import {
   Worksteps,
   Xml
 } from '../icons'
-import { IBaseProps, IconName } from '../../models'
 import StyledSpan from './styles'
 
 interface IProps extends IBaseProps {
