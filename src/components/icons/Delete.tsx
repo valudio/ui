@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from 'react'
 
 function SvgDelete(props: React.SVGProps<SVGSVGElement>) {
   return (
