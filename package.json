@@ -19,6 +19,7 @@
     "@storybook/react": "^6.3.8",
     "@storybook/storybook-deployer": "^2.8.10",
     "@types/jest": "26.0.15",
+    "@types/luxon": "^2.0.7",
     "@types/node": "^16.9.6",
     "@types/react-test-renderer": "16.9.3",
     "@types/storybook__react": "^5.2.1",
@@ -48,7 +49,9 @@
     "format:icons": "npx @svgr/cli --icon --typescript --svg-props fill=currentColor -d src/components/icons --ignore-existing src/assets/icons"
   },
   "dependencies": {
+    "classnames": "^2.3.1",
     "imrc-datetime-picker": "https://github.com/valudio/imrc-datetime-picker",
+    "luxon": "^2.1.1",
     "moment": "^2.24.0",
     "moment-jalaali": "^0.9.1",
     "react": "^17.0.2",

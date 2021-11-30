@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
-import { IEvent, IEventDate } from '../../models'
+import { CalendarContext } from '../../contexts'
+import { CalendarViewMode, IEvent, IEventDate } from '../../models'
 import StyledArticle from './styles'
 
 interface IProps {
@@ -13,8 +14,16 @@ interface IProps {
   isLoading?: boolean
 }
 
-const Calendar: React.FC<IProps> = () => {
+const Calendar: React.FC<IProps> = ({
+  selectedDate, events, fromHour, toHour, onSelectedDateChange, onOpenEvent, onCreateEvent, isLoading
+}) => {
   const { calendarView, setCalendarView } = useContext(CalendarContext)
+
+  const handleViewModeChange = (viewMode: CalendarViewMode) => setCalendarView(viewMode)
+  const handleOpenCreateModal = (date: IEventDate) => {
+    if (onCreateEvent && typeof onCreateEvent === 'function') onCreateEvent(date)
+  }
+
 
   return (
     <StyledArticle className="calendar">
