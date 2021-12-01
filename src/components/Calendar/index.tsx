@@ -1,7 +1,11 @@
 import React, { useContext } from 'react'
 import { CalendarContext } from '../../contexts'
 import { CalendarViewMode, IEvent, IEventDate } from '../../models'
+import { getCurrentWeekDayNumbers, getCurrentWeekDays } from '../../helpers'
+import HeaderFilter from './HeaderFilter'
+import Spinner from '../Spinner'
 import StyledArticle from './styles'
+import LanguageContext from 'components/Provider/LanguageContext'
 
 interface IProps {
   selectedDate: string
@@ -17,6 +21,7 @@ interface IProps {
 const Calendar: React.FC<IProps> = ({
   selectedDate, events, fromHour, toHour, onSelectedDateChange, onOpenEvent, onCreateEvent, isLoading
 }) => {
+  const language = useContext(LanguageContext)
   const { calendarView, setCalendarView } = useContext(CalendarContext)
 
   const handleViewModeChange = (viewMode: CalendarViewMode) => setCalendarView(viewMode)
@@ -27,7 +32,53 @@ const Calendar: React.FC<IProps> = ({
 
   return (
     <StyledArticle className="calendar">
-
+      <HeaderFilter
+        selectedDate={ selectedDate }
+        viewMode={ calendarView }
+        onViewModeChange={ handleViewModeChange }
+        onDateChange={ onSelectedDateChange }
+      />
+      {
+        isLoading
+          ? (
+            <section className="loading-container">
+              <Spinner />
+            </section>
+          ) : (
+            <section className="calendar-view">
+              <WeekHeader
+                selectedDate={ selectedDate }
+                weekNumbers={ getCurrentWeekDayNumbers(selectedDate, language) }
+                viewMode={ calendarView }
+              />
+              <DayView
+                selectedDate={ selectedDate }
+                fromHour={ fromHour }
+                toHour={ toHour }
+                events={ events }
+                isHidden={ calendarView !== CalendarViewMode.Day }
+                onCreateEvent={ handleOpenCreateModal }
+                onOpenEvent={ onOpenEvent }
+              />
+              <WeekView
+                weekDates={ getCurrentWeekDays(selectedDate, language) }
+                fromHour={ fromHour }
+                toHour={ toHour }
+                events={ events }
+                isHidden={ calendarView !== CalendarViewMode.Week }
+                onCreateEvent={ handleOpenCreateModal }
+                onOpenEvent={ onOpenEvent }
+              />
+              <MonthView
+                selectedDate={ selectedDate }
+                events={ events }
+                isHidden={ calendarView !== CalendarViewMode.Month }
+                onCreateEvent={ handleOpenCreateModal }
+                onOpenEvent={ onOpenEvent }
+              />
+            </section>
+          )
+      }
     </StyledArticle>
   )
 }

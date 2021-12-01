@@ -1,11 +1,12 @@
-import { DateTime as DatePicker } from '../../../components'
+import React, { useContext } from 'react'
+import { default as DatePicker } from '../../DateTime'
 import classNames from 'classnames'
 import { DateTime } from 'luxon'
-import React from 'react'
-import { useIntl } from 'react-intl'
 import { getDateLong } from '../../../helpers'
 import { CalendarViewMode } from '../../../models'
 import StyledSection from './styles'
+import LanguageContext from 'components/Provider/LanguageContext'
+import literals from 'literals'
 
 interface IProps {
   selectedDate: string
@@ -14,8 +15,8 @@ interface IProps {
   onDateChange: (newDate: string) => void
 }
 
-export const HeaderFilter: React.FC<IProps> = ({ selectedDate, viewMode, onViewModeChange, onDateChange }) => {
-  const { locale, formatMessage } = useIntl()
+const HeaderFilter: React.FC<IProps> = ({ selectedDate, viewMode, onViewModeChange, onDateChange }) => {
+  const language = useContext(LanguageContext)
 
   const handleDateChange = (value: string) => {
     onDateChange(value)
@@ -47,7 +48,7 @@ export const HeaderFilter: React.FC<IProps> = ({ selectedDate, viewMode, onViewM
           />
 
           <span className="date">
-            { getDateLong(selectedDate, locale) }
+            { getDateLong(selectedDate, language) }
           </span>
         </div>
         <button onClick={ handleTomorrowClick }>
@@ -59,21 +60,23 @@ export const HeaderFilter: React.FC<IProps> = ({ selectedDate, viewMode, onViewM
           className={ classNames('tab', { active: viewMode === CalendarViewMode.Day }) }
           onClick={ () => onViewModeChange(CalendarViewMode.Day) }
         >
-          { formatMessage({ id: 'oneDay' }) }
+          { literals[language].oneDay }
         </div>
         <div
           className={ classNames('tab', { active: viewMode === CalendarViewMode.Week }) }
           onClick={ () => onViewModeChange(CalendarViewMode.Week) }
         >
-          { formatMessage({ id: 'oneWeek' }) }
+          { literals[language].oneWeek }
         </div>
         <div
           className={ classNames('tab', { active: viewMode === CalendarViewMode.Month }) }
           onClick={ () => onViewModeChange(CalendarViewMode.Month) }
         >
-          { formatMessage({ id: 'oneMonth' }) }
+          { literals[language].oneMonth }
         </div>
       </nav>
     </StyledSection>
   )
 }
+
+export default HeaderFilter

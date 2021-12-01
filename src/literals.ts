@@ -26,7 +26,10 @@ export default {
     english: 'English',
     spanish: 'Spanish',
     catalan: 'Catalan',
-    german: 'German'
+    german: 'German',
+    oneDay: '1 day',
+    oneWeek: '1 week',
+    oneMonth: '1 month',
   },
   'es-ES': {
     search: 'Buscar',
@@ -55,7 +58,10 @@ export default {
     english: 'Inglés',
     spanish: 'Español',
     catalan: 'Catalan',
-    german: 'Alemán'
+    german: 'Alemán',
+    oneDay: '1 día',
+    oneWeek: '1 semana',
+    oneMonth: '1 mes',
   },
   'fr-FR': {
     search: 'Recherche',
@@ -84,7 +90,10 @@ export default {
     english: 'Anglais',
     spanish: 'Espanol',
     catalan: 'Catalan',
-    german: 'Allemand'
+    german: 'Allemand',
+    oneDay: '1 jour',
+    oneWeek: '1 semaine',
+    oneMonth: '1 mois',
   },
   'ca-ES': {
     search: 'Buscar',
@@ -113,7 +122,10 @@ export default {
     english: 'Anglès',
     spanish: 'Espanyol',
     catalan: 'Català',
-    german: 'Alemany'
+    german: 'Alemany',
+    oneDay: '1 dia',
+    oneWeek: '1 setmana',
+    oneMonth: '1 mes',
   },
   'de-DE': {
     search: 'Buscar',
@@ -142,6 +154,9 @@ export default {
     english: 'Englisch',
     spanish: 'Spanisch',
     catalan: 'Katalanisch',
-    german: 'Deutsche'
+    german: 'Deutsche',
+    oneDay: 'Tagesansicht',
+    oneWeek: 'Wochenansicht',
+    oneMonth: 'Monatsansicht',
   }
 }
