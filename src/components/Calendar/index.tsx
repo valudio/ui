@@ -2,10 +2,12 @@ import React, { useContext } from 'react'
 import { CalendarContext } from '../../contexts'
 import { CalendarViewMode, IEvent, IEventDate } from '../../models'
 import { getCurrentWeekDayNumbers, getCurrentWeekDays } from '../../helpers'
-import HeaderFilter from './HeaderFilter'
+import LanguageContext from '../Provider/LanguageContext'
 import Spinner from '../Spinner'
+import HeaderFilter from './HeaderFilter'
+import WeekHeader from './WeekHeader'
+import DayView from './DayView'
 import StyledArticle from './styles'
-import LanguageContext from 'components/Provider/LanguageContext'
 
 interface IProps {
   selectedDate: string
