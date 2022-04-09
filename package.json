@@ -49,7 +49,7 @@
   },
   "dependencies": {
     "imrc-datetime-picker": "https://github.com/valudio/imrc-datetime-picker",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "moment-jalaali": "^0.9.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
