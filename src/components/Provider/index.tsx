@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 import { ThemeProvider } from 'styled-components'
-import { CalendarProvider } from '../../contexts'
+// import { CalendarProvider } from '../../contexts'
 import defaultTheme from '../../default-theme'
 import { ITheme } from '../../models'
 import LanguageContext from './LanguageContext'
@@ -10,12 +10,10 @@ interface IProps {
   language?: string
 }
 
-const Provider: React.FC<IProps> = ({ theme = defaultTheme, language = 'en-US', children }) => (
+const Provider: React.FC<PropsWithChildren<IProps>> = ({ theme = defaultTheme, language = 'en-US', children }) => (
   <ThemeProvider theme={ theme }>
     <LanguageContext.Provider value={ language }>
-      <CalendarProvider>
-        { children }
-      </CalendarProvider>
+      { children }
     </LanguageContext.Provider>
   </ThemeProvider>
 )

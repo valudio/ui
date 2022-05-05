@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 import { IBaseProps } from '../../models'
 import Icon from '../Icon'
 import Page from './Page'
@@ -10,7 +10,9 @@ interface IProps extends IBaseProps {
   onClick: (page: number) => void
 }
 
-const Pagination: React.FC<IProps> = ({ className, isHidden, style, totalPages, currentPage, onClick }) => {
+const Pagination: React.FC<PropsWithChildren<IProps>> = ({
+  className, isHidden, style, totalPages, currentPage, onClick
+}) => {
   if (isHidden) return null
   return (
     <Styled className={ `${ className || '' }` } style={ style }>

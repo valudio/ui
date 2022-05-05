@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 import { IBaseProps } from '../../models'
 import Spinner from '../Spinner'
 import { Primary, Secondary, Tertiary } from './styles'
@@ -11,7 +11,7 @@ interface IProps extends IBaseProps {
   isLoading?: boolean
 }
 
-const Button: React.FC<IProps> = ({
+const Button: React.FC<PropsWithChildren<IProps>> = ({
   children, className, isHidden, onClick, isDisabled, style, isCircular, isLoading, type
 }) => {
   let Styled

@@ -1,4 +1,4 @@
-import React, { Children, cloneElement, isValidElement, useEffect, useRef, useState } from 'react'
+import React, { Children, cloneElement, isValidElement, PropsWithChildren, useEffect, useRef, useState } from 'react'
 import { isChildNode } from '../../helpers'
 import { IBaseProps, ILanguage } from '../../models'
 import Icon from '../Icon'
@@ -16,7 +16,7 @@ interface IProps extends IBaseProps {
   isExpanded?: boolean
 }
 
-const Menu: React.FC<IProps> = ({
+const Menu: React.FC<PropsWithChildren<IProps>> = ({
   children,
   isHidden,
   className,

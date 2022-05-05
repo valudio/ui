@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 import { IBaseProps } from '../../../models'
 import Icon from '../../Icon'
 import Styled from './styles'
@@ -8,7 +8,7 @@ interface IProps extends IBaseProps {
   isSelected: boolean
 }
 
-const Item: React.FC<IProps> = ({ isHidden, children, onClick, isSelected }) => {
+const Item: React.FC<PropsWithChildren<IProps>> = ({ isHidden, children, onClick, isSelected }) => {
   if (isHidden) return null
 
   return (
