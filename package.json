@@ -46,7 +46,7 @@
   },
   "scripts": {
     "storybook": "start-storybook -p 9009 -c .storybook watch-css -s ./src",
-    "deploy-storybook": "storybook-to-ghpages",
+    "deploy-storybook": "storybook-to-ghpages --ci",
     "lint": "eslint --ext .ts,.tsx src/",
     "test": "jest",
     "prepublishOnly": "tsc -p ./dist.tsconfig.json",
