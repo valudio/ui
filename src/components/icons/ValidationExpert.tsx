@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import * as React from 'react'
 
 function SvgValidationExpert(props: React.SVGProps<SVGSVGElement>) {

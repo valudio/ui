@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import * as React from 'react'
 
 function SvgPdf(props: React.SVGProps<SVGSVGElement>) {

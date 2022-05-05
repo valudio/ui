@@ -11,8 +11,9 @@ interface IProps extends IBaseProps {
   isLoading?: boolean
 }
 
-// tslint:disable-next-line: max-line-length
-const Button: React.FC<IProps> = ({ children, className, isHidden, onClick, isDisabled, style, isCircular, isLoading, type }) => {
+const Button: React.FC<IProps> = ({
+  children, className, isHidden, onClick, isDisabled, style, isCircular, isLoading, type
+}) => {
   let Styled
   const handleClick = () => onClick && onClick()
 

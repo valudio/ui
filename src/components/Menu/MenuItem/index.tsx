@@ -41,7 +41,8 @@ const MenuItem: React.FC<IProps> = ({
 
   useEffect(() => {
     if (isDropdown && !isExpanded) setIsOpen(false)
-  }, [isExpanded, isDropdown])
+  }, [ isExpanded, isDropdown ])
+
   if (isHidden) return null
   return (
     <>

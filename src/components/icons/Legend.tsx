@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import * as React from 'react'
 
 function SvgLegend(props: React.SVGProps<SVGSVGElement>) {

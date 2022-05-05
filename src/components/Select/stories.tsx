@@ -1,7 +1,8 @@
+/* eslint-disable max-len */
 import { storiesOf } from '@storybook/react'
 import React, { useEffect, useState } from 'react'
 import { jsxDecorator } from 'storybook-addon-jsx'
-import { decorator } from '../../helpers/storybook'
+import { decorator } from '../../helpers'
 import { IOption, optionsMock } from '../../models'
 import Modal from '../Modal'
 import Select from './'
@@ -22,7 +23,7 @@ storiesOf('Select', module)
     </Modal>
   ))
   .add('changing initial value after 3 seconds', () => {
-    const [init, setInit] = useState<IOption>(optionsMock[1])
+    const [ init, setInit ] = useState<IOption>(optionsMock[1])
 
     useEffect(() => {
       setTimeout(() => {

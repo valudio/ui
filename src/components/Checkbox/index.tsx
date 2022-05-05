@@ -13,6 +13,7 @@ const Checkbox: React.FC<IProps> = ({ onChange, isHidden, value, isDisabled, sty
 
   useEffect(() => {
     if (form) form.addEventListener('reset', setIsChecked.bind(undefined, value))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ form ])
 
   if (isHidden) return null

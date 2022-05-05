@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import * as React from 'react'
 
 function SvgTemplate(props: React.SVGProps<SVGSVGElement>) {

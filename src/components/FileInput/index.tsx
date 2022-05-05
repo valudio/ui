@@ -3,8 +3,8 @@ import { IInputProps } from '../../models'
 import Icon from '../Icon'
 import Styled from './styles'
 
-const FileInput: React.FC<IInputProps<File>> = ({ onChange, isDisabled, className, form , isInvalid}) => {
-  const [file, setFile] = useState<File | null>()
+const FileInput: React.FC<IInputProps<File>> = ({ onChange, isDisabled, className, form , isInvalid }) => {
+  const [ file, setFile ] = useState<File | null>()
   const fileInputRef = useRef<HTMLInputElement>(null)
   const classNames = `${ className || '' } ${ isDisabled ? 'disabled' : '' } ${ isInvalid ? 'invalid' : '' }`
 

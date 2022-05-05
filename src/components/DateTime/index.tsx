@@ -11,7 +11,7 @@ interface IProps extends IInputProps<Date> {
 }
 
 const DateTime: React.FC<IProps> = ({
-  isHidden, className, style, initialValue, onChange, minDate, maxDate, placeholder, form, isDisabled, showTime = true
+  isHidden, className, style, initialValue, onChange, minDate, maxDate, placeholder, form, showTime = true
 }) => {
   const [ value, setValue ] = useState(initialValue ?? undefined)
   // const language = useContext(LanguageContext)
