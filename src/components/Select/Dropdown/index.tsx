@@ -1,4 +1,4 @@
-import React, { RefObject } from 'react'
+import React, { PropsWithChildren, RefObject } from 'react'
 import { IBaseProps } from '../../../models'
 import Styled from './styles'
 
@@ -6,7 +6,7 @@ interface IProps extends IBaseProps {
   parentRef: RefObject<HTMLDivElement>
 }
 
-const Dropdown: React.FC<IProps> = ({ isHidden, children, className, parentRef }) => {
+const Dropdown: React.FC<PropsWithChildren<IProps>> = ({ isHidden, children, className, parentRef }) => {
   if (isHidden) return null
 
   const selectContainer = parentRef.current.getBoundingClientRect()

@@ -1,4 +1,4 @@
-import React, { RefObject, useEffect, useRef } from 'react'
+import React, { PropsWithChildren, RefObject, useEffect, useRef } from 'react'
 import { IBaseProps } from '../../models'
 import Styled from './styles'
 
@@ -6,7 +6,7 @@ interface IProps extends IBaseProps {
   triggerRef: RefObject<HTMLElement>
 }
 
-const Tooltip: React.FC<IProps> = ({ children, isHidden, className, style, triggerRef }) => {
+const Tooltip: React.FC<PropsWithChildren<IProps>> = ({ children, isHidden, className, style, triggerRef }) => {
   const tooltipRef = useRef<HTMLDivElement>(null)
 
   const positionTooltip = () => {
@@ -18,7 +18,6 @@ const Tooltip: React.FC<IProps> = ({ children, isHidden, className, style, trigg
       (parentCoords.bottom + tooltipCoords.height) <= (window.innerHeight || document.documentElement.clientHeight)
     const isTooltipRightVisible =
       (parentCoords.right + tooltipCoords.width / 2) <= (window.innerWidth || document.documentElement.clientWidth)
-
 
     if (!isTooltipBottomVisible && !isTooltipRightVisible) {
       tooltipRef.current.style.top = `${ parentCoords.top - tooltipCoords.height }px`

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { PropsWithChildren, useEffect, useRef, useState } from 'react'
 import { isChildNode } from '../../helpers'
 import { IInputProps, IOption } from '../../models'
 import Bubble from '../Bubble'
@@ -12,7 +12,7 @@ interface IProps extends IInputProps<IOption[]> {
   value?: IOption[]
 }
 
-const MultiSelect: React.FC<IProps> = ({
+const MultiSelect: React.FC<PropsWithChildren<IProps>> = ({
   value, className, labelProp, options, onChange, placeholder, isHidden, style, isInvalid, isDisabled, form
 }) => {
   const ref = useRef<HTMLDivElement>()

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 import { IBaseProps } from '../../models'
 import Styled from './styles'
 
@@ -7,7 +7,7 @@ interface IProps extends IBaseProps {
   isDisabled?: boolean
 }
 
-const Field: React.FC<IProps> = ({ children, isHidden, className, style, label, isDisabled }) => {
+const Field: React.FC<PropsWithChildren<IProps>> = ({ children, isHidden, className, style, label, isDisabled }) => {
   if (isHidden) return null
 
   const classNames = `${ className || '' } ${ isDisabled ? 'disabled' : '' }`

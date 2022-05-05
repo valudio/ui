@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 import { IBaseProps, IconName, StatusType } from '../../models'
 import Icon from '../Icon'
 import Styled from './styles'
@@ -8,7 +8,7 @@ interface IProps extends IBaseProps {
   message: string
 }
 
-const Snackbar: React.FC<IProps> = ({ isHidden, style, className, type, message, children }) => {
+const Snackbar: React.FC<PropsWithChildren<IProps>> = ({ isHidden, style, className, type, message, children }) => {
   if (isHidden) return null
   let iconName: IconName
 
