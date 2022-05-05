@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { isChildNode } from '../../helpers/dom'
+import { isChildNode } from '../../helpers'
 import { IInputProps, IOption } from '../../models'
 import Bubble from '../Bubble'
 import Icon from '../Icon'
@@ -12,10 +12,9 @@ interface IProps extends IInputProps<IOption[]> {
   value?: IOption[]
 }
 
-// tslint:disable-next-line: max-line-length
-const MultiSelect: React.FC<IProps> = ({ value, className, labelProp, options, onChange, placeholder, isHidden, style, isInvalid, isDisabled, initialValue, form }) => {
-  if (isHidden) return null
-
+const MultiSelect: React.FC<IProps> = ({
+  value, className, labelProp, options, onChange, placeholder, isHidden, style, isInvalid, isDisabled, form
+}) => {
   const ref = useRef<HTMLDivElement>()
   const wrapperRef = useRef<HTMLDivElement>()
   // const [ selected, setSelected ] = useState<IOption[]>(initialValue ?? [])
@@ -33,7 +32,7 @@ const MultiSelect: React.FC<IProps> = ({ value, className, labelProp, options, o
     : <span className="placeholder">{ placeholder }</span>
 
   const handleClick = (option: IOption) => {
-    const selectedOptions = !!value.find(s => s.id === option.id)
+    const selectedOptions = value.find(s => s.id === option.id)
       ? value.filter(s => s.id !== option.id)
       : [ ...value, option ]
 
@@ -60,9 +59,14 @@ const MultiSelect: React.FC<IProps> = ({ value, className, labelProp, options, o
     document.addEventListener('click', handleDocumentClick)
   }, [ form ])
 
+  if (isHidden) return null
   return (
     <Styled className={ classNames } style={ style } ref={ ref }>
-      <section className="wrapper" onClick={ setIsOpen.bind(undefined, !isDisabledOrEmpty && !isOpen) } ref={ wrapperRef }>
+      <section
+        className="wrapper"
+        onClick={ setIsOpen.bind(undefined, !isDisabledOrEmpty && !isOpen) }
+        ref={ wrapperRef }
+      >
         <div className="values">{ values }</div>
         <Icon className="icon" icon={ isOpen && !isDisabledOrEmpty ? 'up' : 'down' }/>
       </section>

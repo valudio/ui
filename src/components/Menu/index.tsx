@@ -1,5 +1,5 @@
 import React, { Children, cloneElement, isValidElement, useEffect, useRef, useState } from 'react'
-import { isChildNode } from '../../helpers/dom'
+import { isChildNode } from '../../helpers'
 import { IBaseProps, ILanguage } from '../../models'
 import Icon from '../Icon'
 import LanguageItem from './LanguageItem'
@@ -16,12 +16,19 @@ interface IProps extends IBaseProps {
   isExpanded?: boolean
 }
 
-// tslint:disable max-line-length
 const Menu: React.FC<IProps> = ({
-  children, isHidden, className, style, languageLabel, languages, username, onLanguageClick, onSignOut, logoSrc, isExpanded: isForced
+  children,
+  isHidden,
+  className,
+  style,
+  languageLabel,
+  languages,
+  username,
+  onLanguageClick,
+  onSignOut,
+  logoSrc,
+  isExpanded: isForced
 }) => {
-  if (isHidden) return null
-
   const [ isExpanded, setIsExpanded ] = useState(false)
   const isExpandedComputed = isForced ?? isExpanded
   const classNames = `wrapper ${ isExpandedComputed ? 'expanded' : '' }`
@@ -29,7 +36,7 @@ const Menu: React.FC<IProps> = ({
   const items = Children
     .map(children, x => isValidElement(x) && cloneElement(x, { className: 'item', isExpanded: isExpandedComputed }))
   const logo = isExpandedComputed
-    ? <img src={ logoSrc } className="logo" onClick={ setIsExpanded.bind(undefined, false) } />
+    ? <img src={ logoSrc } className="logo" alt="logo" onClick={ setIsExpanded.bind(undefined, false) } />
     : <Icon icon="menu" className="logo" onClick={ setIsExpanded.bind(undefined, true) } />
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -60,6 +67,7 @@ const Menu: React.FC<IProps> = ({
     }
   })
 
+  if (isHidden) return null
   return (
     <Styled className={ className || '' } style={ style } >
       <div className={ classNames } ref={ menuRef } >
@@ -78,8 +86,8 @@ const Menu: React.FC<IProps> = ({
           isExpanded={ isExpandedComputed }
           isHidden={ !username }
           label={ username || '' }
-          className={ `username ${ !!onSignOut ? 'sign-out' : '' }` }
-          icon={ !!onSignOut ? 'sign-out' : '' }
+          className={ `username ${ onSignOut ? 'sign-out' : '' }` }
+          icon={ onSignOut ? 'sign-out' : '' }
           onClick={ onSignOut }
         />
       </div>

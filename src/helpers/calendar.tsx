@@ -1,11 +1,11 @@
 import React, { ReactNode } from 'react'
 import { DateTime } from 'luxon'
 import { IEvent, IEventDate, IMonth } from '../models'
-import { HourCell } from '../components/Calendar/HourCell'
+// import { HourCell } from '../components/Calendar/HourCell'
 
-export const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
-export const weekdaysLong = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
-export const weekdaysLongGerman = ['montag', 'dienstag', 'mittwoch', 'donnerstag', 'freitag', 'samstag', 'sonntag']
+export const weekdays = [ 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun' ]
+export const weekdaysLong = [ 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday' ]
+export const weekdaysLongGerman = [ 'montag', 'dienstag', 'mittwoch', 'donnerstag', 'freitag', 'samstag', 'sonntag' ]
 
 export const getDaysInMonth = (month: number, year: number): number => {
   return DateTime.local(year, month).daysInMonth
@@ -248,15 +248,15 @@ export const renderDayHoursDividers = (
       toHour: ''
     }
 
-    sections.push(
-      <HourCell
-        key={ `${ day }-${ cellHour }:${ cellMinutes }` }
-        id={ `${ cellHour }:${ cellMinutes }` }
-        events={ hourEvents }
-        onCreate={ () => createCallback(eventDate) }
-        onOpenEvent={ event => openCallback(event) }
-      />
-    )
+    // sections.push(
+    //   <HourCell
+    //     key={ `${ day }-${ cellHour }:${ cellMinutes }` }
+    //     id={ `${ cellHour }:${ cellMinutes }` }
+    //     events={ hourEvents }
+    //     onCreate={ () => createCallback(eventDate) }
+    //     onOpenEvent={ event => openCallback(event) }
+    //   />
+    // )
 
     if (minutes < 45) {
       minutes = minutes + 15

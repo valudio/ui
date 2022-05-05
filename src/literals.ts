@@ -29,7 +29,7 @@ export default {
     german: 'German',
     oneDay: '1 day',
     oneWeek: '1 week',
-    oneMonth: '1 month',
+    oneMonth: '1 month'
   },
   'es-ES': {
     search: 'Buscar',
@@ -61,7 +61,7 @@ export default {
     german: 'Alemán',
     oneDay: '1 día',
     oneWeek: '1 semana',
-    oneMonth: '1 mes',
+    oneMonth: '1 mes'
   },
   'fr-FR': {
     search: 'Recherche',
@@ -93,7 +93,7 @@ export default {
     german: 'Allemand',
     oneDay: '1 jour',
     oneWeek: '1 semaine',
-    oneMonth: '1 mois',
+    oneMonth: '1 mois'
   },
   'ca-ES': {
     search: 'Buscar',
@@ -125,7 +125,7 @@ export default {
     german: 'Alemany',
     oneDay: '1 dia',
     oneWeek: '1 setmana',
-    oneMonth: '1 mes',
+    oneMonth: '1 mes'
   },
   'de-DE': {
     search: 'Buscar',
@@ -157,6 +157,6 @@ export default {
     german: 'Deutsche',
     oneDay: 'Tagesansicht',
     oneWeek: 'Wochenansicht',
-    oneMonth: 'Monatsansicht',
+    oneMonth: 'Monatsansicht'
   }
 }

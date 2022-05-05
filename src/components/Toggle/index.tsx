@@ -9,7 +9,6 @@ interface IProps extends IBaseProps {
 }
 
 const Toggle: React.FC<IProps> = ({ isHidden, style, className, initialValue, onChange, isDisabled }) => {
-  if (isHidden) return null
   const [ isOn, setIsOn ] = useState(!!initialValue)
   const classNames = `${ className || '' } ${ isOn ? 'on' : '' } ${ isDisabled ? 'disabled' : '' }`
 
@@ -20,6 +19,7 @@ const Toggle: React.FC<IProps> = ({ isHidden, style, className, initialValue, on
     onChange(nextIsOn)
   }
 
+  if (isHidden) return null
   return <Styled style={ style } className={ classNames } onClick={ handleChange } />
 }
 

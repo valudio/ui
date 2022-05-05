@@ -1,15 +1,15 @@
 import { storiesOf } from '@storybook/react'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { jsxDecorator } from 'storybook-addon-jsx'
+import { decorator } from '../../helpers'
 import Tooltip from '.'
-import { decorator } from '../../helpers/storybook'
 
 // tslint:disable: jsx-no-lambda
 storiesOf('Tooltip', module)
   .addDecorator(jsxDecorator)
   .addDecorator(decorator)
   .add('default', () => {
-    const [isTooltipVisible, setIsTooltipVisible] = useState(false)
+    const [ isTooltipVisible, setIsTooltipVisible ] = useState(false)
     const divRef = useRef<HTMLDivElement>(null)
 
     return (

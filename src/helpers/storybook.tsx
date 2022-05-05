@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/named,import/no-extraneous-dependencies
 import { DecoratorFunction } from '@storybook/addons'
 import React, { ReactElement } from 'react'
 import Provider from '../components/Provider'

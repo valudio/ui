@@ -77,7 +77,7 @@ interface IProps extends IBaseProps {
 }
 
 const Icon: React.FC<IProps> = ({ isHidden, className, icon, style, onClick }) => {
-  const classNames =  `${ className || '' } ${ !!onClick ? 'clickable' : '' } ${ icon }`
+  const classNames =  `${ className || '' } ${ onClick ? 'clickable' : '' } ${ icon }`
 
   const handleClick = (event: SyntheticEvent) => {
     event.stopPropagation()

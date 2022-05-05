@@ -1,11 +1,11 @@
 import { storiesOf } from '@storybook/react'
 import React, { useState } from 'react'
 import { jsxDecorator } from 'storybook-addon-jsx'
-import { decorator } from '../../helpers/storybook'
+import { decorator } from '../../helpers'
 import { languagesMock } from '../../models'
 import Icon from '../Icon'
-import Menu from './'
 import MenuItem from './MenuItem'
+import Menu from './'
 
 // tslint:disable: jsx-no-lambda
 storiesOf('Menu', module)
@@ -80,7 +80,7 @@ storiesOf('Menu', module)
         // tslint:disable-next-line: jsx-no-multiline-js
         dropdownItems={[
           { label: 'Layout', onClick: () => undefined, isActive: true },
-          { label: 'Account', onClick: () => undefined, isActive: false },
+          { label: 'Account', onClick: () => undefined, isActive: false }
         ]}
         isDropdown
       />

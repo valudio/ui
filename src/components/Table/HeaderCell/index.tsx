@@ -8,7 +8,7 @@ interface IProps extends IBaseProps {
 }
 
 const HeaderCell: React.FC<IProps> = ({ column }) => {
-  const sort = !!column.sort
+  const sort = column.sort
     ? <Icon className={ `sort ${ column.sort }` } icon={ column.sort === 'ASC' ? 'up' : 'down' } />
     : null
 
