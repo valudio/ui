@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import * as React from 'react'
 
 function SvgInfo(props: React.SVGProps<SVGSVGElement>) {

@@ -6,8 +6,9 @@ interface IProps extends IInputProps<string> {
   type?: string
 }
 
-// tslint:disable-next-line: max-line-length
-const Input: React.FC<IProps> = ({ initialValue, onChange, className, type = 'text', isHidden, placeholder, isDisabled, isInvalid, style, form }) => {
+const Input: React.FC<IProps> = ({
+  initialValue, onChange, className, type = 'text', isHidden, placeholder, isDisabled, isInvalid, style, form
+}) => {
   const [ value, setValue ] = useState(initialValue ?? '')
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const nextValue = event.currentTarget.value

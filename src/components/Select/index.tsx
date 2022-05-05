@@ -57,6 +57,7 @@ const Select: React.FC<IProps> = ({
     return () => {
       document.removeEventListener('click', handleDocumentClick)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ form ])
 
   // useEffect(() => {

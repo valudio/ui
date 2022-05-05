@@ -1,8 +1,8 @@
+/* eslint-disable max-len */
 import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { jsxDecorator } from 'storybook-addon-jsx'
-import { decorator } from '../../helpers/storybook'
-import File from '../File'
+import { decorator } from '../../helpers'
 import Modal from './'
 
 // tslint:disable: max-line-length

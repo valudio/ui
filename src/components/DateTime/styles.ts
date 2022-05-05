@@ -97,6 +97,11 @@ export default styled.article`
         background-color: ${ ({ theme }) => theme.colors.primary.dark };
       }
 		}
+		
+		&.react-datepicker__day--disabled {
+			color: ${ ({ theme }) => theme.colors.typography.light };
+			pointer-events: none;
+		}
 
 		&:hover {
 			color: ${ ({ theme }) => theme.colors.primary.dark };

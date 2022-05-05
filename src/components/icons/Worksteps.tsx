@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import * as React from 'react'
 
 function SvgWorksteps(props: React.SVGProps<SVGSVGElement>) {

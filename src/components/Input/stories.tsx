@@ -20,6 +20,7 @@ storiesOf('Input', module)
       formRef.current.addEventListener('reset', () => setInitValue(''))
 
       return () => {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         formRef.current.removeEventListener('reset', () => setInitValue)
       }
     }, [])
