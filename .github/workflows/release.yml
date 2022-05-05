@@ -38,7 +38,7 @@ jobs:
       - name: Publish Storybook
         uses: borales/actions-yarn@v2.1.0
         with:
-          cmd: deploy-storybook --ci
+          cmd: deploy-storybook -- --ci
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
