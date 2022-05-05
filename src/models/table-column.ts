@@ -8,11 +8,11 @@ export interface ITableColumn extends IBaseProps {
 }
 
 export const tableColumnsMock: ITableColumn[] = [
-  { label: '', key: 'archived', style: { flex: 0.1 } },
+  { label: '', key: 'archived', style: { flex: 0.1 }},
   { label: 'Partner name', key: 'partnerName', sort: 'ASC' },
-  { label: 'Description', key: 'description', style: { flex: 4 } },
-  { label: 'Exchanges', key: 'exchanges', style: { flex: 2 } },
+  { label: 'Description', key: 'description', style: { flex: 4 }},
+  { label: 'Exchanges', key: 'exchanges', style: { flex: 2 }},
   { label: 'Date', key: 'date', sort: 'INACTIVE' },
-  { label: 'Message type', key: 'messageType', sort: 'INACTIVE', style: { flex: 2 } },
-  { label: '', key: 'status', style: { flex: 0.2 } }
+  { label: 'Message type', key: 'messageType', sort: 'INACTIVE', style: { flex: 2 }},
+  { label: '', key: 'status', style: { flex: 0.2 }}
 ]

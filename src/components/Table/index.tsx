@@ -12,7 +12,7 @@ interface IProps extends IBaseProps {
 
 const Table: React.FC<IProps> = ({ className, items, columns, fallbackMessage, style }) => {
   const headerCells = columns.map((x, i) => <HeaderCell key={ i } column={ x } />)
-  const content = !!items.length
+  const content = items.length
     ? items.map((x, i) => (
       <Row
         key={ i }

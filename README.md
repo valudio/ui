@@ -78,7 +78,3 @@ In order to run locally
  `npm i` or `yarn install`
 
  `npm run storybook` or `yarn storybook`
-
-### Known problems
-
- Now Storybook is not working, pending to fix it

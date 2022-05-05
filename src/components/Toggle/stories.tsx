@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { jsxDecorator } from 'storybook-addon-jsx'
-import { decorator } from '../../helpers/storybook'
+import { decorator } from '../../helpers'
 import Toggle from './'
 
 storiesOf('Toggle', module)

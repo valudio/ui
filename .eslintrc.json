@@ -1,0 +1,104 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+        "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "project": "tsconfig.json",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "import",
+    "react",
+    "react-hooks"
+  ],
+  "rules": {
+    "@typescript-eslint/member-delimiter-style": [
+      "error",
+      {
+        "multiline": {
+          "delimiter": "none",
+          "requireLast": true
+        },
+        "singleline": {
+          "delimiter": "semi",
+          "requireLast": false
+        }
+      }
+    ],
+    "@typescript-eslint/quotes": [
+      "error",
+      "single"
+    ],
+    "@typescript-eslint/semi": [
+      "error",
+      "never"
+    ],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "arrow-parens": [
+        "off",
+        "always"
+    ],
+    "camelcase": "off",
+    "comma-dangle": "error",
+    "curly": [
+        "error",
+        "multi-line"
+    ],
+    "no-debugger": "warn",
+    "eol-last": "error",
+    "id-blacklist": "error",
+    "id-match": "error",
+    "import/no-internal-modules": "off",
+    "import/order": "error",
+    "no-underscore-dangle": "error",
+    "quote-props": [
+      "error",
+      "as-needed"
+    ],
+    "react/prop-types": 0,
+    "no-trailing-spaces": "warn",
+    "arrow-spacing": ["warn",{ "before": true, "after": true }],
+    "max-len": ["warn", { "code": 120 }],
+    "object-curly-spacing": [
+      "warn",
+      "always",
+      {
+        "arraysInObjects": true,
+        "objectsInObjects": false
+      }
+    ],
+    "array-bracket-spacing": ["warn", "always"]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    },
+    "react": {
+      "version": "detect"
+    }
+  }
+}

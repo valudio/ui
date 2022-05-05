@@ -10,12 +10,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2.0.0
-
+      - name: Check package version
+        uses: technote-space/package-version-check-action@v1
+        with:
+          COMMIT_DISABLED: 1
       - name: Yarn install
         uses: borales/actions-yarn@v2.1.0
         with:
           cmd: install
-      
+
       - name: Lint
         uses: borales/actions-yarn@v2.1.0
         with:
@@ -32,7 +35,7 @@ jobs:
         uses: borales/actions-yarn@v2.1.0
         with:
           cmd: install
-      
+
       - name: Test
         uses: borales/actions-yarn@v2.1.0
         with:

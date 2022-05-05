@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { jsxDecorator } from 'storybook-addon-jsx'
-import { decorator2 } from '../../helpers/storybook'
+import { decorator2 } from '../../helpers'
 import { tableColumnsMock } from '../../models'
 import File from '../File'
 import Icon from '../Icon'
@@ -12,6 +12,7 @@ const items = [
   {
     archived: null,
     partnerName: 'Lorem ipsum dolor sit amet.',
+    // eslint-disable-next-line max-len
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in viverra neque, eleifend tempus mauris. Aliquam vel porttitor eros a egestas purus. Etiam et hendrerit ut vulputate justo a sed.',
     exchanges: (
       <>
@@ -32,6 +33,7 @@ const items = [
   {
     archived: null,
     partnerName: 'Lorem ipsum dolor sit amet.',
+    // eslint-disable-next-line max-len
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in viverra neque, eleifend tempus mauris. Aliquam vel porttitor eros a egestas purus. Etiam et hendrerit ut vulputate justo a sed.',
     exchanges: (
       <div className="file-container">
@@ -43,7 +45,7 @@ const items = [
     messageType: 'Order',
     status: <StatusDot type="error" />,
     onClick: () => alert('row click!')
-  },
+  }
 ]
 
 // tslint:disable: max-line-length
@@ -52,4 +54,7 @@ storiesOf('Table', module)
   .addDecorator(decorator2)
   .add('default', () => <List columns={ tableColumnsMock } items={ items } />)
   .add('empty', () => <List columns={ tableColumnsMock } items={ [] } fallbackMessage="This is a test fallback" />)
-  .add('hidden column', () => <List columns={ [...tableColumnsMock, { ...tableColumnsMock[0], isHidden: true }] } items={ items } />)
+  .add(
+    'hidden column',
+    () => <List columns={ [ ...tableColumnsMock, { ...tableColumnsMock[0], isHidden: true } ] } items={ items } />
+  )

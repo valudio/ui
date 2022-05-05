@@ -14,17 +14,21 @@ interface IProps extends IBaseProps {
   isDropdown?: boolean
 }
 
-const MenuItem: React.FC<IProps> = ({ isHidden, className, style, icon, label, dropdownItems, isActive, onClick, isExpanded, isButton, isDropdown }) => {
-  if (isHidden) return null
-
-  const [isOpen, setIsOpen] = useState(false)
+const MenuItem: React.FC<IProps> = ({
+  isHidden, className, style, icon, label, dropdownItems, isActive, onClick, isExpanded, isButton, isDropdown
+}) => {
+  const [ isOpen, setIsOpen ] = useState(false)
   const badge = isValidElement(icon) ? icon : <Icon className="icon" icon={ icon as IconName } />
-  const classNames = `${ className || '' } ${ isActive && 'active' } ${ isButton && 'button' } ${ isDropdown && 'dropdown' }`
+  const classNames =
+    `${ className || '' } ${ isActive && 'active' } ${ isButton && 'button' } ${ isDropdown && 'dropdown' }`
   const expandedLabel = isExpanded && <span className="label">{ label }</span>
-  const dropdownIcon = (isExpanded && isDropdown) && <Icon icon={ `dropdown-icon ${ isOpen ? 'up' : 'down' }` as IconName } />
+  const dropdownIcon =
+    (isExpanded && isDropdown) && <Icon icon={ `dropdown-icon ${ isOpen ? 'up' : 'down' }` as IconName } />
   const items = dropdownItems
     && dropdownItems.map((item, i) => (
-        <li key={ i } className={ `dropdown-item ${ item.isActive && 'active' }` } onClick={ item.onClick }>{ item.label }</li>
+        <li key={ i } className={ `dropdown-item ${ item.isActive && 'active' }` } onClick={ item.onClick }>
+          { item.label }
+        </li>
       ))
   const dropdownList = isDropdown
     && <StyledList className={ `dropdown-list ${ isOpen && 'open' }` }>{ items }</StyledList>
@@ -38,7 +42,7 @@ const MenuItem: React.FC<IProps> = ({ isHidden, className, style, icon, label, d
   useEffect(() => {
     if (isDropdown && !isExpanded) setIsOpen(false)
   }, [isExpanded, isDropdown])
-
+  if (isHidden) return null
   return (
     <>
       <StyledButton className={ classNames } style={ style } onClick={ handleClick }>

@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react'
+import React from 'react'
 import { IBaseProps } from '../../models'
 import Icon from '../Icon'
 import Page from './Page'

@@ -1,10 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { IInputProps, IOption } from '../../models'
 import Icon from '../Icon'
+import { isChildNode } from '../../helpers'
 import Dropdown from './Dropdown'
 import Styled from './styles'
-
-import { isChildNode } from '../../helpers/dom'
 import Item from './Item'
 
 interface IProps extends IInputProps<IOption> {
@@ -17,8 +16,6 @@ interface IProps extends IInputProps<IOption> {
 const Select: React.FC<IProps> = ({
   value, isHidden, className, style, isDisabled, isInvalid, options, labelProp, onChange, placeholder, form
 }) => {
-  if (isHidden) return null
-
   const ref = useRef<HTMLDivElement>()
   const [ isOpen, setIsOpen ] = useState(false)
   // const [ selected, setSelected ] = useState<IOption | void>(initialValue)
@@ -44,7 +41,9 @@ const Select: React.FC<IProps> = ({
   }
 
   const items = options.map(x =>
-    <Item key={ x.id } isSelected={ value?.id === x.id } onClick={ handleChange.bind(undefined, x) }>{ x[labelProp] }</Item>
+    <Item key={ x.id } isSelected={ value?.id === x.id } onClick={ handleChange.bind(undefined, x) }>
+      { x[labelProp] }
+    </Item>
   )
 
   const handleDocumentClick = (event: Event) => {
@@ -63,7 +62,7 @@ const Select: React.FC<IProps> = ({
   // useEffect(() => {
   //   if (initialValue !== selected) setSelected(initialValue)
   // }, [initialValue])
-
+  if (isHidden) return null
   return (
     <Styled
       className={ classNames }

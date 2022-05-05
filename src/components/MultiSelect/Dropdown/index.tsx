@@ -14,8 +14,6 @@ interface IProps extends IBaseProps {
 }
 
 const Dropdown: React.FC<IProps> = ({ isHidden, options, labelProp, selected, onClick, onBulkSelect }) => {
-  if (isHidden) return null
-
   const [ query, setQuery ] = useState('')
   const language = useContext(LanguageContext)
   const bulkLabel = selected.length > 0 ? literals[language].unselectAll : literals[language].selectAll
@@ -43,6 +41,7 @@ const Dropdown: React.FC<IProps> = ({ isHidden, options, labelProp, selected, on
     onBulkSelect(filtered)
   }
 
+  if (isHidden) return null
   return (
     <Styled>
       <button className="bulk-select" onClick={ handleBulkSelect }>{ bulkLabel }</button>

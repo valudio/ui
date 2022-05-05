@@ -3,7 +3,6 @@ const path = require('path');
 module.exports = {
   stories: ['../src/**/stories.tsx'],
   addons: [
-    '@storybook/preset-typescript',
     'storybook-addon-jsx',
     '@storybook/addon-actions'
   ],
