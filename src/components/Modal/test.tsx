@@ -3,10 +3,14 @@ import renderer from 'react-test-renderer'
 import Provider from '../Provider'
 import Modal from './'
 
+/**
+ * @jest-environment node || jsdom
+ */
+
 test('Modal', () => {
   const component = renderer.create(
     <Provider>
-      <Modal />
+      <Modal isHidden />
     </Provider>
   )
   expect(component).toBeTruthy()

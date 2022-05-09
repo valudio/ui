@@ -6,7 +6,7 @@ import Checkbox from './'
 test('Checkbox', () => {
   const component = renderer.create(
     <Provider>
-      <Checkbox />
+      <Checkbox onChange={ jest.fn() } />
     </Provider>
   )
   expect(component).toBeTruthy()
