@@ -1,6 +1,6 @@
 {
   "name": "@valudio/ui",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "main": "dist/index.js",
   "license": "MIT",
   "private": false,
@@ -20,7 +20,7 @@
     "@types/jest": "26.0.15",
     "@types/luxon": "^2.0.7",
     "@types/node": "^16.9.6",
-    "@types/react": "^18.0.8",
+    "@types/react": "^18.0.9",
     "@types/react-test-renderer": "16.9.3",
     "@types/storybook__react": "^5.2.1",
     "@typescript-eslint/eslint-plugin": "^5.22.0",
@@ -53,10 +53,11 @@
     "format:icons": "npx @svgr/cli --icon --typescript --svg-props fill=currentColor -d src/components/icons --ignore-existing src/assets/icons"
   },
   "dependencies": {
+    "@types/react-dom": "^18.0.3",
     "classnames": "^2.3.1",
     "luxon": "^2.1.1",
-    "react": "^17.0.2",
+    "react": "^18.1.0",
     "react-datepicker": "^4.7.0",
-    "react-dom": "^17.0.2"
+    "react-dom": "^18.1.0"
   }
 }
