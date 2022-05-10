@@ -5,7 +5,15 @@ import Provider from '../Provider'
 import Menu from './'
 import MenuItem from './MenuItem'
 
+/**
+ * @jest-environment jsdom
+ * @jest-environment-options {"url": "https://jestjs.io/"}
+ */
+
 test('Menu', () => {
+  const spy = jest.spyOn(console, 'error')
+  spy.mockImplementation(() => undefined)
+
   const component = renderer.create(
     <Provider>
       <Menu
@@ -21,4 +29,5 @@ test('Menu', () => {
     </Provider>
   )
   expect(component).toBeTruthy()
+  spy.mockRestore()
 })

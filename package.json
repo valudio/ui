@@ -16,11 +16,12 @@
     "@storybook/addon-actions": "^6.4.22",
     "@storybook/addons": "^6.4.22",
     "@storybook/react": "^6.4.22",
-    "@storybook/storybook-deployer": "^2.8.10",
+    "@storybook/storybook-deployer": "^2.8.11",
     "@types/jest": "^27.5.0",
     "@types/luxon": "^2.0.7",
     "@types/node": "^17.0.31",
     "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.3",
     "@types/react-test-renderer": "^18.0.0",
     "@types/storybook__react": "^5.2.1",
     "@typescript-eslint/eslint-plugin": "^5.22.0",
@@ -53,7 +54,6 @@
     "format:icons": "npx @svgr/cli --icon --typescript --svg-props fill=currentColor -d src/components/icons --ignore-existing src/assets/icons"
   },
   "dependencies": {
-    "@types/react-dom": "^18.0.3",
     "classnames": "^2.3.1",
     "luxon": "^2.1.1",
     "react": "^18.1.0",
