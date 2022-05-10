@@ -1,10 +1,15 @@
 import styled from 'styled-components'
 
 export default styled.span`
+	height: max-content;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
   &.clickable {
     cursor: pointer;
   }
-
   &.disabled {
     pointer-events: none;
     opacity: 0.6;

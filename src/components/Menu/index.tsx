@@ -36,8 +36,15 @@ const Menu: React.FC<PropsWithChildren<IProps>> = ({
   const items = Children
     .map(children, x => isValidElement(x) && cloneElement(x, { className: 'item', isExpanded: isExpandedComputed }))
   const logo = isExpandedComputed
-    ? <img src={ logoSrc } className="logo" alt="logo" onClick={ setIsExpanded.bind(undefined, false) } />
-    : <Icon icon="menu" className="logo" onClick={ setIsExpanded.bind(undefined, true) } />
+    ? (
+      <img
+        src={ logoSrc }
+        className="logo"
+        alt="logo"
+        loading="lazy"
+        onClick={ setIsExpanded.bind(undefined, false) }
+      />
+    ) : <Icon icon="menu" className="logo" onClick={ setIsExpanded.bind(undefined, true) } />
 
   const handleClickOutside = (event: MouseEvent) => {
     if (
