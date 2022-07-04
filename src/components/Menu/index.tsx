@@ -8,6 +8,7 @@ import Styled from './styles'
 
 interface IProps extends IBaseProps {
   logoSrc: string
+  onLogoClick?: () => void
   onLanguageClick?: (language: string) => void
   languageLabel?: string
   languages?: ILanguage[]
@@ -25,6 +26,7 @@ const Menu: React.FC<PropsWithChildren<IProps>> = ({
   languages,
   username,
   onLanguageClick,
+  onLogoClick,
   onSignOut,
   logoSrc,
   isExpanded: isForced
@@ -54,6 +56,10 @@ const Menu: React.FC<PropsWithChildren<IProps>> = ({
     ) setIsExpanded(false)
   }
 
+  const handleLogoClick = () => {
+    if (onLogoClick && typeof onLogoClick === 'function') onLogoClick()
+  }
+
   const handleDropDownClick = () => {
     if (!isExpanded) setIsExpanded(true)
   }
@@ -78,7 +84,7 @@ const Menu: React.FC<PropsWithChildren<IProps>> = ({
   return (
     <Styled className={ className || '' } style={ style } >
       <div className={ classNames } ref={ menuRef } >
-        <section className="header">
+        <section className="header" onClick={ handleLogoClick }>
           { logo }
         </section>
         <section className="items">{ items }</section>
