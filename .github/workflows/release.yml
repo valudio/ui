@@ -40,5 +40,5 @@ jobs:
         with:
           cmd: deploy-storybook
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: valudio:${{ secrets.GH_TOKEN }}
 
