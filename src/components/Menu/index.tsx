@@ -44,9 +44,8 @@ const Menu: React.FC<PropsWithChildren<IProps>> = ({
         className="logo"
         alt="logo"
         loading="lazy"
-        onClick={ setIsExpanded.bind(undefined, false) }
       />
-    ) : <Icon icon="menu" className="logo" onClick={ setIsExpanded.bind(undefined, true) } />
+    ) : <Icon icon="menu" className="logo" />
 
   const handleClickOutside = (event: MouseEvent) => {
     if (
@@ -57,6 +56,8 @@ const Menu: React.FC<PropsWithChildren<IProps>> = ({
   }
 
   const handleLogoClick = () => {
+    debugger
+    setIsExpanded(!isExpandedComputed)
     if (onLogoClick && typeof onLogoClick === 'function') onLogoClick()
   }
 
@@ -84,8 +85,10 @@ const Menu: React.FC<PropsWithChildren<IProps>> = ({
   return (
     <Styled className={ className || '' } style={ style } >
       <div className={ classNames } ref={ menuRef } >
-        <section className="header" onClick={ handleLogoClick }>
-          { logo }
+        <section className="header" >
+          <button style={{ border: '1px solid transparent' }} onClick={ handleLogoClick }>
+            { logo }
+          </button>
         </section>
         <section className="items">{ items }</section>
         <LanguageItem

@@ -1,3 +1,4 @@
+/* tslint:disable:jsx-no-lambda */
 import React, { ChangeEvent, useContext, useState } from 'react'
 import literals from '../../../literals'
 import { IBaseProps, IOption } from '../../../models'
@@ -31,7 +32,7 @@ const Dropdown: React.FC<IProps> = ({ isHidden, options, labelProp, selected, on
       key={ i }
       label={ x[labelProp] }
       isSelected={ !!selected.find(s => s.id === x.id) }
-      onClick={ onClick.bind(undefined, x) }
+      onClick={ () => onClick(x) }
       isHidden={ !isFiltered(x[labelProp]) }
     />
   ))

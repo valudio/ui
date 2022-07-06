@@ -1,3 +1,4 @@
+/* tslint:disable:no-console */
 import { storiesOf } from '@storybook/react'
 import React, { useState } from 'react'
 import { jsxDecorator } from 'storybook-addon-jsx'
@@ -20,7 +21,7 @@ storiesOf('Menu', module)
       logoSrc="./../../assets/images/logo.svg"
       onSignOut={ () => { return } }
     >
-      <MenuItem onClick={ () => { return } } label="Dashboard" icon="dashboard" isActive/>
+      <MenuItem onClick={ () => { console.log('dashboard') } } label="Dashboard" icon="dashboard" isActive/>
       <MenuItem onClick={ () => { return } } label="Calendar" icon="calendar" />
       <MenuItem onClick={ () => { return } } label="Add file" icon="add" isButton/>
     </Menu>
