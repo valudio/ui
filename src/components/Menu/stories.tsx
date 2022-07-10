@@ -18,7 +18,7 @@ storiesOf('Menu', module)
       username="John Doe"
       onLanguageClick={ alert }
       languages={ languagesMock }
-      logoSrc="./../../assets/images/logo.svg"
+      logoSrc="/../../assets/images/logo.svg"
       onSignOut={ () => { return } }
     >
       <MenuItem onClick={ () => { console.log('dashboard') } } label="Dashboard" icon="dashboard" isActive/>

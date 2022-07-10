@@ -35,17 +35,6 @@ const Menu: React.FC<PropsWithChildren<IProps>> = ({
   const isExpandedComputed = isForced ?? isExpanded
   const classNames = `wrapper ${ isExpandedComputed ? 'expanded' : '' }`
   const menuRef = useRef<HTMLDivElement>()
-  const items = Children
-    .map(children, x => isValidElement(x) && cloneElement(x, { className: 'item', isExpanded: isExpandedComputed }))
-  const logo = isExpandedComputed
-    ? (
-      <img
-        src={ logoSrc }
-        className="logo"
-        alt="logo"
-        loading="lazy"
-      />
-    ) : <Icon icon="menu" className="logo" />
 
   const handleClickOutside = (event: MouseEvent) => {
     if (
@@ -56,7 +45,6 @@ const Menu: React.FC<PropsWithChildren<IProps>> = ({
   }
 
   const handleLogoClick = () => {
-    debugger
     setIsExpanded(!isExpandedComputed)
     if (onLogoClick && typeof onLogoClick === 'function') onLogoClick()
   }
@@ -64,6 +52,18 @@ const Menu: React.FC<PropsWithChildren<IProps>> = ({
   const handleDropDownClick = () => {
     if (!isExpanded) setIsExpanded(true)
   }
+
+  const items = Children
+    .map(children, x => isValidElement(x) && cloneElement(x, { className: 'item', isExpanded: isExpandedComputed }))
+  const logo = isExpandedComputed
+    ? (
+      <img
+        src={ logoSrc }
+        alt="logo"
+        loading="lazy"
+        onClick={ handleLogoClick }
+      />
+    ) : <Icon icon="menu" onClick={ handleLogoClick } />
 
   useEffect(() => {
     const dropDownButtons = document.getElementsByClassName('dropdown')
@@ -79,16 +79,17 @@ const Menu: React.FC<PropsWithChildren<IProps>> = ({
         Array.from(dropDownButtons).map(dropdown => dropdown.removeEventListener('click', handleDropDownClick))
       }
     }
-  })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   if (isHidden) return null
   return (
     <Styled className={ className || '' } style={ style } >
       <div className={ classNames } ref={ menuRef } >
         <section className="header" >
-          <button style={{ border: '1px solid transparent' }} onClick={ handleLogoClick }>
+          <section className="logo">
             { logo }
-          </button>
+          </section>
         </section>
         <section className="items">{ items }</section>
         <LanguageItem
