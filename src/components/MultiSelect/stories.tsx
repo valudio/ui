@@ -10,16 +10,17 @@ storiesOf('MultiSelect', module)
   .addDecorator(decorator)
   .add(
 		'default',
-		() => <MultiSelect placeholder="Select..." options={ optionsMock } labelProp="value" onChange={ console.log } />
+		() => <MultiSelect value={ [] } placeholder="Select..." options={ optionsMock } labelProp="value" onChange={ console.log } />
   )
   .add(
 		'empty options',
-		() => <MultiSelect placeholder="Select..." options={ [] } labelProp="value" onChange={ console.log } />
+		() => <MultiSelect value={ [] } placeholder="Select..." options={ [] } labelProp="value" onChange={ console.log } />
   )
   .add(
 		'disabled',
 		() => (
 			<MultiSelect
+				value={ [] }
 				placeholder="Select..."
 				options={ [] }
 				labelProp="value"
@@ -32,6 +33,7 @@ storiesOf('MultiSelect', module)
 		'invalid',
 		() => (
 			<MultiSelect
+				value={ [] }
 				placeholder="Select..."
 				options={ optionsMock }
 				labelProp="value"

@@ -35,18 +35,6 @@ const Menu: React.FC<PropsWithChildren<IProps>> = ({
   const isExpandedComputed = isForced ?? isExpanded
   const classNames = `wrapper ${ isExpandedComputed ? 'expanded' : '' }`
   const menuRef = useRef<HTMLDivElement>()
-  const items = Children
-    .map(children, x => isValidElement(x) && cloneElement(x, { className: 'item', isExpanded: isExpandedComputed }))
-  const logo = isExpandedComputed
-    ? (
-      <img
-        src={ logoSrc }
-        className="logo"
-        alt="logo"
-        loading="lazy"
-        onClick={ setIsExpanded.bind(undefined, false) }
-      />
-    ) : <Icon icon="menu" className="logo" onClick={ setIsExpanded.bind(undefined, true) } />
 
   const handleClickOutside = (event: MouseEvent) => {
     if (
@@ -57,12 +45,25 @@ const Menu: React.FC<PropsWithChildren<IProps>> = ({
   }
 
   const handleLogoClick = () => {
+    setIsExpanded(!isExpandedComputed)
     if (onLogoClick && typeof onLogoClick === 'function') onLogoClick()
   }
 
   const handleDropDownClick = () => {
     if (!isExpanded) setIsExpanded(true)
   }
+
+  const items = Children
+    .map(children, x => isValidElement(x) && cloneElement(x, { className: 'item', isExpanded: isExpandedComputed }))
+  const logo = isExpandedComputed
+    ? (
+      <img
+        src={ logoSrc }
+        alt="logo"
+        loading="lazy"
+        onClick={ handleLogoClick }
+      />
+    ) : <Icon icon="menu" onClick={ handleLogoClick } />
 
   useEffect(() => {
     const dropDownButtons = document.getElementsByClassName('dropdown')
@@ -78,14 +79,17 @@ const Menu: React.FC<PropsWithChildren<IProps>> = ({
         Array.from(dropDownButtons).map(dropdown => dropdown.removeEventListener('click', handleDropDownClick))
       }
     }
-  })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   if (isHidden) return null
   return (
     <Styled className={ className || '' } style={ style } >
       <div className={ classNames } ref={ menuRef } >
-        <section className="header" onClick={ handleLogoClick }>
-          { logo }
+        <section className="header" >
+          <section className="logo">
+            { logo }
+          </section>
         </section>
         <section className="items">{ items }</section>
         <LanguageItem

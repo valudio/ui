@@ -9,7 +9,7 @@ import Styled from './styles'
 interface IProps extends IInputProps<IOption[]> {
   labelProp: string
   options: IOption[]
-  value?: IOption[]
+  value: IOption[]
 }
 
 const MultiSelect: React.FC<PropsWithChildren<IProps>> = ({
@@ -17,7 +17,6 @@ const MultiSelect: React.FC<PropsWithChildren<IProps>> = ({
 }) => {
   const ref = useRef<HTMLDivElement>()
   const wrapperRef = useRef<HTMLDivElement>()
-  // const [ selected, setSelected ] = useState<IOption[]>(initialValue ?? [])
   const [ isOpen, setIsOpen ] = useState(false)
   const isDisabledOrEmpty = isDisabled || !options || !!options && !options.length
   const classNames = `

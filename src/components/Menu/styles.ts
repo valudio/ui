@@ -34,21 +34,26 @@ export default styled.article`
       justify-content: center;
       display: flex;
 
-        .logo {
-          font-size: 24px;
-          flex: 0;
-        }
+      .logo {
+        font-size: 24px;
+        flex: 0;
+        border: 1px solid transparent;
+        background-color: transparent;
+        z-index: 2000;
+        min-width: 100%;
+        height: 100%;
 
-        img.logo {
+       > img {
           height: auto;
           max-width: 100%;
           width: 100%;
           flex: 1;
         }
 
-        i.logo {
+        > i.menu {
           min-height: 48px;
         }
+      }
     }
 
 

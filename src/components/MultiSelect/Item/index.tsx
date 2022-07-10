@@ -12,13 +12,16 @@ interface IProps extends IBaseProps {
 const Item: React.FC<IProps> = ({ isHidden, label, onClick, isSelected }) => {
   if (isHidden) return null
 
+  const handleClick = () => {
+    onClick()
+  }
+
   return (
-    <Styled
-      className={ `option ${ isSelected ? 'selected' : '' }` }
-      onClick={ onClick }
-    >
-      <Checkbox className="checkbox" value={ isSelected } onChange={ null } />
-      <label className="label">{ label }</label>
+    <Styled className={ `option ${ isSelected ? 'selected' : '' }` }>
+      <button onClick={ handleClick }>
+        <Checkbox className="checkbox" value={ isSelected } onChange={ null } />
+        <label className="label">{ label }</label>
+      </button>
     </Styled>
   )
 }

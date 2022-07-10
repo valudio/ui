@@ -18,7 +18,16 @@ const MenuItem: React.FC<IProps> = ({
   isHidden, className, style, icon, label, dropdownItems, isActive, onClick, isExpanded, isButton, isDropdown
 }) => {
   const [ isOpen, setIsOpen ] = useState(false)
-  const badge = isValidElement(icon) ? icon : <Icon className="icon" icon={ icon as IconName } />
+
+  const toggleOpen = () => setIsOpen(!isOpen)
+  const handleClick = () => {
+    if (isDropdown) toggleOpen()
+    if (onClick && typeof onClick === 'function') onClick()
+  }
+
+  const badge = isValidElement(icon)
+    ? icon
+    : <Icon className="icon" icon={ icon as IconName } onClick={ handleClick } />
   const classNames =
     `${ className || '' } ${ isActive && 'active' } ${ isButton && 'button' } ${ isDropdown && 'dropdown' }`
   const expandedLabel = isExpanded && <span className="label">{ label }</span>
@@ -32,12 +41,6 @@ const MenuItem: React.FC<IProps> = ({
       ))
   const dropdownList = isDropdown
     && <StyledList className={ `dropdown-list ${ isOpen && 'open' }` }>{ items }</StyledList>
-
-  const toggleOpen = () => setIsOpen(!isOpen)
-  const handleClick = () => {
-    if (isDropdown) toggleOpen()
-    if (onClick && typeof onClick === 'function') onClick()
-  }
 
   useEffect(() => {
     if (isDropdown && !isExpanded) setIsOpen(false)
