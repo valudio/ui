@@ -73,7 +73,7 @@ Note that the ref is not managed with a `useRef` hooks since it doesn't re-rende
 
 ### Debugging
 
-In order to run locally
+In order to run locally, internally using yarn for now.
 
  `npm i` or `yarn install`
 
