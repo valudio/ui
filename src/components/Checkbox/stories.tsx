@@ -8,5 +8,6 @@ import CheckBox from './'
 storiesOf('Checkbox', module)
   .addDecorator(jsxDecorator)
   .addDecorator(decorator)
-  .add('default', () => <CheckBox onChange={ console.log } />)
+  // tslint:disable-next-line:jsx-no-lambda
+  .add('default', () => <CheckBox onChange={ () => console.log('click') } />)
   .add('disabled', () => <CheckBox onChange={ console.log } isDisabled/>)

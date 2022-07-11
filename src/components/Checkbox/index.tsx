@@ -11,14 +11,6 @@ const Checkbox: React.FC<IProps> = ({ onChange, isHidden, value, isDisabled, sty
   const [ isChecked, setIsChecked ] = useState(value)
   const classNames = `checkbox ${ isChecked ? 'checked' : '' } ${ isDisabled ? 'disabled' : '' }`
 
-  useEffect(() => {
-    if (form) form.addEventListener('reset', setIsChecked.bind(undefined, value))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ form ])
-
-  if (isHidden) return null
-  if (value !== isChecked) setIsChecked(value)
-
   const handleChange = () => {
     if (isDisabled || !onChange) return
     const nextIsChecked = !isChecked
@@ -26,9 +18,20 @@ const Checkbox: React.FC<IProps> = ({ onChange, isHidden, value, isDisabled, sty
     onChange(nextIsChecked)
   }
 
+  useEffect(() => {
+    if (form) form.addEventListener('reset', setIsChecked.bind(undefined, value))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ form ])
+
+  useEffect(() => {
+    if (value !== isChecked) setIsChecked(value)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  if (isHidden) return null
   return (
     <Styled className={ classNames } onClick={ handleChange } style={ style }>
-      <Icon className="icon" icon="check"/>
+      <Icon className="icon" icon="check" onClick={ handleChange }/>
     </Styled>
   )
 }
