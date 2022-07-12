@@ -5,10 +5,13 @@ export interface ITableColumn extends IBaseProps {
   key: string
   sort?: 'DESC' | 'ASC' | 'INACTIVE'
   onClick?: () => void
+  isCheckable?: boolean
+  onCheck?: (checked: boolean) => void
 }
 
 export const tableColumnsMock: ITableColumn[] = [
-  { label: '', key: 'archived', style: { flex: 0.1 }},
+  // tslint:disable-next-line:no-console
+  { label: '', key: 'archived', style: { flex: 0.1 }, isCheckable: true, onCheck: (checked) => console.log(checked) },
   { label: 'Partner name', key: 'partnerName', sort: 'ASC' },
   { label: 'Description', key: 'description', style: { flex: 4 }},
   { label: 'Exchanges', key: 'exchanges', style: { flex: 2 }},
