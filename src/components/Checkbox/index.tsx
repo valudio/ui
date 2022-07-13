@@ -25,8 +25,7 @@ const Checkbox: React.FC<IProps> = ({ onChange, isHidden, value, isDisabled, sty
 
   useEffect(() => {
     if (value !== isChecked) setIsChecked(value)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [ value ])
 
   if (isHidden) return null
   return (
