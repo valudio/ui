@@ -17,7 +17,7 @@ const File: React.FC<IProps> = ({ name, isHidden, className, type, style, onClic
 
   return (
     <Styled className={ classNames } style={ style } onClick={ !isDisabled && onClick }>
-      <Icon className="icon" icon={ type } />
+      <Icon className="icon" icon={ type } onClick={ !isDisabled && onClick } />
       <span className="name">{ name }</span>
     </Styled>
   )
