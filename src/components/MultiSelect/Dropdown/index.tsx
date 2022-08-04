@@ -1,5 +1,5 @@
 /* tslint:disable:jsx-no-lambda */
-import React, { ChangeEvent, useContext, useState } from 'react'
+import React, { ChangeEvent, useContext } from 'react'
 import literals from '../../../literals'
 import { IBaseProps, IOption } from '../../../models'
 import LanguageContext from '../../Provider/LanguageContext'
@@ -10,17 +10,20 @@ interface IProps extends IBaseProps {
   labelProp: string
   options: IOption[]
   selected: IOption[]
+  query: string
+  onQueryChange: (newQuery: string) => void
   onBulkSelect: (filtered?: IOption[]) => void
   onClick: (option: IOption) => void
 }
 
-const Dropdown: React.FC<IProps> = ({ isHidden, options, labelProp, selected, onClick, onBulkSelect }) => {
-  const [ query, setQuery ] = useState('')
+const Dropdown: React.FC<IProps> = ({
+  isHidden, options, labelProp, selected, onClick, query, onQueryChange, onBulkSelect
+}) => {
   const language = useContext(LanguageContext)
   const bulkLabel = selected.length > 0 ? literals[language].unselectAll : literals[language].selectAll
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setQuery(event.currentTarget.value)
+    onQueryChange(event.currentTarget.value)
   }
 
   const isFiltered = (label: string): boolean => {

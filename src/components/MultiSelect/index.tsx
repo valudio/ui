@@ -1,3 +1,4 @@
+/* tslint:disable:jsx-no-lambda */
 import React, { PropsWithChildren, useEffect, useRef, useState } from 'react'
 import { isChildNode } from '../../helpers'
 import { IInputProps, IOption } from '../../models'
@@ -18,6 +19,7 @@ const MultiSelect: React.FC<PropsWithChildren<IProps>> = ({
   const ref = useRef<HTMLDivElement>()
   const wrapperRef = useRef<HTMLDivElement>()
   const [ isOpen, setIsOpen ] = useState(false)
+  const [ query, setQuery ] = useState('')
   const isDisabledOrEmpty = isDisabled || !options || !!options && !options.length
   const classNames = `
     ${ className || '' }
@@ -30,6 +32,10 @@ const MultiSelect: React.FC<PropsWithChildren<IProps>> = ({
     ? value.map((s, i) => <Bubble type="primary" className="value" key={ i }>{ s[labelProp] }</Bubble>)
     : <span className="placeholder">{ placeholder }</span>
 
+  const toggleOpen = (opened: boolean) => {
+    setIsOpen(opened)
+    if (opened) setQuery('')
+  }
   const handleClick = (option: IOption) => {
     const selectedOptions = value.find(s => s.id === option.id)
       ? value.filter(s => s.id !== option.id)
@@ -50,7 +56,10 @@ const MultiSelect: React.FC<PropsWithChildren<IProps>> = ({
     if (
       (!isChildNode(ref.current, event.target) && ref.current !== event.target) &&
       (!isChildNode(wrapperRef.current, event.target) &&  wrapperRef.current !== event.target)
-    ) setIsOpen(false)
+    ) {
+      setIsOpen(false)
+      setQuery('')
+    }
   }
 
   useEffect(() => {
@@ -63,7 +72,7 @@ const MultiSelect: React.FC<PropsWithChildren<IProps>> = ({
     <Styled className={ classNames } style={ style } ref={ ref }>
       <section
         className="wrapper"
-        onClick={ setIsOpen.bind(undefined, !isDisabledOrEmpty && !isOpen) }
+        onClick={ () => toggleOpen(!isDisabledOrEmpty && !isOpen) }
         ref={ wrapperRef }
       >
         <div className="values">{ values }</div>
@@ -74,6 +83,8 @@ const MultiSelect: React.FC<PropsWithChildren<IProps>> = ({
         options={ options }
         labelProp={ labelProp }
         selected={ value ?? [] }
+        query={ query }
+        onQueryChange={ setQuery }
         onClick={ handleClick }
         onBulkSelect={ handleBulkSelect }
       />
