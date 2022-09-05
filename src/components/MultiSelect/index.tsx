@@ -1,4 +1,3 @@
-/* tslint:disable:jsx-no-lambda */
 import React, { PropsWithChildren, useEffect, useRef, useState } from 'react'
 import { isChildNode } from '../../helpers'
 import { IInputProps, IOption } from '../../models'
@@ -76,7 +75,11 @@ const MultiSelect: React.FC<PropsWithChildren<IProps>> = ({
         ref={ wrapperRef }
       >
         <div className="values">{ values }</div>
-        <Icon className="icon" icon={ isOpen && !isDisabledOrEmpty ? 'up' : 'down' }/>
+        <Icon
+          className="icon"
+          icon={ isOpen && !isDisabledOrEmpty ? 'up' : 'down' }
+          onClick={ () => toggleOpen(!isDisabledOrEmpty && !isOpen) }
+        />
       </section>
       <Dropdown
         isHidden={ !isOpen || isDisabledOrEmpty }
